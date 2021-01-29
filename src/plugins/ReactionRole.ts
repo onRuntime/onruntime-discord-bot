@@ -139,14 +139,3 @@ export class ReactionRolePlugin implements DiscordPlugin {
         });
     }
 }
-
-class ReactionRoleCommand implements Command {
-    name: string = 'reactionrole';
-    aliases: string[] = ['rr'];
-    options = {
-        deleteAfter: false
-    };
-
-    handle(message: Message): void {
-    }
-}
