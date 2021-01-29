@@ -5,6 +5,8 @@ import {
     OneToMany
 } from 'typeorm';
 
+import { ReactionRoleReactions } from './Reactions';
+
 @Entity()
 export class ReactionRoleEmbed {
     @PrimaryGeneratedColumn()
@@ -13,6 +15,6 @@ export class ReactionRoleEmbed {
     @Column()
     embedId: string;
 
-    @OneToMany(() => ReactionRoleReaction, reactionRoleReaction => reactionRoleReaction.id)
-    reactions: ReactionRoleReaction;
+    @OneToMany(() => ReactionRoleReactions, reactionRoleReactions => reactionRoleReactions.id)
+    reactions: ReactionRoleReactions;
 }

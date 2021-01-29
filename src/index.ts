@@ -15,7 +15,7 @@ class Bot extends DiscordBot {
         this.registerCommand(new HelpCommand());
 
         this.registerPlugin(new PresencePlugin());
-        this.registerPlugin(new ReactionRolePlugin());
+        this.registerPlugin(new ReactionRolePlugin(this));
 
         this.login(process.env.TOKEN);
     }
