@@ -5,7 +5,7 @@ import {
     OneToMany
 } from 'typeorm';
 
-import { ReactionRoleReactions } from './Reactions';
+import { ReactionRoleReaction } from './Reaction';
 
 @Entity()
 export class ReactionRoleEmbed {
@@ -13,8 +13,8 @@ export class ReactionRoleEmbed {
     id: number;
 
     @Column()
-    embedId: string;
+    messageId: string;
 
-    @OneToMany(() => ReactionRoleReactions, reactionRoleReactions => reactionRoleReactions.id)
-    reactions: ReactionRoleReactions;
+    @OneToMany(() => ReactionRoleReaction, reactionRoleReaction => reactionRoleReaction.embed)
+    reactions: ReactionRoleReaction[];
 }
