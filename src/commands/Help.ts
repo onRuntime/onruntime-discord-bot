@@ -1,5 +1,5 @@
-import { Message } from "discord.js";
-import { Command } from "@onruntime/ultrad.js";
+import { Message } from 'discord.js';
+import { Command } from '@onruntime/ultrad.js';
 
 class HelpCommand implements Command {
     name: string = 'help';

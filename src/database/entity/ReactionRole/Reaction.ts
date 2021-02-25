@@ -4,18 +4,22 @@ import {
     Column,
     ManyToOne
 } from 'typeorm';
-import { ReactionRoleEmbed } from './Embed';
 
-@Entity()
-export class ReactionRoleReaction {
+import { RREmbed } from './Embed';
+
+@Entity({ name: 'reaction_role_reaction' })
+export class RRReaction {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @ManyToOne(() => ReactionRoleEmbed, reactionRoleEmbed => reactionRoleEmbed.reactions)
-    embed: ReactionRoleEmbed;
+    @ManyToOne(() => RREmbed, rrEmbed => rrEmbed.reactions)
+    embed: RREmbed;
 
     @Column()
-    emojiId: string;
+    emoji: string;
+
+    @Column()
+    isGuildEmoji: boolean;
 
     @Column()
     roleId: string;

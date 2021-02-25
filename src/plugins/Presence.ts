@@ -1,4 +1,4 @@
-import { DiscordPlugin, DiscordBot } from "@onruntime/ultrad.js";
+import { DiscordPlugin, DiscordBot } from '@onruntime/ultrad.js';
 
 export class PresencePlugin implements DiscordPlugin {
     name: string = 'presence';

@@ -5,16 +5,19 @@ import {
     OneToMany
 } from 'typeorm';
 
-import { ReactionRoleReaction } from './Reaction';
+import { RRReaction } from './Reaction';
 
-@Entity()
-export class ReactionRoleEmbed {
+@Entity({ name: 'reaction_role_embed' })
+export class RREmbed {
     @PrimaryGeneratedColumn()
     id: number;
 
     @Column()
+    title: string;
+
+    @Column()
     messageId: string;
 
-    @OneToMany(() => ReactionRoleReaction, reactionRoleReaction => reactionRoleReaction.embed)
-    reactions: ReactionRoleReaction[];
+    @OneToMany(() => RRReaction, rrReaction => rrReaction.embed)
+    reactions: RRReaction[];
 }

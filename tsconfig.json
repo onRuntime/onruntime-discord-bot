@@ -2,17 +2,17 @@
     "compilerOptions": {
         "target"                      : "ES6",
         "module"                      : "commonjs",
-        "outDir"                      : "./build",
+        "outDir"                      : "build",
         "strict"                      : true,
         "strictPropertyInitialization": false,
         "emitDecoratorMetadata"       : true,
         "experimentalDecorators"      : true
     },
     "include": [
-        "src/**/*",
+        "src/**/*"
     ],
     "exclude": [
         "node_modules",
-        "**/__tests__/*",
+        "**/__tests__/*"
     ]
 }

@@ -1,18 +1,19 @@
 {
   "name": "onruntime-discord",
   "version": "0.1",
-  "main": "index.ts",
+  "main": "build/index.js",
   "author": "3DX900",
   "license": "GPL",
   "private": true,
   "scripts": {
     "build": "tsc",
-    "start": "yarn build && node ./build/index.js"
+    "start": "yarn build && node build/index.js"
   },
   "dependencies": {
     "@onruntime/ultrad.js": "^0.0.1",
     "discord.js": "^12.5.1",
     "dotenv": "^8.2.0",
+    "i18next": "^19.8.7",
     "mysql": "^2.18.1",
     "reflect-metadata": "^0.1.13",
     "typeorm": "^0.2.30",
@@ -20,7 +21,7 @@
     "ws": "^7.4.2"
   },
   "devDependencies": {
-    "@types/ws": "^7.4.0",
-    "@types/node": "^14.14.22"
+    "@types/node": "^14.14.22",
+    "@types/ws": "^7.4.0"
   }
 }

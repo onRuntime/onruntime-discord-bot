@@ -1,5 +1,5 @@
-import {createConnection, Connection, Repository, EntityTarget} from "typeorm";
-import { EventEmitter } from "ws";
+import {createConnection, Connection, Repository, EntityTarget} from 'typeorm';
+import { EventEmitter } from 'ws';
 
 export class Database extends EventEmitter {
     private _connection: Connection;
