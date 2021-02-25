@@ -1,0 +1,5 @@
+{
+    "reactionRole": {
+        "successfullyAttributed": "You have been successfully assigned the role {{roleName}}."
+    }
+}
