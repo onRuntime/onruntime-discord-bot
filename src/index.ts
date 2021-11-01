@@ -7,8 +7,8 @@ new Bot();
 http.createServer((_, res) => {
   res.writeHead(200, { 'Content-Type': 'text/plain' });
   res.end('Hello World!');
-}).listen(4321, () => {
-  console.log('Server running on port 4321');
+}).listen(8080, () => {
+  console.log('Server running on port 8080');
 });
 
 export default Bot;
