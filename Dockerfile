@@ -27,6 +27,6 @@ COPY --from=builder /app/package.json ./package.json
 
 USER onruntime-discord-bot
 
-EXPOSE 8080
+EXPOSE 4321
 
 CMD [ "npm", "start" ]
