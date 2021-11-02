@@ -7,7 +7,7 @@
   "private": true,
   "scripts": {
     "build": "tsc -p .",
-    "start": "node lib/index.js",
+    "start": "node build/index.js",
     "dev": "ts-node ./src"
   },
   "dependencies": {
