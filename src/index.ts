@@ -67,7 +67,9 @@ const main = async () => {
         channel.send({
           embeds: [
             buildEmbed({
-              description: `**${member.user.username}** joined the discord ! 🎉`,
+              description: `**${
+                member.user.username + "#" + member.user.discriminator
+              }** joined the discord ! 🎉`,
               footer: {
                 text: `We are now ${guild.memberCount} members`,
                 iconURL: member.user.displayAvatarURL(),
