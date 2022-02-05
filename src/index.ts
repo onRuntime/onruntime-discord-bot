@@ -3,6 +3,7 @@ import dotenv from "dotenv-flow";
 import Log from "./utils/log";
 import { Client, TextChannel } from "discord.js";
 import { buildEmbed } from "./utils/embed";
+import CHANNELS from "./constants/channels";
 
 // main function
 const main = async () => {
