@@ -1,7 +1,9 @@
 import fastify from "fastify";
 import dotenv from "dotenv-flow";
 import Log from "./utils/log";
-import { Client } from "discord.js";
+import { Client, TextChannel } from "discord.js";
+import { buildEmbed } from "./utils/embed";
+import CHANNELS from "./constants/channels";
 
 // main function
 const main = async () => {
@@ -48,6 +50,32 @@ const main = async () => {
     client.on("ready", () => {
       Log.ready("discord client ready");
 
+      // log guilds where the client is present
+      client.guilds.cache.forEach((guild) => {
+        Log.info(`running on guild: ${guild.name}`);
+      });
+
+      // send welcome message and amount of members in the guild when some join the guild in typescript
+      client.on("guildMemberAdd", (member) => {
+        const guild = member.guild;
+        // channel has id 707565175514988669
+        const channel = guild.channels.cache.get(
+          CHANNELS.TEXT.GENERAL
+        ) as TextChannel;
+        if (!channel) return;
+
+        channel.send({
+          embeds: [
+            buildEmbed({
+              description: `**${member.user.username}** joined the discord ! 🎉`,
+              footer: {
+                text: `We are now ${guild.memberCount} members`,
+                iconURL: member.user.displayAvatarURL(),
+              },
+            }),
+          ],
+        });
+      });
       client.user?.setActivity("onruntime.com", {
         type: "WATCHING",
       });
