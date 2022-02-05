@@ -57,6 +57,7 @@ const main = async () => {
 
       // send welcome message and amount of members in the guild when some join the guild in typescript
       client.on("guildMemberAdd", (member) => {
+        Log.info(`handle new member: ${member.user.username}`);
         const guild = member.guild;
         // channel has id 707565175514988669
         const channel = guild.channels.cache.get(
