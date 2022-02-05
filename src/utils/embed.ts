@@ -22,8 +22,7 @@ export const buildEmbed = ({
 
   if (title) embed.setTitle(title);
   if (description) embed.setDescription(description);
-  if (footer && footer.text && footer.iconURL)
-    embed.setFooter(footer.text, footer.iconURL);
+  if (footer) embed.setFooter(footer);
 
   return embed;
 };
