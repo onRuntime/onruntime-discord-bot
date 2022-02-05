@@ -19,14 +19,14 @@ WORKDIR /app
 ENV NODE_ENV production
 
 RUN addgroup -g 1001 -S nodejs
-RUN adduser -S expatsfacilities-api -u 1001
+RUN adduser -S onruntime-discord-bot -u 1001
 
-COPY --from=builder --chown=expatsfacilities-api:nodejs /app/dist ./dist
+COPY --from=builder --chown=onruntime-discord-bot:nodejs /app/dist ./dist
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package.json ./package.json
 COPY --from=builder /app/.env.production ./.env.production
 
-USER expatsfacilities-api
+USER onruntime-discord-bot
 
 EXPOSE 8000
 
