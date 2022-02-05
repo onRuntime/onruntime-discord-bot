@@ -1,32 +1,29 @@
 import { MessageEmbed } from "discord.js";
 
-const infoColor = "#fff000";
-const failColor = "0xeb3452";
-const successColor = "0x34eb86";
+interface Props {
+  title?: string;
+  description?: string;
+  footer?: {
+    text: string;
+    iconURL: string;
+  };
+}
 
-export const createEmbed = (
-  type: "info" | "fail" | "success",
-  description: string,
-  ...otherArgs: string[]
-): MessageEmbed => {
-  const embed = new MessageEmbed()
-    .setColor(
-      type === "success"
-        ? successColor
-        : type === "fail"
-        ? failColor
-        : type === "info"
-        ? infoColor
-        : infoColor
-    )
-    .setDescription(
-      `${
-        type === "success"
-          ? "<:aneoTick:837567483422179358>"
-          : type === "fail"
-          ? "<:aneoError:837566696818343956>"
-          : ""
-      } ${description}`
-    );
+/*
+ * This embed is currently a prototype to improve
+ */
+
+export const buildEmbed = ({
+  title,
+  description,
+  footer,
+}: Props): MessageEmbed => {
+  const embed = new MessageEmbed();
+
+  if (title) embed.setTitle(title);
+  if (description) embed.setDescription(description);
+  if (footer && footer.text && footer.iconURL)
+    embed.setFooter(footer.text, footer.iconURL);
+
   return embed;
 };
