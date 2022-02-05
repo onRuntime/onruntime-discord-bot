@@ -1,0 +1,32 @@
+{
+  "name": "onruntime-discord-bot",
+  "version": "0.0.1",
+  "main": "index.js",
+  "scripts": {
+    "start": "node dist/index",
+    "dev": "nodemon --exec ts-node src/index",
+    "build": "tsc",
+    "watch": "tsc -w",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix",
+    "docker:build": "docker build . -t expatsfacilities-api",
+    "docker:run": "docker run -p 8000:8000 expatsfacilities-api"
+  },
+  "dependencies": {
+    "chalk": "^4.1.1",
+    "discord.js": "^13.6.0",
+    "dotenv-flow": "^3.2.0",
+    "fastify": "^3.25.2"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.15",
+    "@typescript-eslint/eslint-plugin": "^5.8.0",
+    "@typescript-eslint/parser": "^5.8.0",
+    "eslint": "^8.5.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "nodemon": "^2.0.7",
+    "prettier": "^2.3.1",
+    "typescript": "^4.2.4"
+  }
+}
