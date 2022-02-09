@@ -63,21 +63,29 @@ const main = async () => {
         const channel = guild.channels.cache.get(
           CHANNELS.TEXT.GENERAL
         ) as TextChannel;
-        if (!channel) return;
+        if (channel) {
+          channel.send({
+            embeds: [
+              buildEmbed({
+                description: `**${
+                  member.user.username + "#" + member.user.discriminator
+                }** joined the discord ! 🎉`,
+                footer: {
+                  text: `We are now ${guild.memberCount} members`,
+                  iconURL: member.user.displayAvatarURL(),
+                },
+              }),
+            ],
+          });
+        }
 
-        channel.send({
-          embeds: [
-            buildEmbed({
-              description: `**${
-                member.user.username + "#" + member.user.discriminator
-              }** joined the discord ! 🎉`,
-              footer: {
-                text: `We are now ${guild.memberCount} members`,
-                iconURL: member.user.displayAvatarURL(),
-              },
-            }),
-          ],
-        });
+        // update member count from community "🌐 • Community - 0" to "🌐 • Community - 1", etc.
+        const community = guild.channels.cache.get(
+          CHANNELS.CATEGORIES.COMMUNITY
+        );
+        if (community) {
+          community.setName(`🌐 • Community - ${guild.memberCount}`);
+        }
       });
       client.user?.setActivity("onruntime.com", {
         type: "WATCHING",
