@@ -1,5 +1,4 @@
 import chalk from "chalk";
-import { MessageBuilder } from "discord-webhook-node";
 import APP from "../constants/main";
 import { hook } from "../services/webhook";
 
