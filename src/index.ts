@@ -21,7 +21,12 @@ const main = async () => {
   // run discord client
   try {
     const client = new Client({
-      intents: ["Guilds", "GuildMessages", "GuildMessageReactions"],
+      intents: [
+        "Guilds",
+        "GuildMessages",
+        "GuildMessageReactions",
+        "MessageContent",
+      ],
     });
 
     fs.readdirSync(path.join(__dirname, "plugins"))
