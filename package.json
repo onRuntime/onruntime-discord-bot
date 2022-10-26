@@ -1,7 +1,9 @@
 {
   "name": "onruntime-discord-bot",
   "version": "0.0.1",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "author": "onRuntime Studio <developers@onruntime.com>",
+  "license": "MIT",
   "scripts": {
     "start": "node dist/index",
     "dev": "nodemon --exec ts-node src/index",
@@ -14,7 +16,7 @@
   },
   "dependencies": {
     "chalk": "^4.1.1",
-    "discord.js": "^13.6.0",
+    "discord.js": "^14.6.0",
     "dotenv-flow": "^3.2.0"
   },
   "devDependencies": {

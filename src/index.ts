@@ -1,6 +1,6 @@
 import dotenv from "dotenv-flow";
 import Log from "./utils/log";
-import { Client, TextChannel } from "discord.js";
+import { ActivityType, Client, TextChannel } from "discord.js";
 import { buildEmbed } from "./utils/embed";
 import CHANNELS from "./constants/channels";
 
@@ -21,7 +21,7 @@ const main = async () => {
   // run discord client
   try {
     const client = new Client({
-      intents: ["GUILDS", "GUILD_MEMBERS", "GUILD_MESSAGES"],
+      intents: ["Guilds", "GuildMessages", "GuildMessageReactions"],
     });
     client.login(process.env.DISCORD_TOKEN);
     client.on("ready", () => {
@@ -64,8 +64,14 @@ const main = async () => {
           community.setName(`🌐 • Community - ${guild.memberCount}`);
         }
       });
-      client.user?.setActivity("onruntime.com", {
-        type: "WATCHING",
+      // set activity watching "onruntime.com"
+      client.user?.setPresence({
+        activities: [
+          {
+            name: "onruntime.com",
+            type: ActivityType.Watching,
+          },
+        ],
       });
     });
   } catch (err) {
