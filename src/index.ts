@@ -26,6 +26,7 @@ const main = async () => {
         "GuildMessages",
         "GuildMessageReactions",
         "GuildMessageTyping",
+        "GuildVoiceStates",
         "MessageContent",
       ],
     });
