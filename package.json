@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "chalk": "^4.1.1",
+    "discord-webhook-node": "^1.1.8",
     "discord.js": "^14.6.0",
     "dotenv-flow": "^3.2.0",
     "fs": "^0.0.1-security",
