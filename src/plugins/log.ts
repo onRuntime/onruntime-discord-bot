@@ -57,6 +57,28 @@ const LogPlugin: DiscordPlugin = (client) => {
       );
     }
   });
+
+  // handle when someone change the role of someone
+  client.on("guildMemberUpdate", (oldMember, newMember) => {
+    if (oldMember.roles.cache.size === newMember.roles.cache.size) return;
+    if (oldMember.roles.cache.size > newMember.roles.cache.size) {
+      const role = oldMember.roles.cache.find(
+        (role) => !newMember.roles.cache.has(role.id)
+      );
+      Log.info(
+        `**${newMember.guild.name}**`,
+        `member **${newMember.user.username}#${newMember.user.discriminator}** lost role **${role?.name}**`
+      );
+    } else {
+      const role = newMember.roles.cache.find(
+        (role) => !oldMember.roles.cache.has(role.id)
+      );
+      Log.info(
+        `**${newMember.guild.name}**`,
+        `member **${newMember.user.username}#${newMember.user.discriminator}** gained role **${role?.name}**`
+      );
+    }
+  });
 };
 
 export default LogPlugin;
