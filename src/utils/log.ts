@@ -4,7 +4,7 @@ import APP from "../constants/main";
 import { hook } from "../services/webhook";
 
 hook.setAvatar(APP.LOGO);
-hook.setUsername("Logs | Expat Facilities");
+hook.setUsername(`Logs | ${APP.NAME}`);
 
 export const prefixes = {
   wait: chalk.cyan("wait") + "  -",
@@ -15,23 +15,25 @@ export const prefixes = {
   event: chalk.magenta("event") + " -",
 };
 
-const builder = (...message: any[]) =>
-  new MessageBuilder()
-    .setDescription(
-      message
-        .map((m) => (typeof m === "string" ? m : JSON.stringify(m)))
-        .join("\n")
-    )
-    .setFooter(APP.NAME, APP.LOGO)
-    .setTimestamp();
+const discordPrefixes = {
+  wait: "⏳",
+  error: "❌",
+  warn: "⚠️",
+  ready: "✅",
+  info: "ℹ️",
+  event: "📣",
+};
 
 export const embed = {
-  info: (...message: any[]) => builder(...message).setColor(5366244),
-  event: (...message: any[]) => builder(...message).setColor(15753645),
-  ready: (...message: any[]) => builder(...message).setColor(1299607),
-  warn: (...message: any[]) => builder(...message).setColor(16562066),
-  error: (...message: any[]) => builder(...message).setColor(15422583),
-  wait: (...message: any[]) => builder(...message).setColor(5366244),
+  info: (...message: any[]) => `${discordPrefixes.info} - ${message.join(" ")}`,
+  warn: (...message: any[]) => `${discordPrefixes.warn} - ${message.join(" ")}`,
+  error: (...message: any[]) =>
+    `${discordPrefixes.error} - ${message.join(" ")}`,
+  ready: (...message: any[]) =>
+    `${discordPrefixes.ready} - ${message.join(" ")}`,
+  wait: (...message: any[]) => `${discordPrefixes.wait} - ${message.join(" ")}`,
+  event: (...message: any[]) =>
+    `${discordPrefixes.event} - ${message.join(" ")}`,
 };
 
 const Log = {
