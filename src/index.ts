@@ -1,7 +1,6 @@
 import dotenv from "dotenv-flow";
 import Log from "./utils/log";
 import { Client } from "discord.js";
-import CHANNELS from "./constants/channels";
 import fs from "fs";
 import path from "path";
 
