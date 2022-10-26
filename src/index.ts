@@ -23,6 +23,7 @@ const main = async () => {
     const client = new Client({
       intents: [
         "Guilds",
+        "GuildMembers",
         "GuildMessages",
         "GuildMessageReactions",
         "GuildMessageTyping",
