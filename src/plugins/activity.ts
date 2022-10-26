@@ -1,8 +1,8 @@
-import { ActivityType, Client } from "discord.js";
+import { ActivityType } from "discord.js";
 import APP from "../constants/main";
 import { DiscordPlugin } from "../types/plugin";
 
-const ActivityPlugin: DiscordPlugin = (client: Client<boolean>) => {
+const ActivityPlugin: DiscordPlugin = (client) => {
   client.user?.setActivity(APP.URL, {
     type: ActivityType.Watching,
     url: APP.URL,
