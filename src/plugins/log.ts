@@ -1,9 +1,11 @@
+import { TextChannel } from "discord.js";
 import { DiscordPlugin } from "../types/plugin";
 import Log from "../utils/log";
 
 const LogPlugin: DiscordPlugin = (client) => {
   // handle when a guild member delete a message
   client.on("messageDelete", (message) => {
+    if ((message.channel as TextChannel)?.name.startsWith("access")) return;
     Log.warn(
       `**${message.guild?.name}**`,
       `message deleted by **${message.author?.username}#${message.author?.discriminator}** in <#${message.channel.id}> "${message.cleanContent}"`
@@ -12,6 +14,7 @@ const LogPlugin: DiscordPlugin = (client) => {
 
   // handle when a guild member edit a message
   client.on("messageUpdate", (oldMessage, newMessage) => {
+    if ((oldMessage.channel as TextChannel)?.name.startsWith("access")) return;
     Log.warn(
       `**${oldMessage.guild?.name}**`,
       `message edited by **${oldMessage.author?.username}#${oldMessage.author?.discriminator}** in <#${oldMessage.channel.id}> "${oldMessage.cleanContent}" -> "${newMessage.cleanContent}"`
