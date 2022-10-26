@@ -79,6 +79,15 @@ const LogPlugin: DiscordPlugin = (client) => {
       );
     }
   });
+
+  // handle when someone change the nickname of someone
+  client.on("guildMemberUpdate", (oldMember, newMember) => {
+    if (oldMember.nickname === newMember.nickname) return;
+    Log.info(
+      `**${newMember.guild.name}**`,
+      `member **${newMember.user.username}#${newMember.user.discriminator}** changed nickname from **${oldMember.nickname}** to **${newMember.nickname}**`
+    );
+  });
 };
 
 export default LogPlugin;
