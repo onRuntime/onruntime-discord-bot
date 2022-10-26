@@ -23,24 +23,17 @@ const main = async () => {
     const client = new Client({
       intents: ["Guilds", "GuildMessages", "GuildMessageReactions"],
     });
-    client.login(process.env.DISCORD_TOKEN || "");
-    client.on("ready", () => {
-      Log.ready("discord client ready");
 
-      fs.readdirSync(path.join(__dirname, "plugins"))
-        .filter((file) => file.endsWith(".ts") || file.endsWith(".js"))
-        .forEach((file) => {
-          // eslint-disable-next-line @typescript-eslint/no-var-requires
-          const plugin = require(path.join(__dirname, "plugins", file)).default;
-          plugin(client);
-          Log.ready(`loaded plugin ${file}`);
-        });
-
-      // log guilds where the client is present
-      client.guilds.cache.forEach((guild) => {
-        Log.info(`running on guild: ${guild.name}`);
+    fs.readdirSync(path.join(__dirname, "plugins"))
+      .filter((file) => file.endsWith(".ts") || file.endsWith(".js"))
+      .forEach((file) => {
+        // eslint-disable-next-line @typescript-eslint/no-var-requires
+        const plugin = require(path.join(__dirname, "plugins", file)).default;
+        plugin(client);
+        Log.ready(`loaded plugin ${file}`);
       });
-    });
+
+    client.login(process.env.DISCORD_TOKEN || "");
   } catch (err) {
     Log.error(err);
   }
