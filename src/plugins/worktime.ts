@@ -71,7 +71,9 @@ const startWorktime = async (client: Client, userId: string | undefined) => {
       `✅ - Votre prise de service a été validée à ${daysjs().format("HH:mm")}`
     );
     Log.info(
-      `✅ - Prise de service validée à ${daysjs().format("HH:mm")} par ${user}`
+      `✅ - Prise de service validée à ${daysjs().format("HH:mm")} par **${
+        user.username
+      }#${user.discriminator}**`
     );
   }
 };
@@ -113,9 +115,9 @@ const endWorktime = async (client: Client, userId: string | undefined) => {
       )}min à travailler cette semaine`
     );
     Log.info(
-      `✅ - Fin de service validée à ${daysjs().format(
-        "HH:mm"
-      )} par ${user} - ${Math.floor(
+      `✅ - Fin de service validée à ${daysjs().format("HH:mm")} par **${
+        user.username
+      }#${user.discriminator}** - ${Math.floor(
         totalWorktime / 1000 / 60 / 60
       )}h${Math.floor((totalWorktime / 1000 / 60) % 60)}min`
     );
@@ -123,7 +125,7 @@ const endWorktime = async (client: Client, userId: string | undefined) => {
     return true;
   } else {
     // if the user has not started his worktime, send a message to the user
-    user.send("❌ Vous n'avez pas commencé votre service aujourd'hui");
+    user.send("❌ - Vous n'avez pas commencé votre service aujourd'hui");
 
     return false;
   }
