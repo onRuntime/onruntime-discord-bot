@@ -56,7 +56,7 @@ const startWorktime = async (client: Client, userId: string | undefined) => {
   if (worktime) {
     // if the user has already started his worktime, send a message to the user
     user.send(
-      `❌ - Vous avez déjà commencé votre service à ${daysjs(
+      `❌ - Vous avez déjà commencé votre activité à ${daysjs(
         worktime.startAt
       ).format("HH:mm")}`
     );
@@ -68,10 +68,10 @@ const startWorktime = async (client: Client, userId: string | undefined) => {
     });
 
     user.send(
-      `✅ - Votre prise de service a été validée à ${daysjs().format("HH:mm")}`
+      `✅ - Votre Prise d'activité a été validée à ${daysjs().format("HH:mm")}`
     );
     Log.info(
-      `✅ - Prise de service validée à ${daysjs().format("HH:mm")} par **${
+      `✅ - Prise d'activité validée à ${daysjs().format("HH:mm")} par **${
         user.username
       }#${user.discriminator}**`
     );
@@ -106,7 +106,7 @@ const endWorktime = async (client: Client, userId: string | undefined) => {
     });
 
     user.send(
-      `✅ - Votre fin de service a été validée à ${daysjs().format(
+      `✅ - Votre Fin d'activité a été validée à ${daysjs().format(
         "HH:mm"
       )} - Vous avez passé ${Math.floor(
         totalWorktime / 1000 / 60 / 60
@@ -115,7 +115,7 @@ const endWorktime = async (client: Client, userId: string | undefined) => {
       )}min à travailler cette semaine`
     );
     Log.info(
-      `✅ - Fin de service validée à ${daysjs().format("HH:mm")} par **${
+      `✅ - Fin d'activité validée à ${daysjs().format("HH:mm")} par **${
         user.username
       }#${user.discriminator}** - ${Math.floor(
         totalWorktime / 1000 / 60 / 60
@@ -125,7 +125,7 @@ const endWorktime = async (client: Client, userId: string | undefined) => {
     return true;
   } else {
     // if the user has not started his worktime, send a message to the user
-    user.send("❌ - Vous n'avez pas commencé votre service aujourd'hui");
+    user.send("❌ - Vous n'avez pas commencé votre activité aujourd'hui");
 
     return false;
   }
@@ -143,9 +143,9 @@ const WorktimePlugin: DiscordPlugin = (client) => {
       messages.forEach(async (message) => await message.delete());
 
       // worktime sert a pointé les heures des membres de l'équipe
-      // appuyez sur le bouton prise de service pour pointer votre arrivée
-      // puis fin de service pour pointer votre départ
-      // veillez a bien vous connecter à un salon vocal pour que votre prise de service soit bien prise en compte
+      // appuyez sur le bouton Prise d'activité pour pointer votre arrivée
+      // puis Fin d'activité pour pointer votre départ
+      // veillez a bien vous connecter à un salon vocal pour que votre Prise d'activité soit bien prise en compte
       // send this message to CHANNELS.ONRUNTIME.TEAM.WORKTIME channel as an embed message
 
       const instructionEmbed = {
@@ -153,12 +153,12 @@ const WorktimePlugin: DiscordPlugin = (client) => {
         title: "Worktime (Beta)",
         description:
           "Pointage des heures des membres de l'équipe\n\n" +
-          "**Prise de service**\n" +
-          "Appuyez sur le bouton prise de service pour pointer votre arrivée\n\n" +
-          "**Fin de service**\n" +
-          "Appuyez sur le bouton fin de service pour pointer votre départ\n\n" +
+          "**Prise d'activité**\n" +
+          "Appuyez sur le bouton Prise d'activité pour pointer votre arrivée\n\n" +
+          "**Fin d'activité**\n" +
+          "Appuyez sur le bouton Fin d'activité pour pointer votre départ\n\n" +
           "**Attention**\n" +
-          "Veillez à bien vous connecter à un salon vocal **Work** pour que votre prise de service soit bien prise en compte",
+          "Veillez à bien vous connecter à un salon vocal **Work** pour que votre Prise d'activité soit bien prise en compte",
         footer: {
           text: `Merci à vous et bon courage - ${APP.NAME}`,
           icon_url: APP.LOGO,
@@ -175,13 +175,13 @@ const WorktimePlugin: DiscordPlugin = (client) => {
               {
                 type: 2,
                 style: ButtonStyle.Primary,
-                label: "✨ Prise de service",
+                label: "✨ Prise d'activité",
                 custom_id: "worktime_start",
               },
               {
                 type: 2,
                 style: ButtonStyle.Danger,
-                label: "🚪 Fin de service",
+                label: "🚪 Fin d'activité",
                 custom_id: "worktime_end",
               },
             ],
@@ -199,7 +199,7 @@ const WorktimePlugin: DiscordPlugin = (client) => {
       case "worktime_start":
         // validate interaction and delete
         if (isInWorkVoiceChannel(client, interaction.user.id)) {
-          //interaction.reply("✅ Prise de service validée");
+          //interaction.reply("✅ Prise d'activité validée");
           interaction.deferReply();
 
           startWorktime(client, interaction.user.id);
