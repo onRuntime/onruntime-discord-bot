@@ -5,6 +5,7 @@ import Log from "../utils/log";
 const LogPlugin: DiscordPlugin = (client) => {
   // handle when a guild member delete a message
   client.on(Events.MessageDelete, (message) => {
+    if (message.author?.bot) return;
     if ((message.channel as TextChannel)?.name.startsWith("access")) return;
     Log.warn(
       `**${message.guild?.name}**`,
@@ -14,6 +15,8 @@ const LogPlugin: DiscordPlugin = (client) => {
 
   // handle when a guild member edit a message
   client.on(Events.MessageUpdate, (oldMessage, newMessage) => {
+    if (oldMessage.author?.bot) return;
+
     if ((oldMessage.channel as TextChannel)?.name.startsWith("access")) return;
     Log.warn(
       `**${oldMessage.guild?.name}**`,
