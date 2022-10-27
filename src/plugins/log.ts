@@ -1,10 +1,10 @@
-import { TextChannel } from "discord.js";
+import { Events, TextChannel } from "discord.js";
 import { DiscordPlugin } from "../types/plugin";
 import Log from "../utils/log";
 
 const LogPlugin: DiscordPlugin = (client) => {
   // handle when a guild member delete a message
-  client.on("messageDelete", (message) => {
+  client.on(Events.MessageDelete, (message) => {
     if ((message.channel as TextChannel)?.name.startsWith("access")) return;
     Log.warn(
       `**${message.guild?.name}**`,
@@ -13,7 +13,7 @@ const LogPlugin: DiscordPlugin = (client) => {
   });
 
   // handle when a guild member edit a message
-  client.on("messageUpdate", (oldMessage, newMessage) => {
+  client.on(Events.MessageUpdate, (oldMessage, newMessage) => {
     if ((oldMessage.channel as TextChannel)?.name.startsWith("access")) return;
     Log.warn(
       `**${oldMessage.guild?.name}**`,
@@ -22,7 +22,7 @@ const LogPlugin: DiscordPlugin = (client) => {
   });
 
   // handle when a guild member join the server
-  client.on("guildMemberAdd", (member) => {
+  client.on(Events.GuildMemberAdd, (member) => {
     Log.info(
       `**${member.guild.name}**`,
       `member joined **${member.user.username}#${member.user.discriminator}**`
@@ -30,7 +30,7 @@ const LogPlugin: DiscordPlugin = (client) => {
   });
 
   // handle when a guild member leave the server
-  client.on("guildMemberRemove", (member) => {
+  client.on(Events.GuildMemberRemove, (member) => {
     Log.info(
       `**${member.guild.name}**`,
       `member left **${member.user.username}#${member.user.discriminator}**`
@@ -38,7 +38,7 @@ const LogPlugin: DiscordPlugin = (client) => {
   });
 
   // handle when a member join a voice channel
-  client.on("voiceStateUpdate", (oldState, newState) => {
+  client.on(Events.VoiceStateUpdate, (oldState, newState) => {
     if (oldState.channelId === newState.channelId) return;
     if (oldState.channelId === null) {
       Log.info(
@@ -59,7 +59,7 @@ const LogPlugin: DiscordPlugin = (client) => {
   });
 
   // handle when someone change the role of someone
-  client.on("guildMemberUpdate", (oldMember, newMember) => {
+  client.on(Events.GuildMemberUpdate, (oldMember, newMember) => {
     if (oldMember.roles.cache.size === newMember.roles.cache.size) return;
     if (oldMember.roles.cache.size > newMember.roles.cache.size) {
       const role = oldMember.roles.cache.find(
