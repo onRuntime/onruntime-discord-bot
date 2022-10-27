@@ -3,6 +3,7 @@ import Log from "./utils/log";
 import { Client } from "discord.js";
 import fs from "fs";
 import path from "path";
+import { MongoDBConfig } from "./services/mongodb/config";
 
 // main function
 const main = async () => {
@@ -18,8 +19,13 @@ const main = async () => {
     .listDotenvFiles(".", process.env.NODE_ENV)
     .forEach((file) => Log.info(`loaded env from ${file}`));
 
+  const dbConfig = new MongoDBConfig();
+
   // run discord client
   try {
+    await dbConfig.connect();
+    Log.event("connected to mongodb");
+
     const client = new Client({
       intents: [
         "Guilds",
