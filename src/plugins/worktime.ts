@@ -11,10 +11,17 @@ import {
 import CHANNELS from "../constants/channels";
 import APP from "../constants/main";
 import { DiscordPlugin } from "../types/plugin";
-import daysjs from "dayjs";
+import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc";
+import timezone from "dayjs/plugin/timezone";
 import Log from "../utils/log";
 import Worktime from "../models/Worktime";
 import schedule from "node-schedule";
+
+dayjs.extend(utc);
+dayjs.extend(timezone);
+
+const tz = "Europe/Paris";
 
 export const isInWorkVoiceChannel = (
   client: Client<boolean>,
@@ -56,9 +63,9 @@ const startWorktime = async (client: Client, userId: string | undefined) => {
   if (worktime) {
     // if the user has already started his worktime, send a message to the user
     user.send(
-      `❌ - Vous avez déjà commencé votre activité à ${daysjs(
-        worktime.startAt
-      ).format("HH:mm")}`
+      `❌ - Vous avez déjà commencé votre activité à ${dayjs(worktime.startAt)
+        .tz(tz)
+        .format("HH:mm")}`
     );
   } else {
     // add new Wortime with only the startAt
@@ -68,12 +75,14 @@ const startWorktime = async (client: Client, userId: string | undefined) => {
     });
 
     user.send(
-      `✅ - Votre Prise d'activité a été validée à ${daysjs().format("HH:mm")}`
+      `✅ - Votre Prise d'activité a été validée à ${dayjs()
+        .tz(tz)
+        .format("HH:mm")}`
     );
     Log.info(
-      `✅ - Prise d'activité validée à ${daysjs().format("HH:mm")} par **${
-        user.username
-      }#${user.discriminator}**`
+      `✅ - Prise d'activité validée à ${dayjs()
+        .tz(tz)
+        .format("HH:mm")} par **${user.username}#${user.discriminator}**`
     );
   }
 };
@@ -106,16 +115,16 @@ const endWorktime = async (client: Client, userId: string | undefined) => {
     });
 
     user.send(
-      `✅ - Votre Fin d'activité a été validée à ${daysjs().format(
-        "HH:mm"
-      )} - Vous avez passé ${Math.floor(
+      `✅ - Votre Fin d'activité a été validée à ${dayjs()
+        .tz(tz)
+        .format("HH:mm")} - Vous avez passé ${Math.floor(
         totalWorktime / 1000 / 60 / 60
       )}h${Math.floor(
         (totalWorktime / 1000 / 60) % 60
       )}min à travailler cette semaine`
     );
     Log.info(
-      `✅ - Fin d'activité validée à ${daysjs().format("HH:mm")} par **${
+      `✅ - Fin d'activité validée à ${dayjs().tz(tz).format("HH:mm")} par **${
         user.username
       }#${user.discriminator}** - ${Math.floor(
         totalWorktime / 1000 / 60 / 60
@@ -236,7 +245,7 @@ const WorktimePlugin: DiscordPlugin = (client) => {
       });
 
       if (worktime) {
-        const diff = daysjs().diff(daysjs(worktime.startAt), "minute");
+        const diff = dayjs().diff(dayjs(worktime.startAt), "minute");
 
         if (diff > 10) {
           endWorktime(client, oldState.member?.user.id);
@@ -266,7 +275,7 @@ const WorktimePlugin: DiscordPlugin = (client) => {
       const totalWorktime = worktimeMap.get(worktime.userId) || 0;
       worktimeMap.set(
         worktime.userId,
-        totalWorktime + daysjs(worktime.endAt).diff(daysjs(worktime.startAt))
+        totalWorktime + dayjs(worktime.endAt).diff(dayjs(worktime.startAt))
       );
     });
 
@@ -280,9 +289,9 @@ const WorktimePlugin: DiscordPlugin = (client) => {
       color: Colors.White,
       title: "Leaderboard (Beta)",
       description:
-        `Voici le classement des membres de l'équipe pour la semaine du ${daysjs()
+        `Voici le classement des membres de l'équipe pour la semaine du ${dayjs()
           .startOf("week")
-          .format("DD/MM/YYYY")} au ${daysjs()
+          .format("DD/MM/YYYY")} au ${dayjs()
           .endOf("week")
           .format("DD/MM/YYYY")}\n\n` +
         Array.from(sortedWorktimeMap.entries())
