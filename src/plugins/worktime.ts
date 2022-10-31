@@ -218,6 +218,10 @@ const WorktimePlugin: DiscordPlugin = (client) => {
           interaction.reply(
             "❌ - Vous devez être connecté à un salon vocal **Work**"
           );
+
+          setTimeout(() => {
+            interaction.deleteReply();
+          }, 5000);
         }
 
         break;
