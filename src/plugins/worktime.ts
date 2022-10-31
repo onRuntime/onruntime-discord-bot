@@ -256,15 +256,17 @@ const WorktimePlugin: DiscordPlugin = (client) => {
         }
       } else {
         // else after 5 minutes send him a reminder to tell him that if forgot to start his worktime
-        if (isInWorkVoiceChannel(client, oldState.member?.user.id)) 
-
+        if (isInWorkVoiceChannel(client, oldState.member?.user.id)) {
           setTimeout(async () => {
             const worktime2 = await Worktime.findOne({
               userId: oldState.member?.user.id,
               endAt: null,
             });
 
-            if (!worktime2 && isInWorkVoiceChannel(client, oldState.member?.user.id)) {
+            if (
+              !worktime2 &&
+              isInWorkVoiceChannel(client, oldState.member?.user.id)
+            ) {
               oldState.member?.user.send(
                 "❌ - Vous semblez avoir oublié de pointer votre arrivée aujourd'hui"
               );
