@@ -237,22 +237,34 @@ const WorktimePlugin: DiscordPlugin = (client) => {
     }
   });
 
-  // if a user which as started his worktime disconnect from the voice channel more than 10 minutes, end his worktime
+  // if a user which as started his worktime disconnect !isInWorkVoiceChannel more than 10 minutes, end his worktime
   client.on(Events.VoiceStateUpdate, async (oldState, newState) => {
-    if (
-      oldState.channelId &&
-      !newState.channelId &&
-      oldState.channel?.name.toLowerCase().includes("work")
-    ) {
+    if (oldState.channelId !== newState.channelId) {
       const worktime = await Worktime.findOne({
         userId: oldState.member?.user.id,
         endAt: null,
       });
 
       if (worktime) {
-        setTimeout(() => {
-          endWorktime(client, oldState.member?.user.id);
-        }, 1000 * 60 * 10);
+        if (!isInWorkVoiceChannel(client, oldState.member?.user.id)) {
+          // if the user is not in a work voice channel, end his worktime after 10 minutes
+          setTimeout(async () => {
+            if (!isInWorkVoiceChannel(client, oldState.member?.user.id)) {
+              endWorktime(client, oldState.member?.user.id);
+            }
+          }, 10 * 60 * 1000);
+        }
+      } else {
+        // else after 5 minutes send him a reminder to tell him that if forgot to start his worktime
+        if (isInWorkVoiceChannel(client, oldState.member?.user.id)) {
+          setTimeout(async () => {
+            if (isInWorkVoiceChannel(client, oldState.member?.user.id)) {
+              oldState.member?.user.send(
+                "❌ - Vous semblez avoir oublié de pointer votre arrivée aujourd'hui"
+              );
+            }
+          }, 5 * 60 * 1000);
+        }
       }
     }
   });
