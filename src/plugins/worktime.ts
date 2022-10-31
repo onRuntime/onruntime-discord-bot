@@ -35,8 +35,9 @@ export const isInWorkVoiceChannel = (
   guilds.forEach((guild) => {
     const voiceChannels = guild.channels.cache.filter(
       (channel) =>
-        channel.name.toLowerCase().includes("work") &&
-        channel.type === ChannelType.GuildVoice
+        channel.name.toLowerCase().includes("work") ||
+        (channel.name.toLowerCase().includes("meeting") &&
+          channel.type === ChannelType.GuildVoice)
     );
     voiceChannels.forEach((channel) => {
       const members = channel.members as Collection<string, GuildMember>;
@@ -142,7 +143,7 @@ const endWorktime = async (client: Client, userId: string | undefined) => {
 
 const WorktimePlugin: DiscordPlugin = (client) => {
   // delete all message from CHANNELS.ONRUNTIME.TEAM.WORKTIME channel on startup, dont forget to check if it's a text channel
-  client.on("ready", async () => {
+  client.on(Events.ClientReady, async () => {
     const channel = await client.channels.cache.get(
       CHANNELS.ONRUNTIME.TEAM.WORKTIME
     );
@@ -249,11 +250,9 @@ const WorktimePlugin: DiscordPlugin = (client) => {
       });
 
       if (worktime) {
-        const diff = dayjs().diff(dayjs(worktime.startAt), "minute");
-
-        if (diff > 10) {
+        setTimeout(() => {
           endWorktime(client, oldState.member?.user.id);
-        }
+        }, 1000 * 60 * 10);
       }
     }
   });
