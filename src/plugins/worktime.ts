@@ -272,8 +272,8 @@ const WorktimePlugin: DiscordPlugin = (client) => {
           if (worktime2 && !isInWorkVoiceChannel(client, oldState.member?.id)) {
             endWorktime(client, oldState.member?.id);
           }
-          //}, 1000 * 60 * 10);
-        }, 1000 * 15); // <-- for testing purposes
+        }, 1000 * 60 * 10);
+        //}, 1000 * 15); // <-- for testing purposes
       }
     }
   });
