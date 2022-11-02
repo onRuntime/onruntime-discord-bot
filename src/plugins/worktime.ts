@@ -17,6 +17,7 @@ import timezone from "dayjs/plugin/timezone";
 import Log from "../utils/log";
 import Worktime from "../models/Worktime";
 import schedule from "node-schedule";
+import ROLES from "../constants/roles";
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
@@ -239,47 +240,47 @@ const WorktimePlugin: DiscordPlugin = (client) => {
 
   // if a user which as started his worktime disconnect !isInWorkVoiceChannel more than 10 minutes, end his worktime
   client.on(Events.VoiceStateUpdate, async (oldState, newState) => {
-    if (oldState.channelId !== newState.channelId) {
-      const worktime = await Worktime.findOne({
-        userId: oldState.member?.user.id,
-        endAt: null,
-      });
+    if (oldState.channelId === newState.channelId) return;
+    if (!oldState.member?.roles.cache.has(ROLES.TONIGHTPASS.TEAM)) return;
 
-      if (worktime) {
-        if (!isInWorkVoiceChannel(client, oldState.member?.user.id)) {
-          // if the user is not in a work voice channel, end his worktime after 10 minutes
-          setTimeout(async () => {
-            if (!isInWorkVoiceChannel(client, oldState.member?.user.id)) {
-              endWorktime(client, oldState.member?.user.id);
-            }
-          }, 10 * 60 * 1000);
-        }
-      } else {
-        // else after 5 minutes send him a reminder to tell him that if forgot to start his worktime
-        if (isInWorkVoiceChannel(client, oldState.member?.user.id)) {
-          setTimeout(async () => {
-            const worktime2 = await Worktime.findOne({
-              userId: oldState.member?.user.id,
-              endAt: null,
-            });
+    const worktime = await Worktime.findOne({
+      userId: oldState.member?.user.id,
+      endAt: null,
+    });
 
-            if (
-              !worktime2 &&
-              isInWorkVoiceChannel(client, oldState.member?.user.id)
-            ) {
-              oldState.member?.user.send(
-                "❌ - Vous semblez avoir oublié de pointer votre arrivée aujourd'hui"
-              );
-            }
-          }, 5 * 60 * 1000);
-        }
+    if (oldState.channelId === null) {
+      if (!worktime && isInWorkVoiceChannel(client, oldState.member?.id)) {
+        setTimeout(async () => {
+          const worktime2 = await Worktime.findOne({
+            userId: oldState.member?.user.id,
+            endAt: null,
+          });
+          if (!worktime2 && isInWorkVoiceChannel(client, oldState.member?.id)) {
+            oldState.member?.send(
+              `❌ - Vous semblez avoir oublié de pointer votre arrivée aujourd'hui (<#${CHANNELS.ONRUNTIME.TEAM.WORKTIME}>).`
+            );
+          }
+        }, 1000 * 60 * 5);
+      }
+    } else if (oldState.channelId !== newState.channelId) {
+      if (worktime && !isInWorkVoiceChannel(client, newState.member?.id)) {
+        setTimeout(async () => {
+          const worktime2 = await Worktime.findOne({
+            userId: oldState.member?.user.id,
+            endAt: null,
+          });
+          if (worktime2 && !isInWorkVoiceChannel(client, oldState.member?.id)) {
+            endWorktime(client, oldState.member?.id);
+          }
+          //}, 1000 * 60 * 10);
+        }, 1000 * 15); // <-- for testing purposes
       }
     }
   });
 
   // every sunday at midday, send a leaderboard in CHANNELS.ONRUNTIME.TEAM.LEADERBOARD
   schedule.scheduleJob("0 12 * * 0", async () => {
-    // schedule.scheduleJob("* * * * *", async () => {
+    // schedule.scheduleJob("* * * * *", async () => { // <-- for testing
     // end everyone worktime
     const inProgressWorktimes = await Worktime.find({
       endAt: null,
