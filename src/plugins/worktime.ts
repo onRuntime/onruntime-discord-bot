@@ -241,7 +241,11 @@ const WorktimePlugin: DiscordPlugin = (client) => {
   // if a user which as started his worktime disconnect !isInWorkVoiceChannel more than 10 minutes, end his worktime
   client.on(Events.VoiceStateUpdate, async (oldState, newState) => {
     if (oldState.channelId === newState.channelId) return;
-    if (!oldState.member?.roles.cache.has(ROLES.TONIGHTPASS.TEAM)) return;
+    if (
+      !oldState.member?.roles.cache.has(ROLES.TONIGHTPASS.TEAM) ||
+      !oldState.member?.roles.cache.has(ROLES.ONRUNTIME.TEAM)
+    )
+      return;
 
     const worktime = await Worktime.findOne({
       userId: oldState.member?.user.id,
