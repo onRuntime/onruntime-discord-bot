@@ -28,32 +28,39 @@ export const isInWorkVoiceChannel = async (
   client: Client<boolean>,
   userId: string | undefined
 ) => {
+  if (!userId) return false;
   // check all voice channels which a name that contain "work" from each guilds to see if a user with same user id is present
   // return true if the user is present in a voice channel
   // return false if the user is not present in a voice channel
-  let isInWorkVoiceChannel = false;
-  // fetch all guilds and channels
   await client.guilds.fetch();
   const guilds = client.guilds.cache;
-  guilds.forEach(async (guild) => {
-    await guild.channels.fetch();
-    const voiceChannels = guild.channels.cache.filter(
-      (channel) =>
-        channel.name.toLowerCase().includes("work") ||
-        (channel.name.toLowerCase().includes("meeting") &&
-          channel.type === ChannelType.GuildVoice)
-    );
-    voiceChannels.forEach(async (channel) => {
-      // fetch all members from the channel because the channel.members is not up to date
-      const members = channel.members as Collection<string, GuildMember>;
-      members.forEach((member) => {
-        if (member.user.id === userId) {
-          isInWorkVoiceChannel = true;
-        }
-      });
-    });
-  });
-  return isInWorkVoiceChannel;
+  // dont use forEach because it's async and we need to wait for the result, so use map
+  const results = await Promise.all(
+    guilds.map(async (guild) => {
+      await guild.channels.fetch();
+      const channels = guild.channels.cache;
+      const workChannels = channels.filter(
+        (channel) =>
+          (channel.name.toLowerCase().includes("work") ||
+            channel.name.toLowerCase().includes("meeting")) &&
+          channel.type === ChannelType.GuildVoice
+      );
+
+      // dont use forEach because it's async and we need to wait for the result, so use map
+      const results = await Promise.all(
+        workChannels.map(async (channel) => {
+          const members = channel.members as Collection<string, GuildMember>;
+          const member = members.get(userId);
+          if (member) return true;
+          return false;
+        })
+      );
+
+      return results.includes(true);
+    })
+  );
+
+  return results.includes(true);
 };
 
 const startWorktime = async (client: Client, userId: string | undefined) => {
