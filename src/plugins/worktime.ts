@@ -24,7 +24,7 @@ dayjs.extend(timezone);
 
 const tz = "Europe/Paris";
 
-export const isInWorkVoiceChannel = (
+export const isInWorkVoiceChannel = async (
   client: Client<boolean>,
   userId: string | undefined
 ) => {
@@ -32,15 +32,19 @@ export const isInWorkVoiceChannel = (
   // return true if the user is present in a voice channel
   // return false if the user is not present in a voice channel
   let isInWorkVoiceChannel = false;
+  // fetch all guilds and channels
+  await client.guilds.fetch();
   const guilds = client.guilds.cache;
-  guilds.forEach((guild) => {
+  guilds.forEach(async (guild) => {
+    await guild.channels.fetch();
     const voiceChannels = guild.channels.cache.filter(
       (channel) =>
         channel.name.toLowerCase().includes("work") ||
         (channel.name.toLowerCase().includes("meeting") &&
           channel.type === ChannelType.GuildVoice)
     );
-    voiceChannels.forEach((channel) => {
+    voiceChannels.forEach(async (channel) => {
+      // fetch all members from the channel because the channel.members is not up to date
       const members = channel.members as Collection<string, GuildMember>;
       members.forEach((member) => {
         if (member.user.id === userId) {
@@ -209,8 +213,7 @@ const WorktimePlugin: DiscordPlugin = (client) => {
     switch (interaction.customId) {
       case "worktime_start":
         // validate interaction and delete
-        if (isInWorkVoiceChannel(client, interaction.user.id)) {
-          //interaction.reply("✅ Prise d'activité validée");
+        if (await isInWorkVoiceChannel(client, interaction.user.id)) {
           interaction.deferReply();
 
           startWorktime(client, interaction.user.id);
@@ -253,13 +256,19 @@ const WorktimePlugin: DiscordPlugin = (client) => {
     });
 
     if (oldState.channelId === null) {
-      if (!worktime && isInWorkVoiceChannel(client, oldState.member?.id)) {
+      if (
+        !worktime &&
+        (await isInWorkVoiceChannel(client, oldState.member?.id))
+      ) {
         setTimeout(async () => {
           const worktime2 = await Worktime.findOne({
             userId: oldState.member?.user.id,
             endAt: null,
           });
-          if (!worktime2 && isInWorkVoiceChannel(client, oldState.member?.id)) {
+          if (
+            !worktime2 &&
+            (await isInWorkVoiceChannel(client, oldState.member?.id))
+          ) {
             oldState.member?.send(
               `❌ - Vous semblez avoir oublié de pointer votre arrivée aujourd'hui (<#${CHANNELS.ONRUNTIME.TEAM.WORKTIME}>).`
             );
