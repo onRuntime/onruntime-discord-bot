@@ -18,6 +18,12 @@ const AutoReactPlugin: DiscordPlugin = (client) => {
         message.react("❌");
       }
     }
+
+    // check if Channel is CHANNELS.ONRUNTIME.TEAM.LEADERBOARD
+    if (message.channel.id === CHANNELS.ONRUNTIME.TEAM.LEADERBOARD) {
+      // add reaction to message
+      message.react("👏");
+    }
   });
 };
 
