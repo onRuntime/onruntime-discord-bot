@@ -16,8 +16,6 @@ import utc from "dayjs/plugin/utc";
 import timezone from "dayjs/plugin/timezone";
 import Log from "../utils/log";
 import Worktime from "../models/Worktime";
-import schedule from "node-schedule";
-import ROLES from "../constants/roles";
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
@@ -63,7 +61,45 @@ export const isInWorkVoiceChannel = async (
   return results.includes(true);
 };
 
-const startWorktime = async (client: Client, userId: string | undefined) => {
+export const getMembersInWorkVoiceChannel = async (
+  client: Client<boolean>
+): Promise<GuildMember[]> => {
+  await client.guilds.fetch();
+  const guilds = client.guilds.cache;
+  const results: GuildMember[] = [];
+  // dont use forEach because it's async and we need to wait for the result, so use map
+  await Promise.all(
+    guilds.map(async (guild) => {
+      await guild.channels.fetch();
+      const channels = guild.channels.cache;
+      const workChannels = channels.filter(
+        (channel) =>
+          (channel.name.toLowerCase().includes("work") ||
+            channel.name.toLowerCase().includes("meeting")) &&
+          channel.type === ChannelType.GuildVoice
+      );
+
+      // dont use forEach because it's async and we need to wait for the result, so use map
+      await Promise.all(
+        workChannels.map(async (channel) => {
+          const members = channel.members as Collection<string, GuildMember>;
+          // add each member to the results array and avoid "Property 'array' does not exist on type 'Collection<string, GuildMember>'
+          // because we can't use forEach on a Collection
+          members.map((member) => {
+            results.push(member);
+          });
+        })
+      );
+    })
+  );
+
+  return results;
+};
+
+export const startWorktime = async (
+  client: Client,
+  userId: string | undefined
+) => {
   if (!userId) return;
 
   const worktime = await Worktime.findOne({
@@ -88,7 +124,7 @@ const startWorktime = async (client: Client, userId: string | undefined) => {
     });
 
     user.send(
-      `✅ - Votre Prise d'activité a été validée à ${dayjs()
+      `✅ - Votre prise d'activité a été validée à ${dayjs()
         .tz(tz)
         .format("HH:mm")}`
     );
@@ -100,7 +136,10 @@ const startWorktime = async (client: Client, userId: string | undefined) => {
   }
 };
 
-const endWorktime = async (client: Client, userId: string | undefined) => {
+export const endWorktime = async (
+  client: Client,
+  userId: string | undefined
+) => {
   if (!userId) return;
 
   const worktime = await Worktime.findOne({
@@ -128,7 +167,7 @@ const endWorktime = async (client: Client, userId: string | undefined) => {
     });
 
     user.send(
-      `✅ - Votre Fin d'activité a été validée à ${dayjs()
+      `✅ - Votre fin d'activité a été validée à ${dayjs()
         .tz(tz)
         .format("HH:mm")} - Vous avez passé ${Math.floor(
         totalWorktime / 1000 / 60 / 60
@@ -246,130 +285,6 @@ const WorktimePlugin: DiscordPlugin = (client) => {
         interaction.deleteReply();
         break;
     }
-  });
-
-  // if a user which as started his worktime disconnect !isInWorkVoiceChannel more than 10 minutes, end his worktime
-  client.on(Events.VoiceStateUpdate, async (oldState, newState) => {
-    if (oldState.channelId === newState.channelId) return;
-    if (
-      !oldState.member?.roles.cache.has(ROLES.TONIGHTPASS.TEAM) ||
-      !oldState.member?.roles.cache.has(ROLES.ONRUNTIME.TEAM)
-    )
-      return;
-
-    const worktime = await Worktime.findOne({
-      userId: oldState.member?.user.id,
-      endAt: null,
-    });
-
-    if (oldState.channelId === null) {
-      if (
-        !worktime &&
-        (await isInWorkVoiceChannel(client, oldState.member?.id))
-      ) {
-        setTimeout(async () => {
-          const worktime2 = await Worktime.findOne({
-            userId: oldState.member?.user.id,
-            endAt: null,
-          });
-          if (
-            !worktime2 &&
-            (await isInWorkVoiceChannel(client, oldState.member?.id))
-          ) {
-            oldState.member?.send(
-              `❌ - Vous semblez avoir oublié de pointer votre arrivée aujourd'hui (<#${CHANNELS.ONRUNTIME.TEAM.WORKTIME}>).`
-            );
-          }
-        }, 1000 * 60 * 5);
-      }
-    } else if (oldState.channelId !== newState.channelId) {
-      if (worktime && !isInWorkVoiceChannel(client, newState.member?.id)) {
-        setTimeout(async () => {
-          const worktime2 = await Worktime.findOne({
-            userId: oldState.member?.user.id,
-            endAt: null,
-          });
-          if (worktime2 && !isInWorkVoiceChannel(client, oldState.member?.id)) {
-            endWorktime(client, oldState.member?.id);
-          }
-        }, 1000 * 60 * 10);
-        //}, 1000 * 15); // <-- for testing purposes
-      }
-    }
-  });
-
-  // every sunday at midday, send a leaderboard in CHANNELS.ONRUNTIME.TEAM.LEADERBOARD
-  schedule.scheduleJob("0 12 * * 0", async () => {
-    // schedule.scheduleJob("* * * * *", async () => { // <-- for testing
-    // end everyone worktime
-    const inProgressWorktimes = await Worktime.find({
-      endAt: null,
-    });
-
-    inProgressWorktimes.forEach(async (worktime) => {
-      await endWorktime(client, worktime.userId);
-    });
-
-    // get all worktimes
-    const worktimes = await Worktime.find();
-
-    // create a map with the total worktime of each user
-    const worktimeMap = new Map<string, number>();
-    worktimes.forEach((worktime) => {
-      const totalWorktime = worktimeMap.get(worktime.userId) || 0;
-      worktimeMap.set(
-        worktime.userId,
-        totalWorktime + dayjs(worktime.endAt).diff(dayjs(worktime.startAt))
-      );
-    });
-
-    // sort the map by total worktime
-    const sortedWorktimeMap = new Map(
-      [...worktimeMap.entries()].sort((a, b) => b[1] - a[1])
-    );
-
-    // create the leaderboard embed
-    const leaderboardEmbed = {
-      color: Colors.White,
-      title: "Leaderboard (Beta)",
-      description:
-        `Voici le classement des membres de l'équipe pour la semaine du ${dayjs()
-          .startOf("week")
-          .format("DD/MM/YYYY")} au ${dayjs()
-          .endOf("week")
-          .format("DD/MM/YYYY")}\n\n` +
-        Array.from(sortedWorktimeMap.entries())
-          .map(([userId, totalWorktime], index) => {
-            const user = client.users.cache.get(userId);
-            return `${index + 1}. ${Math.floor(
-              totalWorktime / 1000 / 60 / 60
-            )}h ${Math.floor((totalWorktime / 1000 / 60) % 60)}min - **${
-              user ? user.username : "Utilisateur inconnu"
-            }**`;
-          })
-          .join("\n"),
-
-      footer: {
-        text: APP.NAME,
-        icon_url: APP.LOGO,
-      },
-    };
-
-    // send the leaderboard embed to CHANNELS.ONRUNTIME.TEAM.LEADERBOARD
-    const channel = client.channels.cache.get(
-      CHANNELS.ONRUNTIME.TEAM.LEADERBOARD
-    );
-
-    // if channel is guildtext channel
-    if (channel && channel.type === ChannelType.GuildText) {
-      const textChannel = channel as TextChannel;
-
-      // send the leaderboard embed
-      textChannel.send({ embeds: [leaderboardEmbed] });
-    }
-
-    // remove all worktimes from the database
-    await Worktime.deleteMany({});
   });
 };
 
