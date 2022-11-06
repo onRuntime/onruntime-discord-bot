@@ -16,6 +16,7 @@ import utc from "dayjs/plugin/utc";
 import timezone from "dayjs/plugin/timezone";
 import Log from "../utils/log";
 import Worktime from "../models/Worktime";
+import ROLES from "../constants/roles";
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
@@ -90,6 +91,36 @@ export const getMembersInWorkVoiceChannel = async (
           });
         })
       );
+    })
+  );
+
+  return results;
+};
+
+export const getTeamMembers = async (
+  client: Client<boolean>
+): Promise<GuildMember[]> => {
+  await client.guilds.fetch();
+  const guilds = client.guilds.cache;
+  const results: GuildMember[] = [];
+  // dont use forEach because it's async and we need to wait for the result, so use map
+  await Promise.all(
+    guilds.map(async (guild) => {
+      // get guild members with role ROLES.TONIGHTPASS.TEAM or ROLES.ONRUNTIME.TEAM
+      await guild.members.fetch();
+      const members = guild.members.cache;
+      const teamMembers = members.filter(
+        (member) =>
+          member.roles.cache.has(ROLES.TONIGHTPASS.TEAM) ||
+          member.roles.cache.has(ROLES.ONRUNTIME.TEAM)
+      );
+      // add each member to the results array and avoid "Property 'array' does not exist on type 'Collection<string, GuildMember>'
+      // because we can't use forEach on a Collection and avoid duplication
+      teamMembers.map((member) => {
+        if (!results.find((result) => result.user.id === member.user.id)) {
+          results.push(member);
+        }
+      });
     })
   );
 
