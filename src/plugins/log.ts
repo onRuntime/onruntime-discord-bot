@@ -20,7 +20,7 @@ const LogPlugin: DiscordPlugin = (client) => {
     if ((oldMessage.channel as TextChannel)?.name.startsWith("access")) return;
     Log.warn(
       `**${oldMessage.guild?.name}**`,
-      `message edited by **${oldMessage.author?.username}#${oldMessage.author?.discriminator}** in <#${oldMessage.channel.id}>:\n>>> ${oldMessage.cleanContent}\n⬇️\n>>> ${newMessage.cleanContent}`
+      `message edited by **${oldMessage.author?.username}#${oldMessage.author?.discriminator}** in <#${oldMessage.channel.id}>:\n${oldMessage.cleanContent}\n⬇️\n${newMessage.cleanContent}`
     );
   });
 
