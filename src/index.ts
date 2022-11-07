@@ -1,9 +1,11 @@
 import dotenv from "dotenv-flow";
 import Log from "./utils/log";
-import { Client } from "discord.js";
+import { Client, Collection, GatewayIntentBits } from "discord.js";
 import fs from "fs";
 import path from "path";
 import { MongoDBConfig } from "./services/mongodb/config";
+import { ClientWithCommands } from "./types/command";
+import DiscordApplication from "./services/discord";
 
 // main function
 const main = async () => {
@@ -26,20 +28,30 @@ const main = async () => {
     await dbConfig.connect();
     Log.event("connected to mongodb");
 
-    const client = new Client({
+    const client: ClientWithCommands = new Client({
       intents: [
-        "Guilds",
-        "GuildMembers",
-        "GuildMessages",
-        "GuildMessageReactions",
-        "GuildMessageTyping",
-        "GuildVoiceStates",
-        "DirectMessages",
-        "DirectMessageReactions",
-        "DirectMessageTyping",
-        "MessageContent",
+        GatewayIntentBits.Guilds,
+        GatewayIntentBits.GuildMembers,
+        GatewayIntentBits.GuildMessages,
+        GatewayIntentBits.GuildMessageReactions,
+        GatewayIntentBits.GuildMessageTyping,
+        GatewayIntentBits.GuildVoiceStates,
+        GatewayIntentBits.DirectMessages,
+        GatewayIntentBits.DirectMessageReactions,
+        GatewayIntentBits.DirectMessageTyping,
+        GatewayIntentBits.MessageContent,
       ],
     });
+
+    client.commands = new Collection();
+    fs.readdirSync(path.join(__dirname, "commands"))
+      .filter((file) => file.endsWith(".ts") || file.endsWith(".js"))
+      .forEach((file) => {
+        // eslint-disable-next-line @typescript-eslint/no-var-requires
+        const command = require(path.join(__dirname, "commands", file)).default;
+        client.commands?.set(command.data.name, command);
+        Log.ready(`loaded command ${file}`);
+      });
 
     fs.readdirSync(path.join(__dirname, "plugins"))
       .filter((file) => file.endsWith(".ts") || file.endsWith(".js"))
@@ -50,7 +62,7 @@ const main = async () => {
         Log.ready(`loaded plugin ${file}`);
       });
 
-    client.login(process.env.DISCORD_TOKEN || "");
+    client.login(DiscordApplication.bot.token);
   } catch (err) {
     Log.error(err);
   }
