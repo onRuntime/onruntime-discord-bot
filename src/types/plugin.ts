@@ -1,3 +1,3 @@
-import { Client } from "discord.js";
+import { ClientWithCommands } from "./command";
 
-export type DiscordPlugin = (client: Client<boolean>) => void;
+export type DiscordPlugin = (client: ClientWithCommands) => void;
