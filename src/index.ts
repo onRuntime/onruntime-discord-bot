@@ -1,72 +1,94 @@
+import { importx } from "@discordx/importer";
+import { GatewayIntentBits, Message } from "discord.js";
 import dotenv from "dotenv-flow";
-import Log from "./utils/log";
-import { Client, Collection, GatewayIntentBits } from "discord.js";
 import fs from "fs";
 import path from "path";
+
+import { Client } from "./client";
 import { MongoDBConfig } from "./services/mongodb/config";
-import { ClientWithCommands } from "./types/command";
-import DiscordApplication from "./services/discord";
+import Log from "./utils/log";
 
-// main function
-const main = async () => {
-  // load dotenv files
-  dotenv.config({
-    default_node_env: "development",
-    silent: true,
-  });
-  Log.info(`current env ${process.env.NODE_ENV}`);
+dotenv.config({
+  default_node_env: "development",
+  silent: true,
+});
+Log.info(`current env ${process.env.NODE_ENV}`);
 
-  // log dotenv files in console
-  dotenv
-    .listDotenvFiles(".", process.env.NODE_ENV)
-    .forEach((file) => Log.info(`loaded env from ${file}`));
+dotenv
+  .listDotenvFiles(".", process.env.NODE_ENV)
+  .forEach((file) => Log.info(`loaded env from ${file}`));
 
-  const dbConfig = new MongoDBConfig();
+const dbConfig = new MongoDBConfig();
 
-  // run discord client
-  try {
+export class Main {
+  private static _client: Client;
+
+  static get Client(): Client {
+    return this._client;
+  }
+
+  static async start(): Promise<void> {
     await dbConfig.connect();
     Log.event("connected to mongodb");
 
-    const client: ClientWithCommands = new Client({
+    this._client = new Client({
       intents: [
         GatewayIntentBits.Guilds,
-        GatewayIntentBits.GuildMembers,
         GatewayIntentBits.GuildMessages,
+        GatewayIntentBits.GuildMembers,
+        GatewayIntentBits.GuildMessageReactions,
+        GatewayIntentBits.GuildVoiceStates,
         GatewayIntentBits.GuildMessageReactions,
         GatewayIntentBits.GuildMessageTyping,
-        GatewayIntentBits.GuildVoiceStates,
         GatewayIntentBits.DirectMessages,
         GatewayIntentBits.DirectMessageReactions,
         GatewayIntentBits.DirectMessageTyping,
         GatewayIntentBits.MessageContent,
       ],
+      silent: false,
+      simpleCommand: {
+        prefix: "!",
+      },
+      config: {},
     });
 
-    client.commands = new Collection();
-    fs.readdirSync(path.join(__dirname, "commands"))
-      .filter((file) => file.endsWith(".ts") || file.endsWith(".js"))
-      .forEach((file) => {
-        // eslint-disable-next-line @typescript-eslint/no-var-requires
-        const command = require(path.join(__dirname, "commands", file)).default;
-        client.commands?.set(command.data.name, command);
-        Log.ready(`loaded command ${file}`);
+    this._client.once("ready", async () => {
+      await this._client.initApplicationCommands({
+        global: {
+          log: true,
+        },
+        guild: {
+          log: true,
+        },
       });
+
+      console.log("Bot is ready");
+    });
+
+    this._client.on("interactionCreate", (interaction) => {
+      this._client.executeInteraction(interaction);
+    });
+
+    this._client.on("messageCreate", (message: Message) => {
+      this._client.executeCommand(message);
+    });
+
+    await importx(path.join(__dirname, "commands/**/*.command.{js,ts}"));
 
     fs.readdirSync(path.join(__dirname, "plugins"))
       .filter((file) => file.endsWith(".ts") || file.endsWith(".js"))
       .forEach((file) => {
         // eslint-disable-next-line @typescript-eslint/no-var-requires
         const plugin = require(path.join(__dirname, "plugins", file)).default;
-        plugin(client);
+        plugin(this._client);
         Log.ready(`loaded plugin ${file}`);
       });
 
-    client.login(DiscordApplication.bot.token);
-  } catch (err) {
-    Log.error(err);
+    if (!process.env.DISCORD_BOT_TOKEN) {
+      throw Error("Could not find BOT_TOKEN in your environment");
+    }
+    await this._client.login(process.env.DISCORD_BOT_TOKEN);
   }
-};
+}
 
-// run main function
-main();
+Main.start();

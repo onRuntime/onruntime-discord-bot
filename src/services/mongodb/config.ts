@@ -27,8 +27,14 @@ export class MongoDBConfig {
     databaseName: string,
     params: string[]
   ): string {
-    return `${method}://${username}:${password}@${serverUri}/${databaseName}${
-      params && params.length > 0 && `?${params.join("&")}`
+    if (method.includes("srv") && username && password) {
+      return `${method}://${username}:${password}@${serverUri}/${databaseName}${
+        params && params.length > 0 ? `?${params.join("&")}` : ""
+      }`;
+    }
+
+    return `${method}://${serverUri}/${databaseName}${
+      params && params.length > 0 ? `?${params.join("&")}` : ""
     }`;
   }
 

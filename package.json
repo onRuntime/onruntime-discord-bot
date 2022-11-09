@@ -1,6 +1,7 @@
 {
   "name": "onruntime-discord-bot",
   "version": "0.0.1",
+  "type": "commonjs",
   "main": "dist/index.js",
   "author": "onRuntime Studio <developers@onruntime.com>",
   "license": "MIT",
@@ -15,15 +16,23 @@
     "docker:run": "docker run -p 8000:8000 expatsfacilities-api"
   },
   "dependencies": {
+    "@discordjs/opus": "^0.9.0",
+    "@discordjs/voice": "^0.13.0",
+    "@discordx/importer": "^1.1.10",
+    "@discordx/music": "^4.1.0",
+    "@discordx/pagination": "^3.3.1",
     "chalk": "^4.1.1",
     "dayjs": "^1.11.6",
     "discord-webhook-node": "^1.1.8",
     "discord.js": "^14.6.0",
+    "discordx": "^11.4.0",
     "dotenv-flow": "^3.2.0",
+    "ffmpeg-static": "^5.1.0",
     "fs": "^0.0.1-security",
     "mongoose": "^6.7.0",
     "node-schedule": "^2.1.0",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "sodium": "^3.0.2"
   },
   "devDependencies": {
     "@types/node": "^17.0.15",
