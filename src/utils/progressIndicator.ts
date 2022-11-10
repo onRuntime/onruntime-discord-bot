@@ -7,7 +7,7 @@ const progressIndicator = (percent: number) => {
   const barLength = 10;
   const bar = "▰".repeat(Math.floor((barPercent / 100) * barLength));
   const emptyBar = "▱".repeat(barLength - bar.length);
-  return `${bar}${emptyBar} ${Math.floor(barPercent)}%`;
+  return `${bar}${emptyBar} ${Math.floor(percent)}%`;
 };
 
 export default progressIndicator;
