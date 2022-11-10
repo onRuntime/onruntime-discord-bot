@@ -7,6 +7,7 @@ import {
   Events,
   GuildMember,
   TextChannel,
+  User,
 } from "discord.js";
 import CHANNELS from "../constants/channels";
 import APP from "../constants/main";
@@ -17,6 +18,8 @@ import timezone from "dayjs/plugin/timezone";
 import Log from "../utils/log";
 import Worktime from "../models/Worktime";
 import ROLES from "../constants/roles";
+import progressIndicator from "../utils/progressIndicator";
+import QUOTAS from "../constants/quotas";
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
@@ -127,6 +130,38 @@ export const getTeamMembers = async (
   return results;
 };
 
+/**
+ * Check the user status at onRuntime by checking if he have the role ROLES.ONRUNTIME.TEAM and ROLES.ONRUNTIME.TRAINEE or ROLES.ONRUNTIME.MEMBER or ROLES.ONRUNTIME.EMPLOYEE, return a string with the role id or null
+ */
+export const getUserStatusId = async (client: Client, user: User) => {
+  await client.guilds.fetch();
+  const guilds = client.guilds.cache;
+  let statusId: string | null = null;
+
+  // dont use forEach because it's async and we need to wait for the result, so use map
+  await Promise.all(
+    guilds.map(async (guild) => {
+      // get guild members with role ROLES.TONIGHTPASS.TEAM or ROLES.ONRUNTIME.TEAM
+      await guild.members.fetch();
+      const members = guild.members.cache;
+      const member = members.find((member) => member.user.id === user.id);
+      if (member) {
+        if (member.roles.cache.has(ROLES.ONRUNTIME.TEAM)) {
+          if (member.roles.cache.has(ROLES.ONRUNTIME.EMPLOYEE)) {
+            statusId = ROLES.ONRUNTIME.EMPLOYEE;
+          } else if (member.roles.cache.has(ROLES.ONRUNTIME.MEMBER)) {
+            statusId = ROLES.ONRUNTIME.MEMBER;
+          } else if (member.roles.cache.has(ROLES.ONRUNTIME.TRAINEE)) {
+            statusId = ROLES.ONRUNTIME.TRAINEE;
+          }
+        }
+      }
+    })
+  );
+
+  return statusId;
+};
+
 export const startWorktime = async (
   client: Client,
   userId: string | undefined
@@ -197,6 +232,14 @@ export const endWorktime = async (
       }
     });
 
+    const statusId = await getUserStatusId(client, user);
+    // convert totalWorktime to hours
+    const totalWorktimeInHours = totalWorktime / 1000 / 60 / 60;
+    // percentage of the totalWorktimeInHours compared to the quota
+    const percentage = statusId
+      ? (totalWorktimeInHours / QUOTAS[statusId]) * 100
+      : 0;
+
     user.send(
       `✅ - Votre fin d'activité a été validée à ${dayjs()
         .tz(tz)
@@ -204,14 +247,24 @@ export const endWorktime = async (
         totalWorktime / 1000 / 60 / 60
       )}h${Math.floor(
         (totalWorktime / 1000 / 60) % 60
-      )}min à travailler cette semaine`
+      )}min à travailler cette semaine - ${
+        // percentage of total work based on totalWorktime and QUOTAS[getUserStatus(user)],
+        statusId
+          ? progressIndicator(percentage)
+          : "Vous n'avez pas de rôle d'employé, pensez à le demander."
+      }`
     );
     Log.info(
       `✅ - Fin d'activité validée à ${dayjs().tz(tz).format("HH:mm")} par **${
         user.username
       }#${user.discriminator}** - ${Math.floor(
         totalWorktime / 1000 / 60 / 60
-      )}h${Math.floor((totalWorktime / 1000 / 60) % 60)}min`
+      )}h${Math.floor((totalWorktime / 1000 / 60) % 60)}min - ${
+        // percentage of total work based on totalWorktime and QUOTAS[getUserStatus(user)],
+        statusId
+          ? progressIndicator(percentage)
+          : "Vous n'avez pas de rôle d'employé, pensez à le demander."
+      }`
     );
 
     return true;
