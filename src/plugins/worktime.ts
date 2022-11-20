@@ -277,10 +277,10 @@ export const endWorktime = async (
 };
 
 const WorktimePlugin: DiscordPlugin = (client) => {
-  // delete all message from CHANNELS.ONRUNTIME.TEAM.WORKTIME channel on startup, dont forget to check if it's a text channel
+  // delete all message from CHANNELS.ONRUNTIME.TEAM.INFORMATION.WORKTIME channel on startup, dont forget to check if it's a text channel
   client.on(Events.ClientReady, async () => {
     const channel = await client.channels.cache.get(
-      CHANNELS.ONRUNTIME.TEAM.WORKTIME
+      CHANNELS.ONRUNTIME.TEAM.INFORMATION.WORKTIME
     );
     if (channel?.type === ChannelType.GuildText) {
       const textChannel = channel as TextChannel;
@@ -291,7 +291,7 @@ const WorktimePlugin: DiscordPlugin = (client) => {
       // appuyez sur le bouton Prise d'activité pour pointer votre arrivée
       // puis Fin d'activité pour pointer votre départ
       // veillez a bien vous connecter à un salon vocal pour que votre Prise d'activité soit bien prise en compte
-      // send this message to CHANNELS.ONRUNTIME.TEAM.WORKTIME channel as an embed message
+      // send this message to CHANNELS.ONRUNTIME.TEAM.INFORMATION.WORKTIME channel as an embed message
 
       const instructionEmbed = {
         color: Colors.White,

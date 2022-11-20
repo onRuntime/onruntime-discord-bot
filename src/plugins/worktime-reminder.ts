@@ -25,7 +25,7 @@ const WorktimeReminderPlugin: DiscordPlugin = (client) => {
           });
           if (!worktime) {
             await member.send(
-              `❌ - Vous semblez avoir oublié de pointer votre arrivée aujourd'hui (<#${CHANNELS.ONRUNTIME.TEAM.WORKTIME}>).`
+              `❌ - Vous semblez avoir oublié de pointer votre arrivée aujourd'hui (<#${CHANNELS.ONRUNTIME.TEAM.INFORMATION.WORKTIME}>).`
             );
             Log.info(
               `Sent reminder to ${member.user.username}#${member.user.discriminator} for not starting worktime`

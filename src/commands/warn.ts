@@ -72,12 +72,12 @@ const WarnCommand: DiscordCommand = {
 
         const warns = await Warn.find({ userId: target.id });
 
-        // send a message to the CHANNELS.ONRUNTIME.TEAM.WARN channel
+        // send a message to the CHANNELS.ONRUNTIME.TEAM.INFORMATION.WARN channel
         // with the target and the reason
 
-        // get all guilds to get the CHANNELS.ONRUNTIME.TEAM.WARN channel
+        // get all guilds to get the CHANNELS.ONRUNTIME.TEAM.INFORMATION.WARN channel
         await interaction.client.guilds.fetch();
-        // get the CHANNELS.ONRUNTIME.TEAM.WARN channel
+        // get the CHANNELS.ONRUNTIME.TEAM.INFORMATION.WARN channel
         const guilds = interaction.client.channels.cache;
         // dont use forEach because it's async and we need to wait for the result, so use map
         const channels = await Promise.all(
@@ -86,10 +86,10 @@ const WarnCommand: DiscordCommand = {
             return channel;
           })
         );
-        // get the CHANNELS.ONRUNTIME.TEAM.WARN channel
+        // get the CHANNELS.ONRUNTIME.TEAM.INFORMATION.WARN channel
         const channel = channels.find(
           (channel) =>
-            channel.id === CHANNELS.ONRUNTIME.TEAM.WARN &&
+            channel.id === CHANNELS.ONRUNTIME.TEAM.INFORMATION.WARN &&
             channel.type === ChannelType.GuildText
         ) as TextChannel;
 

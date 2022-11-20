@@ -8,7 +8,7 @@ import APP from "../constants/main";
 import CHANNELS from "../constants/channels";
 
 const WorktimeLeadboardPlugin: DiscordPlugin = (client) => {
-  // every sunday at midday, send a leaderboard in CHANNELS.ONRUNTIME.TEAM.LEADERBOARD
+  // every sunday at midday, send a leaderboard in CHANNELS.ONRUNTIME.TEAM.INFORMATION.LEADERBOARD
   schedule.scheduleJob("0 12 * * 0", async () => {
     // schedule.scheduleJob("* * * * *", async () => { // <-- for testing
     // end everyone worktime
@@ -67,9 +67,9 @@ const WorktimeLeadboardPlugin: DiscordPlugin = (client) => {
       },
     };
 
-    // send the leaderboard embed to CHANNELS.ONRUNTIME.TEAM.LEADERBOARD
+    // send the leaderboard embed to CHANNELS.ONRUNTIME.TEAM.INFORMATION.LEADERBOARD
     const channel = client.channels.cache.get(
-      CHANNELS.ONRUNTIME.TEAM.LEADERBOARD
+      CHANNELS.ONRUNTIME.TEAM.INFORMATION.LEADERBOARD
     );
 
     // if channel is guildtext channel
