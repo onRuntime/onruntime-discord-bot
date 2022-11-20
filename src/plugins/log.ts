@@ -84,7 +84,7 @@ const LogPlugin: DiscordPlugin = (client) => {
   });
 
   // handle when someone change the nickname of someone
-  client.on("guildMemberUpdate", (oldMember, newMember) => {
+  client.on(Events.GuildMemberUpdate, (oldMember, newMember) => {
     if (oldMember.nickname === newMember.nickname) return;
     Log.info(
       `**${newMember.guild.name}**`,

@@ -1,7 +1,10 @@
 import { PermissionFlagsBits, SlashCommandBuilder } from "discord.js";
+import QUOTAS from "../constants/quotas";
 import Worktime from "../models/Worktime";
+import { getUserStatusId } from "../plugins/worktime";
 import { DiscordCommand } from "../types/command";
 import Log from "../utils/log";
+import progressIndicator from "../utils/progressIndicator";
 
 const WorktimeCommand: DiscordCommand = {
   data: new SlashCommandBuilder()
@@ -12,10 +15,16 @@ const WorktimeCommand: DiscordCommand = {
         .setName("command")
         .setDescription("La commande à exécuter")
         .setRequired(true)
-        .addChoices({
-          name: "Annuler la prise d'activité d'un utilisateur",
-          value: "cancel",
-        })
+        .addChoices(
+          {
+            name: "Obtenir des informations sur le temps de travail",
+            value: "info",
+          },
+          {
+            name: "Annuler la prise d'activité d'un utilisateur",
+            value: "cancel",
+          }
+        )
     )
     .addUserOption((option) =>
       option
@@ -28,6 +37,104 @@ const WorktimeCommand: DiscordCommand = {
     const target = interaction.options.getUser("target");
 
     switch (command) {
+      case "info":
+        if (!target) {
+          const worktimes = await Worktime.find({
+            userId: interaction.user.id,
+          });
+
+          if (worktimes.length === 0) {
+            await interaction.reply(
+              "Vous n'avez pas encore travaillé cette semaine."
+            );
+          } else {
+            // get the total worktime even if the worktime is in progress
+            const totalWorktime = worktimes.reduce(
+              (total, worktime) =>
+                total +
+                (worktime.endAt
+                  ? worktime.endAt.getTime() - worktime.startAt.getTime()
+                  : Date.now() - worktime.startAt.getTime()),
+              0
+            );
+
+            const statusId = await getUserStatusId(
+              interaction.client,
+              interaction.user
+            );
+            // convert totalWorktime to hours
+            const totalWorktimeInHours = totalWorktime / 1000 / 60 / 60;
+            // percentage of the totalWorktimeInHours compared to the quota
+            const percentage = statusId
+              ? (totalWorktimeInHours / QUOTAS[statusId]) * 100
+              : 0;
+
+            await interaction.reply(
+              `⏳ - Vous avez passé ${Math.floor(
+                totalWorktime / 1000 / 60 / 60
+              )}h ${Math.floor(
+                (totalWorktime / 1000 / 60) % 60
+              )}min à travailler cette semaine - ${
+                // percentage of total work based on totalWorktime and QUOTAS[getUserStatus(user)],
+                statusId
+                  ? progressIndicator(percentage)
+                  : "Vous n'avez pas de rôle d'employé, pensez à le demander."
+              }`
+            );
+          }
+        } else {
+          if (
+            interaction.memberPermissions?.has(
+              PermissionFlagsBits.Administrator
+            )
+          ) {
+            const worktimes = await Worktime.find({
+              userId: target.id,
+            });
+
+            if (worktimes.length === 0) {
+              await interaction.reply(
+                `${target.username} n'a pas encore travaillé cette semaine.`
+              );
+            } else {
+              // get the total worktime even if the worktime is in progress
+              const totalWorktime = worktimes.reduce(
+                (total, worktime) =>
+                  total +
+                  (worktime.endAt
+                    ? worktime.endAt.getTime() - worktime.startAt.getTime()
+                    : Date.now() - worktime.startAt.getTime()),
+                0
+              );
+
+              const statusId = await getUserStatusId(
+                interaction.client,
+                target
+              );
+              // convert totalWorktime to hours
+              const totalWorktimeInHours = totalWorktime / 1000 / 60 / 60;
+              // percentage of the totalWorktimeInHours compared to the quota
+              const percentage = statusId
+                ? (totalWorktimeInHours / QUOTAS[statusId]) * 100
+                : 0;
+
+              await interaction.reply(
+                `⏳ - ${target.username} a passé ${Math.floor(
+                  totalWorktime / 1000 / 60 / 60
+                )}h ${Math.floor(
+                  (totalWorktime / 1000 / 60) % 60
+                )}min à travailler cette semaine - ${
+                  // percentage of total work based on totalWorktime and QUOTAS[getUserStatus(user)],
+                  statusId
+                    ? progressIndicator(percentage)
+                    : "Cet utilisateur n'a pas de rôle d'employé."
+                }`
+              );
+            }
+          }
+        }
+
+        break;
       case "cancel":
         if (
           interaction.memberPermissions?.has(PermissionFlagsBits.Administrator)
@@ -67,12 +174,12 @@ const WorktimeCommand: DiscordCommand = {
             "❌ - Vous n'avez pas les permissions nécessaires pour effectuer cette commande."
           );
         }
-
-        setTimeout(async () => {
-          await interaction.deleteReply();
-        }, 5000);
         break;
     }
+
+    setTimeout(async () => {
+      await interaction.deleteReply();
+    }, 5000);
   },
 };
 
