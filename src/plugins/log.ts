@@ -91,6 +91,39 @@ const LogPlugin: DiscordPlugin = (client) => {
       `member **${newMember.user.username}#${newMember.user.discriminator}** changed nickname from **${oldMember.nickname}** to **${newMember.nickname}**`
     );
   });
+
+  // handle when someone react to a message
+  client.on(Events.MessageReactionAdd, (reaction, user) => {
+    if (user.bot) return;
+    Log.info(
+      `**${reaction.message.guild?.name}**`,
+      `member **${user.username}#${user.discriminator}** reacted to a message in <#${reaction.message.channel.id}> with ${reaction.emoji}`
+    );
+  });
+
+  // handle when someone remove a reaction from a message
+  client.on(Events.MessageReactionRemove, (reaction, user) => {
+    if (user.bot) return;
+    Log.info(
+      `**${reaction.message.guild?.name}**`,
+      `member **${user.username}#${user.discriminator}** removed a reaction from a message in <#${reaction.message.channel.id}> with ${reaction.emoji}`
+    );
+  });
+
+  // handle when someone use a slash command
+  client.on(Events.InteractionCreate, (interaction) => {
+    if (interaction.isCommand()) {
+      Log.info(
+        `**${interaction.guild?.name}**`,
+        `member **${interaction.user.username}#${interaction.user.discriminator}** excuted the command ` +
+          "``" +
+          `/${interaction.commandName} ${interaction.options.data
+            .map((option) => option.value)
+            .join(" ")}` +
+          "``"
+      );
+    }
+  });
 };
 
 export default LogPlugin;
