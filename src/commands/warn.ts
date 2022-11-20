@@ -96,7 +96,11 @@ const WarnCommand: DiscordCommand = {
         const warnEmbed = {
           color: Colors.Red,
           title: "Warn (Beta)",
-          description: `**${target}** a reçu un avertissement et à maintenant **${warns.length}** avertissements.\nRaison: *${reason}*`,
+          description: `**${target}** a reçu un avertissement et à maintenant **${
+            warns.length
+          }** avertissement${
+            warns.length > 1 ? "s" : ""
+          }.\nRaison: *${reason}*`,
           footer: {
             text: APP.NAME,
             icon_url: APP.LOGO,
