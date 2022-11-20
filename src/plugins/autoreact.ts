@@ -20,7 +20,9 @@ const AutoReactPlugin: DiscordPlugin = (client) => {
     }
 
     // check if Channel is CHANNELS.ONRUNTIME.TEAM.INFORMATION.LEADERBOARD
-    if (message.channel.id === CHANNELS.ONRUNTIME.TEAM.INFORMATION.LEADERBOARD) {
+    if (
+      message.channel.id === CHANNELS.ONRUNTIME.TEAM.INFORMATION.LEADERBOARD
+    ) {
       // add reaction to message
       message.react("👏");
     }
