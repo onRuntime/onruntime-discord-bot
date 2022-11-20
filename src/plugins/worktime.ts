@@ -297,13 +297,13 @@ const WorktimePlugin: DiscordPlugin = (client) => {
         color: Colors.White,
         title: "Worktime (Beta)",
         description:
-          "Pointage des heures des membres de l'équipe\n\n" +
+          "Pointage des heures des membres de l'équipe.\n\n" +
           "**Prise d'activité**\n" +
-          "Appuyez sur le bouton Prise d'activité pour pointer votre arrivée\n\n" +
+          "Appuyez sur le bouton **Prise d'activité** pour pointer votre arrivée.\n\n" +
           "**Fin d'activité**\n" +
-          "Appuyez sur le bouton Fin d'activité pour pointer votre départ\n\n" +
+          "Appuyez sur le bouton **Fin d'activité** pour pointer votre départ.\n\n" +
           "**Attention**\n" +
-          "Veillez à bien vous connecter à un salon vocal **Work** pour que votre Prise d'activité soit bien prise en compte",
+          "Veillez à bien vous connecter à un salon vocal **Work** pour que votre prise d'activité soit bien prise en compte.",
         footer: {
           text: `Merci à vous et bon courage - ${APP.NAME}`,
           icon_url: APP.LOGO,
