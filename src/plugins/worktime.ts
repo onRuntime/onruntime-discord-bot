@@ -285,7 +285,6 @@ const WorktimePlugin: DiscordPlugin = (client) => {
     if (channel?.type === ChannelType.GuildText) {
       const textChannel = channel as TextChannel;
       const messages = await textChannel.messages.fetch();
-      messages.forEach(async (message) => await message.delete());
 
       // worktime sert a pointé les heures des membres de l'équipe
       // appuyez sur le bouton Prise d'activité pour pointer votre arrivée
@@ -295,7 +294,7 @@ const WorktimePlugin: DiscordPlugin = (client) => {
 
       const instructionEmbed = {
         color: Colors.White,
-        title: "Worktime (Beta)",
+        title: "Worktime",
         description:
           "Pointage des heures des membres de l'équipe.\n\n" +
           "**Prise d'activité**\n" +
@@ -310,63 +309,77 @@ const WorktimePlugin: DiscordPlugin = (client) => {
         },
       };
 
-      // add buttons to the embed message
-      textChannel.send({
-        embeds: [instructionEmbed],
-        components: [
-          {
-            type: 1,
-            components: [
-              {
-                type: 2,
-                style: ButtonStyle.Primary,
-                label: "✨ Prise d'activité",
-                custom_id: "worktime_start",
-              },
-              {
-                type: 2,
-                style: ButtonStyle.Danger,
-                label: "🚪 Fin d'activité",
-                custom_id: "worktime_end",
-              },
-            ],
-          },
-        ],
-      });
+      // check if textChannel as already a message with the same content
+      const messagesWithSameContent = messages.filter(
+        (message) =>
+          message.embeds[0]?.description === instructionEmbed.description &&
+          message.embeds[0]?.title === instructionEmbed.title
+      );
+
+      if (messagesWithSameContent.size === 0) {
+        // add buttons to the embed message
+        await Promise.all(
+          messages.map(async (message) => await message.delete())
+        );
+
+        textChannel.send({
+          embeds: [instructionEmbed],
+          components: [
+            {
+              type: 1,
+              components: [
+                {
+                  type: 2,
+                  style: ButtonStyle.Primary,
+                  label: "✨ Prise d'activité",
+                  custom_id: "worktime_start",
+                },
+                {
+                  type: 2,
+                  style: ButtonStyle.Danger,
+                  label: "🚪 Fin d'activité",
+                  custom_id: "worktime_end",
+                },
+              ],
+            },
+          ],
+        });
+      }
     }
   });
 
   client.on(Events.InteractionCreate, async (interaction) => {
     if (!interaction.isButton()) return;
+    if (!interaction.customId.startsWith("worktime_")) return;
 
     // check if the button has the custom id worktime_start
     switch (interaction.customId) {
       case "worktime_start":
         // validate interaction and delete
         if (await isInWorkVoiceChannel(client, interaction.user.id)) {
-          interaction.deferReply();
+          await interaction.deferReply();
 
-          startWorktime(client, interaction.user.id);
+          await startWorktime(client, interaction.user.id);
 
-          interaction.deleteReply();
+          await interaction.deleteReply();
         } else {
-          interaction.reply(
+          await interaction.reply(
             "❌ - Vous devez être connecté à un salon vocal **Work**"
           );
 
-          setTimeout(() => {
-            interaction.deleteReply();
+          setTimeout(async () => {
+            await interaction.deleteReply();
           }, 5000);
         }
 
         break;
 
       case "worktime_end":
-        interaction.deferReply();
+        await interaction.deferReply();
 
-        endWorktime(client, interaction.user.id);
+        await endWorktime(client, interaction.user.id);
 
-        interaction.deleteReply();
+        await interaction.deleteReply();
         break;
     }
   });
