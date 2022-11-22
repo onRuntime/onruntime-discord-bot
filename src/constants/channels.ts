@@ -1,5 +1,8 @@
 const CHANNELS = {
   ONRUNTIME: {
+    INFORMATION: {
+      SUPPORT: "1044332801849303062",
+    },
     TEAM: {
       INFORMATION: {
         IMPORTANT: "831519996323954739",
@@ -10,6 +13,12 @@ const CHANNELS = {
       ADMIN: {
         LOGS: "1034880826682388530",
       },
+    },
+    SUPPORT: {
+      _ID: "819361351905706004",
+    },
+    ARCHIVES: {
+      _ID: "1044385234696814693",
     },
   },
   TONIGHTPASS: {
