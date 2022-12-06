@@ -45,9 +45,11 @@ const WorktimeLeadboardPlugin: DiscordPlugin = (client) => {
       description:
         `Voici le classement des membres de l'équipe pour la semaine du ${dayjs()
           .subtract(1, "week")
+          .add(1, "day")
           .startOf("week")
           .format("DD/MM/YYYY")} au ${dayjs()
           .subtract(1, "week")
+          .add(1, "day")
           .endOf("week")
           .format("DD/MM/YYYY")}\n\n` +
         Array.from(sortedWorktimeMap.entries())
