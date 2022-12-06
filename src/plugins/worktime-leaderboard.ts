@@ -51,13 +51,12 @@ const WorktimeLeadboardPlugin: DiscordPlugin = (client) => {
           .endOf("week")
           .format("DD/MM/YYYY")}\n\n` +
         Array.from(sortedWorktimeMap.entries())
-          .map(([userId, totalWorktime], index) => {
-            const user = client.users.cache.get(userId);
+          .map(async ([userId, totalWorktime], index) => {
             return `${index + 1}. ${Math.floor(
               totalWorktime / 1000 / 60 / 60
-            )}h ${Math.floor((totalWorktime / 1000 / 60) % 60)}min - **${
-              user ? user.username : "Utilisateur inconnu"
-            }**`;
+            )}h ${Math.floor(
+              (totalWorktime / 1000 / 60) % 60
+            )}min - <@${userId}>`;
           })
           .join("\n"),
 
