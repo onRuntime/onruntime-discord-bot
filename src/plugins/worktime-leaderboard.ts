@@ -44,7 +44,7 @@ const WorktimeLeadboardPlugin: DiscordPlugin = (client) => {
     // create the leaderboard embed
     const leaderboardEmbed = {
       color: Colors.White,
-      title: "Leaderboard (Beta)",
+      title: "Leaderboard",
       description:
         `Voici le classement des membres de l'équipe pour la semaine du ${dayjs()
           .subtract(1, "week")
