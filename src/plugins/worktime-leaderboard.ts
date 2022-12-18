@@ -9,8 +9,9 @@ import CHANNELS from "../constants/channels";
 
 const WorktimeLeadboardPlugin: DiscordPlugin = (client) => {
   // every sunday at midday, send a leaderboard in CHANNELS.ONRUNTIME.TEAM.INFORMATION.LEADERBOARD
-  schedule.scheduleJob("0 12 * * 0", async () => {
-    // schedule.scheduleJob("* * * * *", async () => { // <-- for testing
+  // schedule.scheduleJob("0 12 * * 0", async () => {
+  schedule.scheduleJob("* * * * *", async () => {
+    // <-- for testing
     // end everyone worktime
     const inProgressWorktimes = await Worktime.find({
       endAt: null,
@@ -25,13 +26,16 @@ const WorktimeLeadboardPlugin: DiscordPlugin = (client) => {
 
     // create a map with the total worktime of each user
     const worktimeMap = new Map<string, number>();
-    worktimes.forEach((worktime) => {
-      const totalWorktime = worktimeMap.get(worktime.userId) || 0;
-      worktimeMap.set(
-        worktime.userId,
-        totalWorktime + dayjs(worktime.endAt).diff(dayjs(worktime.startAt))
-      );
-    });
+    // dont use forEach because it's async and we need to wait for the result, so use map
+    await Promise.all(
+      worktimes.map(async (worktime) => {
+        const totalWorktime = worktimeMap.get(worktime.userId) || 0;
+        worktimeMap.set(
+          worktime.userId,
+          totalWorktime + dayjs(worktime.endAt).diff(dayjs(worktime.startAt))
+        );
+      })
+    );
 
     // sort the map by total worktime
     const sortedWorktimeMap = new Map(
@@ -45,23 +49,15 @@ const WorktimeLeadboardPlugin: DiscordPlugin = (client) => {
       description:
         `Voici le classement des membres de l'équipe pour la semaine du ${dayjs()
           .subtract(1, "week")
-          .add(1, "day")
-          .startOf("week")
-          .format("DD/MM/YYYY")} au ${dayjs()
-          .subtract(1, "week")
-          .add(1, "day")
-          .endOf("week")
-          .format("DD/MM/YYYY")}\n\n` +
-        Array.from(sortedWorktimeMap.entries())
-          .map(async ([userId, totalWorktime], index) => {
-            return `${index + 1}. ${Math.floor(
-              totalWorktime / 1000 / 60 / 60
-            )}h ${Math.floor(
-              (totalWorktime / 1000 / 60) % 60
-            )}min - <@${userId}>`;
-          })
+          .format("DD/MM/YYYY")} au ${dayjs().format("DD/MM/YYYY")}\n\n` +
+        [...sortedWorktimeMap.entries()]
+          .map(
+            ([userId, totalWorktime], index) =>
+              `${index + 1}. ${dayjs(totalWorktime)
+                .subtract(1, "hour")
+                .format("HH[h]mm")} - <@${userId}>`
+          )
           .join("\n"),
-
       footer: {
         text: APP.NAME,
         icon_url: APP.LOGO,
