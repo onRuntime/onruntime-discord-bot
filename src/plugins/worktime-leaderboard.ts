@@ -9,9 +9,8 @@ import CHANNELS from "../constants/channels";
 
 const WorktimeLeadboardPlugin: DiscordPlugin = (client) => {
   // every sunday at midday, send a leaderboard in CHANNELS.ONRUNTIME.TEAM.INFORMATION.LEADERBOARD
-  // schedule.scheduleJob("0 12 * * 0", async () => {
-  schedule.scheduleJob("* * * * *", async () => {
-    // <-- for testing
+  schedule.scheduleJob("0 12 * * 0", async () => {
+    // schedule.scheduleJob("* * * * *", async () => { <-- for testing
     // end everyone worktime
     const inProgressWorktimes = await Worktime.find({
       endAt: null,
