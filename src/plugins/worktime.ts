@@ -20,11 +20,10 @@ import Worktime from "../models/Worktime";
 import ROLES from "../constants/roles";
 import progressIndicator from "../utils/progressIndicator";
 import QUOTAS from "../constants/quotas";
+import * as sd from "simple-duration";
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
-
-const tz = "Europe/Paris";
 
 export const isInWorkVoiceChannel = async (
   client: Client<boolean>,
@@ -179,7 +178,7 @@ export const startWorktime = async (
     // if the user has already started his worktime, send a message to the user
     user.send(
       `❌ - Vous avez déjà commencé votre activité à ${dayjs(worktime.startAt)
-        .tz(tz)
+        .tz(APP.TIMEZONE)
         .format("HH:mm")}`
     );
   } else {
@@ -191,12 +190,12 @@ export const startWorktime = async (
 
     user.send(
       `✅ - Votre prise d'activité a été validée à ${dayjs()
-        .tz(tz)
+        .tz(APP.TIMEZONE)
         .format("HH:mm")}`
     );
     Log.info(
       `✅ - Prise d'activité validée à ${dayjs()
-        .tz(tz)
+        .tz(APP.TIMEZONE)
         .format("HH:mm")} par **${user.username}#${user.discriminator}**`
     );
   }
@@ -242,7 +241,7 @@ export const endWorktime = async (
 
     user.send(
       `✅ - Votre fin d'activité a été validée à ${dayjs()
-        .tz(tz)
+        .tz(APP.TIMEZONE)
         .format("HH:mm")} - Vous avez passé ${Math.floor(
         totalWorktime / 1000 / 60 / 60
       )}h${Math.floor(
@@ -255,11 +254,13 @@ export const endWorktime = async (
       }`
     );
     Log.info(
-      `✅ - Fin d'activité validée à ${dayjs().tz(tz).format("HH:mm")} par **${
-        user.username
-      }#${user.discriminator}** - ${Math.floor(
-        totalWorktime / 1000 / 60 / 60
-      )}h${Math.floor((totalWorktime / 1000 / 60) % 60)}min - ${
+      `✅ - Fin d'activité validée à ${dayjs()
+        .tz(APP.TIMEZONE)
+        .format("HH:mm")} par **${user.username}#${
+        user.discriminator
+      }** - ${Math.floor(totalWorktime / 1000 / 60 / 60)}h${Math.floor(
+        (totalWorktime / 1000 / 60) % 60
+      )}min - ${
         // percentage of total work based on totalWorktime and QUOTAS[getUserStatus(user)],
         statusId
           ? progressIndicator(percentage)
@@ -274,6 +275,43 @@ export const endWorktime = async (
 
     return false;
   }
+};
+
+export const addWorktime = async (
+  client: Client,
+  userId: string | undefined,
+  duration: string
+) => {
+  if (!userId) return;
+
+  // parse duration
+  const durationInSeconds = sd.parse(duration);
+
+  await Worktime.create({
+    // avoid adding 1h more because of the timezone with dayjs
+    startAt: dayjs()
+      .tz(APP.TIMEZONE)
+      .subtract(durationInSeconds, "seconds")
+      .toDate(),
+    endAt: dayjs().tz(APP.TIMEZONE).toDate(),
+    userId: userId,
+  });
+  console.log(
+    durationInSeconds,
+    dayjs()
+      .tz(APP.TIMEZONE)
+      .subtract(durationInSeconds, "seconds")
+      .format("HH[h]mm"),
+    dayjs().tz(APP.TIMEZONE).format("HH[h]mm")
+  );
+
+  const user = await client.users.fetch(userId);
+
+  // send the duration added
+  await user.send(`✅ - Votre quota a été augmenté de ${duration}`);
+  Log.info(
+    `✅ - Quota de **${user.username}#${user.discriminator}** augmenté de ${duration}`
+  );
 };
 
 const WorktimePlugin: DiscordPlugin = (client) => {

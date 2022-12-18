@@ -1,7 +1,7 @@
 import { PermissionFlagsBits, SlashCommandBuilder } from "discord.js";
 import QUOTAS from "../constants/quotas";
 import Worktime from "../models/Worktime";
-import { getUserStatusId } from "../plugins/worktime";
+import { getUserStatusId, addWorktime } from "../plugins/worktime";
 import { DiscordCommand } from "../types/command";
 import Log from "../utils/log";
 import progressIndicator from "../utils/progressIndicator";
@@ -23,6 +23,10 @@ const WorktimeCommand: DiscordCommand = {
           {
             name: "Annuler la prise d'activité d'un utilisateur",
             value: "cancel",
+          },
+          {
+            name: "Augmenter le quota d'un utilisateur",
+            value: "add",
           }
         )
     )
@@ -31,10 +35,17 @@ const WorktimeCommand: DiscordCommand = {
         .setName("target")
         .setDescription("Le membre à qui appliquer la commande")
         .setRequired(false)
+    )
+    .addStringOption((option) =>
+      option
+        .setName("duration")
+        .setDescription("La durée de l'activité")
+        .setRequired(false)
     ),
   async execute(interaction) {
     const command = interaction.options.getString("command");
     const target = interaction.options.getUser("target");
+    const duration = interaction.options.getString("duration");
 
     switch (command) {
       case "info":
@@ -175,6 +186,24 @@ const WorktimeCommand: DiscordCommand = {
           );
         }
         break;
+      case "add":
+        if (
+          interaction.memberPermissions?.has(PermissionFlagsBits.Administrator)
+        ) {
+          if (target && duration) {
+            await addWorktime(interaction.client, target.id, duration);
+            Log.info(
+              `✅ - La prise d'activité de **${target.username}#${target.discriminator}** a été augmenté par **${interaction.user.username}#${interaction.user.discriminator}**.`
+            );
+            await interaction.reply(
+              `✅ - La prise d'activité de ${target.username} a été augmenté de ${duration}.`
+            );
+          } else {
+            await interaction.reply(
+              "❌ - Vous devez spécifier une cible et une durée."
+            );
+          }
+        }
     }
 
     setTimeout(async () => {
