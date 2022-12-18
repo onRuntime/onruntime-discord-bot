@@ -23,7 +23,8 @@
     "fs": "^0.0.1-security",
     "mongoose": "^6.7.0",
     "node-schedule": "^2.1.0",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "simple-duration": "^1.1.0"
   },
   "devDependencies": {
     "@types/node": "^17.0.15",

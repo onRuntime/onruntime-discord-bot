@@ -2014,6 +2014,11 @@ lodash.uniqwith@^4.5.0:
   resolved "https://registry.yarnpkg.com/lodash.uniqwith/-/lodash.uniqwith-4.5.0.tgz#7a0cbf65f43b5928625a9d4d0dc54b18cadc7ef3"
   integrity sha512-7lYL8bLopMoy4CTICbxygAUq6CdRJ36vFc80DucPueUee+d5NBRxz3FdT9Pes/HEx5mPoT9jwnsEJWz1N7uq7Q==
 
+lodash@^4.17.15:
+  version "4.17.21"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
+  integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
+
 long-timeout@0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/long-timeout/-/long-timeout-0.1.1.tgz#9721d788b47e0bcb5a24c2e2bee1a0da55dab514"
@@ -2491,6 +2496,13 @@ signal-exit@^3.0.2:
   version "3.0.6"
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.6.tgz#24e630c4b0f03fea446a2bd299e62b4a6ca8d0af"
   integrity sha512-sDl4qMFpijcGw22U5w63KmD3cZJfBuFlVNbVMKje2keoKML7X2UzWbc4XrmEbDwg0NXJc3yv4/ox7b+JWb57kQ==
+
+simple-duration@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/simple-duration/-/simple-duration-1.1.0.tgz#cd351702205612021c13e857237210f3f961ce0a"
+  integrity sha512-fl1o+RDPcLhmEGXJtS9KucByLWS8e51TcbpAb9nV5/GMEbnMcuj9GlQSaP71rZZiEphJKeO2156qLIyW3ObKWw==
+  dependencies:
+    lodash "^4.17.15"
 
 slash@^3.0.0:
   version "3.0.0"
