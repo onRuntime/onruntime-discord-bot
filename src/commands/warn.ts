@@ -60,6 +60,8 @@ const WarnCommand: DiscordCommand = {
     const target = interaction.options.getUser("target");
     const reason = interaction.options.getString("reason");
 
+    await interaction.deferReply();
+
     if (interaction.memberPermissions?.has(PermissionFlagsBits.Administrator)) {
       if (target && reason) {
         const warn = new Warn({
