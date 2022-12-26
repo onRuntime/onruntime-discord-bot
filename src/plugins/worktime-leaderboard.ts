@@ -52,9 +52,9 @@ const WorktimeLeadboardPlugin: DiscordPlugin = (client) => {
         [...sortedWorktimeMap.entries()]
           .map(
             ([userId, totalWorktime], index) =>
-              `${index + 1}. ${dayjs(totalWorktime)
-                .subtract(1, "hour")
-                .format("HH[h]mm")} - <@${userId}>`
+              `${index + 1}. ${Math.floor(
+                totalWorktime / 1000 / 60 / 60
+              )}h${Math.floor((totalWorktime / 1000 / 60) % 60)} - <@${userId}>`
           )
           .join("\n"),
       footer: {
