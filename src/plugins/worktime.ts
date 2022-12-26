@@ -246,7 +246,7 @@ export const endWorktime = async (
         totalWorktime / 1000 / 60 / 60
       )}h${Math.floor(
         (totalWorktime / 1000 / 60) % 60
-      )}min à travailler cette semaine - ${
+      )} à travailler cette semaine - ${
         // percentage of total work based on totalWorktime and QUOTAS[getUserStatus(user)],
         statusId
           ? progressIndicator(percentage)
