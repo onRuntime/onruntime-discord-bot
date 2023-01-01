@@ -4,6 +4,7 @@ import Worktime from "../models/Worktime";
 import { getUserStatusId, addWorktime } from "../plugins/worktime";
 import { DiscordCommand } from "../types/command";
 import Log from "../utils/log";
+import pad from "../utils/pad";
 import progressIndicator from "../utils/progressIndicator";
 
 const WorktimeCommand: DiscordCommand = {
@@ -81,10 +82,12 @@ const WorktimeCommand: DiscordCommand = {
               : 0;
 
             await interaction.reply(
-              `⏳ - Vous avez passé ${Math.floor(
-                totalWorktime / 1000 / 60 / 60
-              )}h ${Math.floor(
-                (totalWorktime / 1000 / 60) % 60
+              `⏳ - Vous avez passé ${pad(
+                Math.floor(totalWorktime / 1000 / 60 / 60),
+                2
+              )}h${pad(
+                Math.floor((totalWorktime / 1000 / 60) % 60),
+                2
               )}min à travailler cette semaine - ${
                 // percentage of total work based on totalWorktime and QUOTAS[getUserStatus(user)],
                 statusId
@@ -130,10 +133,12 @@ const WorktimeCommand: DiscordCommand = {
                 : 0;
 
               await interaction.reply(
-                `⏳ - ${target.username} a passé ${Math.floor(
-                  totalWorktime / 1000 / 60 / 60
-                )}h ${Math.floor(
-                  (totalWorktime / 1000 / 60) % 60
+                `⏳ - ${target.username} a passé ${pad(
+                  Math.floor(totalWorktime / 1000 / 60 / 60),
+                  2
+                )}h ${pad(
+                  Math.floor((totalWorktime / 1000 / 60) % 60),
+                  2
                 )}min à travailler cette semaine - ${
                   // percentage of total work based on totalWorktime and QUOTAS[getUserStatus(user)],
                   statusId
