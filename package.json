@@ -15,16 +15,12 @@
     "docker:run": "docker run -p 8000:8000 expatsfacilities-api"
   },
   "dependencies": {
-    "chalk": "^4.1.1",
-    "dayjs": "^1.11.6",
-    "discord-webhook-node": "^1.1.8",
     "discord.js": "^14.8.0",
-    "dotenv-flow": "^3.2.0",
-    "fs": "^0.0.1-security",
-    "mongoose": "^6.7.0",
-    "node-schedule": "^2.1.0",
-    "path": "^0.12.7",
-    "simple-duration": "^1.1.0"
+    "dixt": "^2.1.2",
+    "dixt-plugin-logs": "^2.1.2",
+    "dixt-plugin-presence": "^1.0.1",
+    "dixt-plugin-react": "^2.1.2",
+    "dixt-plugin-twitch": "^1.1.7"
   },
   "devDependencies": {
     "@types/node": "^17.0.15",
