@@ -4,7 +4,7 @@ import ROLES from "../constants/roles";
 
 const dixtPluginTwitchOptions: DixtPluginTwitchOptions = {
   channel: CHANNELS.ONRUNTIME.INFORMATION.LIVES,
-  roles: [ROLES.ONRUNTIME.MEMBER],
+  roles: [ROLES.ONRUNTIME.TEAM],
 };
 
 export default dixtPluginTwitchOptions;
