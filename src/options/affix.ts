@@ -9,6 +9,9 @@ const dixtPluginAffixOptions: DixtPluginAffixOptions = {
     [ROLES.ONRUNTIME.DESIGNER]: "Designer",
     [ROLES.ONRUNTIME.COMMUNITY_MANAGER]: "CM",
   },
+  pattern: "%prefix% | %name% [%suffix%]",
+  prefixPattern: /(\S+)\s*\|/,
+  suffixPattern: /\[(\S+)\]$/,
 };
 
 export default dixtPluginAffixOptions;
