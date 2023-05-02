@@ -1,4 +1,5 @@
 import { DixtPluginAffixOptions } from "dixt-plugin-affix";
+
 import ROLES from "../constants/roles";
 
 const dixtPluginAffixOptions: DixtPluginAffixOptions = {

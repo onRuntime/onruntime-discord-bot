@@ -1,13 +1,16 @@
 import dixt from "dixt";
-import dixtPluginLogs from "dixt-plugin-logs";
 import dixtPluginAffix from "dixt-plugin-affix";
+import dixtPluginLogs from "dixt-plugin-logs";
 import dixtPluginPresence from "dixt-plugin-presence";
 import dixtPluginReact from "dixt-plugin-react";
 import dixtPluginTwitch from "dixt-plugin-twitch";
+import dixtPluginWorktime from "dixt-plugin-worktime";
+
+import dixtPluginAffixOptions from "./options/affix";
 import dixtPluginPresenceOptions from "./options/presence";
 import dixtPluginReactOptions from "./options/react";
 import dixtPluginTwitchOptions from "./options/twitch";
-import dixtPluginAffixOptions from "./options/affix";
+import dixtPluginWorktimeOptions from "./options/worktime";
 
 const main = async () => {
   const instance = new dixt({
@@ -21,6 +24,7 @@ const main = async () => {
       [dixtPluginReact, dixtPluginReactOptions],
       [dixtPluginPresence, dixtPluginPresenceOptions],
       [dixtPluginTwitch, dixtPluginTwitchOptions],
+      [dixtPluginWorktime, dixtPluginWorktimeOptions],
     ],
   });
 

@@ -1,4 +1,5 @@
 import { DixtPluginReactOptions } from "dixt-plugin-react";
+
 import CHANNELS from "../constants/channels";
 
 const dixtPluginReactOptions: DixtPluginReactOptions = {
