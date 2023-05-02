@@ -3,7 +3,7 @@ import { DixtPluginWorktimeOptions } from "dixt-plugin-worktime";
 import CHANNELS from "../constants/channels";
 import ROLES from "../constants/roles";
 
-const DixtPluginWorktimeOptions: DixtPluginWorktimeOptions = {
+const dixtPluginWorktimeOptions: DixtPluginWorktimeOptions = {
   channels: {
     main: [CHANNELS.ONRUNTIME.TEAM.INFORMATION.WORKTIME],
     leaderboard: CHANNELS.ONRUNTIME.TEAM.INFORMATION.LEADERBOARD,
@@ -16,4 +16,4 @@ const DixtPluginWorktimeOptions: DixtPluginWorktimeOptions = {
   },
 };
 
-export default DixtPluginWorktimeOptions;
+export default dixtPluginWorktimeOptions;
