@@ -5,7 +5,10 @@ import ROLES from "../constants/roles";
 
 const dixtPluginWorktimeOptions: DixtPluginWorktimeOptions = {
   channels: {
-    main: [CHANNELS.ONRUNTIME.TEAM.INFORMATION.WORKTIME],
+    main: [
+      CHANNELS.ONRUNTIME.TEAM.INFORMATION.WORKTIME,
+      CHANNELS.TONIGHTPASS.PRIVATE.WORKTIME,
+    ],
     leaderboard: CHANNELS.ONRUNTIME.TEAM.INFORMATION.LEADERBOARD,
     workChannelNames: ["Work", "Meeting"],
   },
