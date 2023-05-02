@@ -6,20 +6,30 @@ const dixtPluginReactOptions: DixtPluginReactOptions = {
   channels: [
     {
       id: CHANNELS.ONRUNTIME.TEAM.INFORMATION.IMPORTANT,
-      emoji: "✅",
+      emoji: "🟢",
     },
     {
       id: CHANNELS.TONIGHTPASS.PRIVATE.IMPORTANT,
-      emoji: "✅",
+      emoji: "🟢",
     },
     {
       id: CHANNELS.ONRUNTIME.TEAM.INFORMATION.IMPORTANT,
-      emoji: "❌",
+      emoji: "🟡",
       matchs: ["réunion"],
     },
     {
       id: CHANNELS.TONIGHTPASS.PRIVATE.IMPORTANT,
-      emoji: "❌",
+      emoji: "🟡",
+      matchs: ["réunion"],
+    },
+    {
+      id: CHANNELS.ONRUNTIME.TEAM.INFORMATION.IMPORTANT,
+      emoji: "🔴",
+      matchs: ["réunion"],
+    },
+    {
+      id: CHANNELS.TONIGHTPASS.PRIVATE.IMPORTANT,
+      emoji: "🔴",
       matchs: ["réunion"],
     },
     {
