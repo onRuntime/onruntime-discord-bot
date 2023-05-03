@@ -22,7 +22,7 @@
     "dixt-plugin-presence": "^1.0.1",
     "dixt-plugin-react": "^2.1.2",
     "dixt-plugin-twitch": "^1.1.7",
-    "dixt-plugin-worktime": "^2.1.2"
+    "dixt-plugin-worktime": "^2.1.3"
   },
   "devDependencies": {
     "@types/node": "^17.0.15",

@@ -982,10 +982,10 @@ dixt-plugin-twitch@^1.1.7:
     dixt "2.1.2"
     dotenv-flow "^3.2.0"
 
-dixt-plugin-worktime@^2.1.2:
-  version "2.1.2"
-  resolved "https://registry.yarnpkg.com/dixt-plugin-worktime/-/dixt-plugin-worktime-2.1.2.tgz#aa013bb9f58ad9d90f15770f5db7bcdd27564fc1"
-  integrity sha512-kDAbwIIhA+FineCB0Nc0foiBJ11uJDa41ILDoffQuYHrQTv/Q89NXem9rjAdtTu8jlvi1JZv5G0ZPK3zpjv54Q==
+dixt-plugin-worktime@^2.1.3:
+  version "2.1.3"
+  resolved "https://registry.yarnpkg.com/dixt-plugin-worktime/-/dixt-plugin-worktime-2.1.3.tgz#b94846de83da06fc514ce86ab45c80de2d2a8bd0"
+  integrity sha512-eFrkkfEHH2Eeb1QVOlirgtjCRqopq2wdOFR9SZ3NA7CbXP84r1Mk3EGPg6UH47jd/OHl+XqbYgJuOY//M9Femg==
   dependencies:
     chart.js "^4.2.1"
     chartjs-to-image "^1.1.0"
