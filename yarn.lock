@@ -513,13 +513,6 @@ axe-core@^4.6.2:
   resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-4.7.0.tgz#34ba5a48a8b564f67e103f0aa5768d76e15bbbbf"
   integrity sha512-M0JtH+hlOL5pLQwHOLNYZaXuhqmvS8oExsqB1SBYgA4Dk7u/xx+YdGHXaK5pyUfed5mYXdlYiphWq3G8cRi5JQ==
 
-axios@^0.24.0:
-  version "0.24.0"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-0.24.0.tgz#804e6fa1e4b9c5288501dd9dff56a7a0940d20d6"
-  integrity sha512-Q6cWsys88HoPgAaFAVUb0WpPk0O8iTeisR9IMqy9G8AbO4NlpVknrnQS03zzF9PGAWgO3cgletO3VjV/P7VztA==
-  dependencies:
-    follow-redirects "^1.14.4"
-
 axobject-query@^3.1.1:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/axobject-query/-/axobject-query-3.1.1.tgz#3b6e5c6d4e43ca7ba51c5babf99d22a9c68485e1"
@@ -592,14 +585,6 @@ chart.js@^4.2.1:
   dependencies:
     "@kurkle/color" "^0.3.0"
 
-chartjs-to-image@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/chartjs-to-image/-/chartjs-to-image-1.1.0.tgz#402ecfb86730c21322bc915252db455332b66bb5"
-  integrity sha512-F20qRkAZA42XOU0Ipc/hUVmk06cO59pueeqbVSlJKSvTlTKR67HV8DUuZupCCyusQ9VkXIoiwg39iYIjzI+RcQ==
-  dependencies:
-    axios "^0.24.0"
-    javascript-stringify "^2.1.0"
-
 chokidar@^3.5.2:
   version "3.5.2"
   resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-3.5.2.tgz#dba3976fcadb016f66fd365021d91600d01c1e75"
@@ -650,6 +635,13 @@ cron-parser@^4.2.0:
   integrity sha512-jbokKWGcyU4gl6jAfX97E1gDpY12DJ1cLJZmoDzaAln/shZ+S3KBFBuA2Q6WeUN4gJf/8klnV1EfvhA2lK5IRQ==
   dependencies:
     luxon "^3.2.1"
+
+cross-fetch@^3.1.5:
+  version "3.1.5"
+  resolved "https://registry.yarnpkg.com/cross-fetch/-/cross-fetch-3.1.5.tgz#e1389f44d9e7ba767907f7af8454787952ab534f"
+  integrity sha512-lvb1SBsI0Z7GDwmuid+mU3kWVBwTVUbe7S0H52yaaAdQOXq2YktTCZdlAcNKFzE6QtRz0snpw9bNiPeOIkkQvw==
+  dependencies:
+    node-fetch "2.6.7"
 
 cross-spawn@^7.0.2, cross-spawn@^7.0.3:
   version "7.0.3"
@@ -823,18 +815,18 @@ dixt-plugin-twitch@^1.1.9:
     dixt "2.1.4"
     dotenv-flow "^3.2.0"
 
-dixt-plugin-worktime@^2.1.5:
-  version "2.1.5"
-  resolved "https://registry.yarnpkg.com/dixt-plugin-worktime/-/dixt-plugin-worktime-2.1.5.tgz#5c739be24e990a3fe29e9e39b37174c2f8674736"
-  integrity sha512-W8EhQui7behITK+MBTFI70o7IfBYZFteOwjGrTpfHgGgtbVCRyKO5YgNbEGV9MoqdGu13oPHqpoEvK82WCD6NA==
+dixt-plugin-worktime@^2.1.7:
+  version "2.1.7"
+  resolved "https://registry.yarnpkg.com/dixt-plugin-worktime/-/dixt-plugin-worktime-2.1.7.tgz#17046ce29edcdd324e945edb5b7132f3e8047946"
+  integrity sha512-lVe5wZ2Ptabep81YcBiFzp9ZyD733ckOEsMfXz6lZ7mUxeJfcLC/DgcaVXeBsZudRzZxQZsbDksloqqi2KszAA==
   dependencies:
     chart.js "^4.2.1"
-    chartjs-to-image "^1.1.0"
     dayjs "^1.11.7"
     discord.js "^14.9.0"
-    dixt "2.1.3"
+    dixt "2.1.5"
     dotenv-flow "^3.2.0"
     node-schedule "^2.1.1"
+    quickchart-js "^3.1.2"
 
 dixt@2.1.3:
   version "2.1.3"
@@ -1411,11 +1403,6 @@ flatted@^3.1.0:
   version "3.2.4"
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-3.2.4.tgz#28d9969ea90661b5134259f312ab6aa7929ac5e2"
   integrity sha512-8/sOawo8tJ4QOBX8YlQBMxL8+RLZfxMQOif9o0KUKTNTjMYElWPE0r/m5VNFxTRd0NSw8qSy8dajrwX4RYI1Hw==
-
-follow-redirects@^1.14.4:
-  version "1.15.2"
-  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.15.2.tgz#b460864144ba63f2681096f274c4e57026da2c13"
-  integrity sha512-VQLG33o04KaQ8uYi2tVNbdrWp1QWxNNea+nmIB4EVM28v0hmP17z7aG1+wAkNzVq4KeXTq3221ye5qTJP91JwA==
 
 for-each@^0.3.3:
   version "0.3.3"
@@ -2111,7 +2098,7 @@ natural-compare@^1.4.0:
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
   integrity sha1-Sr6/7tdUHywnrPspvbvRXI1bpPc=
 
-node-fetch@^2.6.0:
+node-fetch@2.6.7, node-fetch@^2.6.0:
   version "2.6.7"
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.7.tgz#24de9fba827e3b4ae44dc8b20256a379160052ad"
   integrity sha512-ZjMPFEfVx5j+y2yF35Kzx5sF7kDzxuDj6ziH4FFbOp87zKDZNx8yExJIb05OGF4Nlt9IHFIMBkRl41VdvcNdbQ==
@@ -2385,6 +2372,14 @@ queue-microtask@^1.2.2:
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/queue-microtask/-/queue-microtask-1.2.3.tgz#4929228bbc724dfac43e0efb058caf7b6cfb6243"
   integrity sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==
+
+quickchart-js@^3.1.2:
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/quickchart-js/-/quickchart-js-3.1.2.tgz#cd36e77d0baa7560e79f91f67ad1c1a086ccfdd8"
+  integrity sha512-UnKsrdfoC7sRNIIEA6VJn9zzrJXmN/hU6hb83VmjnSSOkOmQbUqdN4z+PhpGgzRHIOCbb1jwgvo7YZLrQMzfGw==
+  dependencies:
+    cross-fetch "^3.1.5"
+    javascript-stringify "^2.1.0"
 
 react-is@^16.13.1:
   version "16.13.1"
