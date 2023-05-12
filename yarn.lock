@@ -784,15 +784,16 @@ dixt-plugin-affix@^1.0.1:
     discord.js "^14.9.0"
     dixt "2.1.3"
 
-dixt-plugin-logs@^2.1.3:
-  version "2.1.3"
-  resolved "https://registry.yarnpkg.com/dixt-plugin-logs/-/dixt-plugin-logs-2.1.3.tgz#67bf7e593cafebeb80d468d381a21fe510da2878"
-  integrity sha512-ssFJOTl8JSXjt+oqBlvMgHseo0dti7FiAA3KAwPzERyZWQe/eh2F7h3Pm/r01e74gKG3eeL/5/IDl16sBlT6Qw==
+dixt-plugin-logs@^2.1.5:
+  version "2.1.5"
+  resolved "https://registry.yarnpkg.com/dixt-plugin-logs/-/dixt-plugin-logs-2.1.5.tgz#70b036882718015c10da2dc8853b4c67781ab01e"
+  integrity sha512-q2durotfrtSloMTCq6IXy/Ne/Fzq/l16rwbGIzemS0Yw6uoMvviGEohrT0hJrwd3bMqcEh8n7BTOmC9qOnkfKw==
   dependencies:
     discord-webhook-node "^1.1.8"
     discord.js "^14.9.0"
-    dixt "2.1.3"
+    dixt "2.1.4"
     dotenv-flow "^3.2.0"
+    p-queue "^7.3.4"
 
 dixt-plugin-presence@^1.0.3:
   version "1.0.3"
@@ -1312,6 +1313,11 @@ esutils@^2.0.2:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/esutils/-/esutils-2.0.3.tgz#74d2eb4de0b8da1293711910d50775b9b710ef64"
   integrity sha512-kVscqXk4OCp68SZ0dkgEKVi6/8ij300KBWTJq32P/dYeWTSwK41WyTxalN1eRmA5Z9UU/LX9D7FWSmV9SAYx6g==
+
+eventemitter3@^4.0.7:
+  version "4.0.7"
+  resolved "https://registry.yarnpkg.com/eventemitter3/-/eventemitter3-4.0.7.tgz#2de9b68f6528d5644ef5c59526a1b4a07306169f"
+  integrity sha512-8guHBZCwKnFhYdHr2ysuRWErTwhoN2X8XELRlrRwpmfeY2jjuUN4taQMsULKUVo1K4DvZl+0pgfyoysHxvmvEw==
 
 fast-deep-equal@^3.1.1, fast-deep-equal@^3.1.3:
   version "3.1.3"
@@ -2247,6 +2253,19 @@ p-locate@^5.0.0:
   integrity sha512-LaNjtRWUBY++zB5nE/NwcaoMylSPk+S+ZHNB1TzdbMJMny6dynpAGt7X/tl/QYq3TIeE6nxHppbo2LGymrG5Pw==
   dependencies:
     p-limit "^3.0.2"
+
+p-queue@^7.3.4:
+  version "7.3.4"
+  resolved "https://registry.yarnpkg.com/p-queue/-/p-queue-7.3.4.tgz#7ef7d89b6c1a0563596d98adbc9dc404e9ed4a84"
+  integrity sha512-esox8CWt0j9EZECFvkFl2WNPat8LN4t7WWeXq73D9ha0V96qPRufApZi4ZhPwXAln1uVVal429HVVKPa2X0yQg==
+  dependencies:
+    eventemitter3 "^4.0.7"
+    p-timeout "^5.0.2"
+
+p-timeout@^5.0.2:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/p-timeout/-/p-timeout-5.1.0.tgz#b3c691cf4415138ce2d9cfe071dba11f0fee085b"
+  integrity sha512-auFDyzzzGZZZdHz3BtET9VEz0SE/uMEAx7uWfGPucfzEwwe/xH0iVeZibQmANYE/hp9T2+UUZT5m+BKyrDp3Ew==
 
 parent-module@^1.0.0:
   version "1.0.1"
