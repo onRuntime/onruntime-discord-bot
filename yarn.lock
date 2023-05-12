@@ -813,13 +813,13 @@ dixt-plugin-react@^2.1.3:
     dixt "2.1.3"
     dotenv-flow "^3.2.0"
 
-dixt-plugin-twitch@^1.1.8:
-  version "1.1.8"
-  resolved "https://registry.yarnpkg.com/dixt-plugin-twitch/-/dixt-plugin-twitch-1.1.8.tgz#dea5b355b01ec4889b1081c074ad7c41e43fec76"
-  integrity sha512-nmzpDLISe9QYFKr1M6uziAJ38V7PaNx26gcJTjO9Foc4nRdPfFoN3Ez1FvjAPa/XDOS8/0h5fN+/yXgDbxfQaw==
+dixt-plugin-twitch@^1.1.9:
+  version "1.1.9"
+  resolved "https://registry.yarnpkg.com/dixt-plugin-twitch/-/dixt-plugin-twitch-1.1.9.tgz#eec59b60956a6a930ec4378afbb1f5c28f7a001c"
+  integrity sha512-87VJFu8wa07/Io3fa+DC93Gwp6MOqlFwuAUT0m0V03/WuNq2fwc6DGE6nboR8eHXc0aM1USsMNt5xHFZzSvRug==
   dependencies:
     discord.js "^14.9.0"
-    dixt "2.1.3"
+    dixt "2.1.4"
     dotenv-flow "^3.2.0"
 
 dixt-plugin-worktime@^2.1.5:
@@ -835,10 +835,23 @@ dixt-plugin-worktime@^2.1.5:
     dotenv-flow "^3.2.0"
     node-schedule "^2.1.1"
 
-dixt@2.1.3, dixt@^2.1.3:
+dixt@2.1.3:
   version "2.1.3"
   resolved "https://registry.yarnpkg.com/dixt/-/dixt-2.1.3.tgz#b75b4d68f6306641e37b105f9372c75c7b8004c5"
   integrity sha512-MDG0cZwoS7yvplYS6MMsYG0U45bkFzRFvfwU0nVmEYHCttx8VIzwEXw1dxYDk8HktGbjaDvBwKuirkLd3lvwOw==
+  dependencies:
+    chalk "~4.1.1"
+    discord.js "^14.9.0"
+    dotenv-flow "^3.2.0"
+    fs "0.0.1-security"
+    lodash "^4.17.21"
+    mongoose "^7.0.3"
+    path "^0.12.7"
+
+dixt@2.1.4, dixt@^2.1.3:
+  version "2.1.4"
+  resolved "https://registry.yarnpkg.com/dixt/-/dixt-2.1.4.tgz#642b45887d65035a2e261d8cd06a1d762bfabf3e"
+  integrity sha512-ad6v/dhZbjN8ZtDEr1vctBBafz6m3iKYSqPfD0OpN89jPHcIUi4SmAoAyqFgme1kp8R2HTMR1S2KoANr3Rdx2g==
   dependencies:
     chalk "~4.1.1"
     discord.js "^14.9.0"
