@@ -768,13 +768,13 @@ discord.js@^14.11.0, discord.js@^14.9.0:
     undici "^5.22.0"
     ws "^8.13.0"
 
-dixt-plugin-affix@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/dixt-plugin-affix/-/dixt-plugin-affix-1.0.1.tgz#0a4e2168941bde7f6cd8b9e4cdf0b932332cc8bf"
-  integrity sha512-wVOpBzmq+hng5Kj+xBFh92h6NtkAkDC9HfEjMUCSGDbJktN5zzFcUYXJM+Yis+QahPVbTffIYNjorkCycxA2VQ==
+dixt-plugin-affix@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/dixt-plugin-affix/-/dixt-plugin-affix-1.0.3.tgz#c43026e0d220f320fddca61823c09e20e219d041"
+  integrity sha512-X3nqm13K+RvAbYIKNUissFwNlNQFpXz5xJZJDI/9FsBfNL6I3ahN4KeFxER3N+YRDUhC6YxLZoNyI99YfzJAIQ==
   dependencies:
     discord.js "^14.9.0"
-    dixt "2.1.3"
+    dixt "2.1.5"
 
 dixt-plugin-logs@^2.1.7:
   version "2.1.7"
