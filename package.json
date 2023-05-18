@@ -20,8 +20,8 @@
     "dixt-plugin-affix": "^1.0.3",
     "dixt-plugin-logs": "^2.1.7",
     "dixt-plugin-presence": "^1.0.5",
-    "dixt-plugin-roles": "^1.0.0",
     "dixt-plugin-react": "^2.1.5",
+    "dixt-plugin-roles": "^1.0.1",
     "dixt-plugin-twitch": "^1.1.10",
     "dixt-plugin-worktime": "^2.1.9"
   },

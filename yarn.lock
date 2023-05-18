@@ -806,10 +806,10 @@ dixt-plugin-react@^2.1.5:
     dixt "2.1.5"
     dotenv-flow "^3.2.0"
 
-dixt-plugin-roles@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/dixt-plugin-roles/-/dixt-plugin-roles-1.0.0.tgz#750ce2e31f5d01ef844e3f78d0dafce1251d307e"
-  integrity sha512-tacQGt1X+/yAD9VKSLkSISp7BkX8WvOsggPj5tKkkQZVtYclyXI/shI2em3efNKypcQ9IOyMWDYixjd67mkLOg==
+dixt-plugin-roles@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/dixt-plugin-roles/-/dixt-plugin-roles-1.0.1.tgz#6feb6375a4d10da31b08e22fb92f80387fac60a9"
+  integrity sha512-rB2Y1OYBPKff8fA4Q5vKhP4q8+rb46IN0SJq6xE2rBoZGIdij4w6oVg2F2BXR6r6LnJjeuIXjbJAIIxVaePxfw==
   dependencies:
     discord.js "^14.9.0"
     dixt "2.1.6"
