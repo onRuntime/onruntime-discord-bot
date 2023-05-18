@@ -768,13 +768,13 @@ discord.js@^14.11.0, discord.js@^14.9.0:
     undici "^5.22.0"
     ws "^8.13.0"
 
-dixt-plugin-affix@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/dixt-plugin-affix/-/dixt-plugin-affix-1.0.3.tgz#c43026e0d220f320fddca61823c09e20e219d041"
-  integrity sha512-X3nqm13K+RvAbYIKNUissFwNlNQFpXz5xJZJDI/9FsBfNL6I3ahN4KeFxER3N+YRDUhC6YxLZoNyI99YfzJAIQ==
+dixt-plugin-affix@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/dixt-plugin-affix/-/dixt-plugin-affix-1.0.4.tgz#cad67df2505b73c861504044bcc080ba19923af6"
+  integrity sha512-qiZSk7Z2tf0WbpdnIAmeOTdMJqZ+vkEBxqNI6cdG766WuXBCjNPqGTQxps9dgOYTArtmSXr1v1iDV10zM06g2Q==
   dependencies:
     discord.js "^14.9.0"
-    dixt "2.1.5"
+    dixt "2.1.6"
 
 dixt-plugin-logs@^2.1.7:
   version "2.1.7"
@@ -837,7 +837,7 @@ dixt-plugin-worktime@^2.1.9:
     node-schedule "^2.1.1"
     quickchart-js "^3.1.2"
 
-dixt@2.1.5, dixt@^2.1.5:
+dixt@2.1.5:
   version "2.1.5"
   resolved "https://registry.yarnpkg.com/dixt/-/dixt-2.1.5.tgz#dcc5bbb6ddfda61770ad896250c438ee991584cf"
   integrity sha512-+aip4B5C5r8A2ryA2Sc7HVWMYI7LWBMWkeDblxtf3uDc1zS6TLONsWHHD3YIdBJNLnWxtDXHlbdxOpzO+kyizQ==
@@ -848,7 +848,7 @@ dixt@2.1.5, dixt@^2.1.5:
     lodash "^4.17.21"
     mongoose "^7.0.3"
 
-dixt@2.1.6:
+dixt@2.1.6, dixt@^2.1.5:
   version "2.1.6"
   resolved "https://registry.yarnpkg.com/dixt/-/dixt-2.1.6.tgz#d39d8813650130ca606ffe933fbe41b30dd81edc"
   integrity sha512-JvVwsGi0gPK/kCg053tzxilXiMlsyKHVZnlb7ETIVuLC0ry55n78GMUVfD5iXouaHmVOuBmXTWVNRqYlj/E+/w==
