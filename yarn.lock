@@ -815,13 +815,13 @@ dixt-plugin-roles@^1.0.1:
     dixt "2.1.6"
     dotenv-flow "^3.2.0"
 
-dixt-plugin-twitch@^1.1.10:
-  version "1.1.10"
-  resolved "https://registry.yarnpkg.com/dixt-plugin-twitch/-/dixt-plugin-twitch-1.1.10.tgz#2e226f014ac6567882cc8b0a7c89bd5c8906d265"
-  integrity sha512-HWiXbkCF9tUcYsMN8isojGporgB0IPkEEA0zj3/AlOUOxaENg8GL3/YJVz5dzPOf9Z9eKpzl33SydFckQU+1kg==
+dixt-plugin-twitch@^1.1.11:
+  version "1.1.11"
+  resolved "https://registry.yarnpkg.com/dixt-plugin-twitch/-/dixt-plugin-twitch-1.1.11.tgz#a5d30023081860c14268d7d929343fc7ffc5add2"
+  integrity sha512-lB/O9A9Q7sAtvjnoL/hdshmr9M+fyW8a/uUYwpgbRlPM2+4hF8CJCqPH0H2trMKJgjtc/Cvm9J8IcCAKWFUnlA==
   dependencies:
     discord.js "^14.9.0"
-    dixt "2.1.5"
+    dixt "2.1.6"
     dotenv-flow "^3.2.0"
 
 dixt-plugin-worktime@^2.1.9:
@@ -837,7 +837,7 @@ dixt-plugin-worktime@^2.1.9:
     node-schedule "^2.1.1"
     quickchart-js "^3.1.2"
 
-dixt@2.1.5, dixt@^2.1.5:
+dixt@2.1.5:
   version "2.1.5"
   resolved "https://registry.yarnpkg.com/dixt/-/dixt-2.1.5.tgz#dcc5bbb6ddfda61770ad896250c438ee991584cf"
   integrity sha512-+aip4B5C5r8A2ryA2Sc7HVWMYI7LWBMWkeDblxtf3uDc1zS6TLONsWHHD3YIdBJNLnWxtDXHlbdxOpzO+kyizQ==
@@ -848,7 +848,7 @@ dixt@2.1.5, dixt@^2.1.5:
     lodash "^4.17.21"
     mongoose "^7.0.3"
 
-dixt@2.1.6:
+dixt@2.1.6, dixt@^2.1.5:
   version "2.1.6"
   resolved "https://registry.yarnpkg.com/dixt/-/dixt-2.1.6.tgz#d39d8813650130ca606ffe933fbe41b30dd81edc"
   integrity sha512-JvVwsGi0gPK/kCg053tzxilXiMlsyKHVZnlb7ETIVuLC0ry55n78GMUVfD5iXouaHmVOuBmXTWVNRqYlj/E+/w==
