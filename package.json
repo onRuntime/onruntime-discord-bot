@@ -27,7 +27,7 @@
     "dixt-plugin-worktime": "^2.1.13"
   },
   "devDependencies": {
-    "@types/node": "^20.1.7",
+    "@types/node": "^20.2.5",
     "eslint": "^8.40.0",
     "eslint-config-antoine": "^1.0.3",
     "nodemon": "^2.0.22",
