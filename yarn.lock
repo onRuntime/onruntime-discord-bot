@@ -795,13 +795,13 @@ dixt-plugin-logs@^2.1.7:
     dotenv-flow "^3.2.0"
     p-queue "6.6.2"
 
-dixt-plugin-presence@^1.0.5:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/dixt-plugin-presence/-/dixt-plugin-presence-1.0.5.tgz#24e006546a5f3473166a20e1bedd0a4393abc9ab"
-  integrity sha512-pdf9f3ASoU3LuQYwDM17UtsanIKEwoitre7VHZRutqoaNvcHEKLRTMvJ+y78FHf5Hl4CvphRbQcGwPG0xgUpBQ==
+dixt-plugin-presence@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/dixt-plugin-presence/-/dixt-plugin-presence-1.0.7.tgz#3cdec0ca3dbdd689f4c05716e415537f533ee1b4"
+  integrity sha512-Ci0x/Qcl6GBzXB8EHwE/wqUFocxyxQZ/YkZ0P+lDOiMwBF1BpP/6ixA3kAckQ8wSbp0N64h+mFJXHVt5NQiVJg==
   dependencies:
     discord.js "^14.9.0"
-    dixt "2.1.5"
+    dixt "2.1.7"
     node-schedule "^2.1.1"
 
 dixt-plugin-react@^2.1.5:
