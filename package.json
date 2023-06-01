@@ -23,7 +23,7 @@
     "dixt-plugin-react": "^2.1.5",
     "dixt-plugin-reports": "^1.0.0",
     "dixt-plugin-roles": "^1.0.1",
-    "dixt-plugin-twitch": "^1.1.10",
+    "dixt-plugin-twitch": "^1.1.12",
     "dixt-plugin-worktime": "^2.1.13"
   },
   "devDependencies": {
