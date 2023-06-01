@@ -17,6 +17,12 @@ const dixtPluginWorktimeOptions: DixtPluginWorktimeOptions = {
     [ROLES.ONRUNTIME.MEMBER]: 6,
     [ROLES.ONRUNTIME.TRAINEE]: 20,
   },
+  reports: {
+    maximumDaysAbsent: 3,
+  },
+  tasks: {
+    absentees: "0 12 * * 3-7",
+  },
 };
 
 export default dixtPluginWorktimeOptions;
