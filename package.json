@@ -17,7 +17,7 @@
   "dependencies": {
     "discord.js": "^14.11.0",
     "dixt": "^2.1.7",
-    "dixt-plugin-affix": "^1.0.3",
+    "dixt-plugin-affix": "^1.0.5",
     "dixt-plugin-logs": "^2.1.7",
     "dixt-plugin-presence": "^1.0.5",
     "dixt-plugin-react": "^2.1.5",
