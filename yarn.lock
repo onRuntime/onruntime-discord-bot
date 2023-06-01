@@ -784,14 +784,14 @@ dixt-plugin-affix@^1.0.3:
     discord.js "^14.9.0"
     dixt "2.1.5"
 
-dixt-plugin-logs@^2.1.7:
-  version "2.1.7"
-  resolved "https://registry.yarnpkg.com/dixt-plugin-logs/-/dixt-plugin-logs-2.1.7.tgz#ff8fa01d0dfb4a69392d63a35fd04ec3a0cadfa1"
-  integrity sha512-bx1SR4SOCy1Sdr3yBmaWNq06K45d0gzWqjxLxaLmSKpwN98/ud6rGHVNYOtWRiU9Hy6+Da6/hPIKGbGsD6daoA==
+dixt-plugin-logs@^2.1.10:
+  version "2.1.10"
+  resolved "https://registry.yarnpkg.com/dixt-plugin-logs/-/dixt-plugin-logs-2.1.10.tgz#28dd44a5434ad60a767bcf2cf0d80e6b18005608"
+  integrity sha512-/nGGfFmGbYZp0RJL+v3w+BEbLE+IC1lHqpOoeNBMayUjcj77UhQBk6sEWGMCitYyt7s4Bx02brcZJ75+eSyOHQ==
   dependencies:
     discord-webhook-node "^1.1.8"
     discord.js "^14.9.0"
-    dixt "2.1.5"
+    dixt "2.1.7"
     dotenv-flow "^3.2.0"
     p-queue "6.6.2"
 
