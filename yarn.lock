@@ -838,12 +838,12 @@ dixt-plugin-roles@^1.0.1:
     dotenv-flow "^3.2.0"
 
 dixt-plugin-twitch@^1.1.10:
-  version "1.1.10"
-  resolved "https://registry.yarnpkg.com/dixt-plugin-twitch/-/dixt-plugin-twitch-1.1.10.tgz#2e226f014ac6567882cc8b0a7c89bd5c8906d265"
-  integrity sha512-HWiXbkCF9tUcYsMN8isojGporgB0IPkEEA0zj3/AlOUOxaENg8GL3/YJVz5dzPOf9Z9eKpzl33SydFckQU+1kg==
+  version "1.1.12"
+  resolved "https://registry.yarnpkg.com/dixt-plugin-twitch/-/dixt-plugin-twitch-1.1.12.tgz#25cd8b7eec48c8e033511749d74990ca37612ed9"
+  integrity sha512-gOvgdx27NiQoGDP/XOAiZicsSidwdD0emq7lAMhfg0RxR1Eq7j7mZ3ypv+T7oXUiTEK8Q1IoB98VyRpG57CChw==
   dependencies:
     discord.js "^14.9.0"
-    dixt "2.1.5"
+    dixt "2.1.7"
     dotenv-flow "^3.2.0"
 
 dixt-plugin-worktime@^2.1.13:
