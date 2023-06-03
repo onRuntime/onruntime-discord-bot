@@ -790,13 +790,13 @@ dixt-plugin-affix@^1.0.3:
     dixt "2.1.7"
 
 dixt-plugin-logs@^2.1.7:
-  version "2.1.7"
-  resolved "https://registry.yarnpkg.com/dixt-plugin-logs/-/dixt-plugin-logs-2.1.7.tgz#ff8fa01d0dfb4a69392d63a35fd04ec3a0cadfa1"
-  integrity sha512-bx1SR4SOCy1Sdr3yBmaWNq06K45d0gzWqjxLxaLmSKpwN98/ud6rGHVNYOtWRiU9Hy6+Da6/hPIKGbGsD6daoA==
+  version "2.1.10"
+  resolved "https://registry.yarnpkg.com/dixt-plugin-logs/-/dixt-plugin-logs-2.1.10.tgz#28dd44a5434ad60a767bcf2cf0d80e6b18005608"
+  integrity sha512-/nGGfFmGbYZp0RJL+v3w+BEbLE+IC1lHqpOoeNBMayUjcj77UhQBk6sEWGMCitYyt7s4Bx02brcZJ75+eSyOHQ==
   dependencies:
     discord-webhook-node "^1.1.8"
     discord.js "^14.9.0"
-    dixt "2.1.5"
+    dixt "2.1.7"
     dotenv-flow "^3.2.0"
     p-queue "6.6.2"
 
@@ -2115,10 +2115,17 @@ natural-compare@^1.4.0:
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
   integrity sha1-Sr6/7tdUHywnrPspvbvRXI1bpPc=
 
-node-fetch@2.6.7, node-fetch@^2.6.0:
+node-fetch@2.6.7:
   version "2.6.7"
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.7.tgz#24de9fba827e3b4ae44dc8b20256a379160052ad"
   integrity sha512-ZjMPFEfVx5j+y2yF35Kzx5sF7kDzxuDj6ziH4FFbOp87zKDZNx8yExJIb05OGF4Nlt9IHFIMBkRl41VdvcNdbQ==
+  dependencies:
+    whatwg-url "^5.0.0"
+
+node-fetch@^2.6.0:
+  version "2.6.11"
+  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.11.tgz#cde7fc71deef3131ef80a738919f999e6edfff25"
+  integrity sha512-4I6pdBY1EthSqDmJkiNk3JIT8cswwR9nfeW/cPdUagJYEQG7R95WRH74wpz7ma8Gh/9dI9FP+OU+0E4FvtA55w==
   dependencies:
     whatwg-url "^5.0.0"
 
