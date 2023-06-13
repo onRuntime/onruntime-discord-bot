@@ -200,9 +200,9 @@
   integrity sha512-JkLdIsP8fPAdh9ZZjrbHWR/+mZj0wvKS5ICibcLrRI1j84UmLMshx5n9QmL8b95d4onJ2xxiyugTgSAX7AalmA==
 
 "@sapphire/shapeshift@^3.8.2":
-  version "3.9.1"
-  resolved "https://registry.yarnpkg.com/@sapphire/shapeshift/-/shapeshift-3.9.1.tgz#dc772ba8b9d326d3ad630424d954a6d50f7f9933"
-  integrity sha512-zZb+VCDAoqxN+Kc1ICFaNvkLo6VaZPBxQPIPHcxHLIk7AEQWzkRjRYOSxPv9CQbvBR6CAO2EEB2jiAOiCDbyzA==
+  version "3.9.2"
+  resolved "https://registry.yarnpkg.com/@sapphire/shapeshift/-/shapeshift-3.9.2.tgz#a9c12cd51e1bc467619bb56df804450dd14871ac"
+  integrity sha512-YRbCXWy969oGIdqR/wha62eX8GNHsvyYi0Rfd4rNW6tSVVa8p0ELiMEuOH/k8rgtvRoM+EMV7Csqz77YdwiDpA==
   dependencies:
     fast-deep-equal "^3.1.3"
     lodash "^4.17.21"
@@ -248,9 +248,9 @@
   integrity sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==
 
 "@types/node@*":
-  version "20.2.5"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.2.5.tgz#26d295f3570323b2837d322180dfbf1ba156fefb"
-  integrity sha512-JJulVEQXmiY9Px5axXHeYGLSjhkZEnD+MDPDGbCbIAbMslkKwmygtZFy1X6s/075Yo94sf8GuSlFfPzysQrWZQ==
+  version "20.3.1"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.3.1.tgz#e8a83f1aa8b649377bb1fb5d7bac5cb90e784dfe"
+  integrity sha512-EhcH/wvidPy1WeML3TtYFGR83UzjxeWRen9V402T8aUGYsCHOmfoisV3ZSg03gAFIbLq8TnWOJ0f4cALtnSEUg==
 
 "@types/node@^20.1.7":
   version "20.1.7"
@@ -276,9 +276,9 @@
     "@types/webidl-conversions" "*"
 
 "@types/ws@^8.5.4":
-  version "8.5.4"
-  resolved "https://registry.yarnpkg.com/@types/ws/-/ws-8.5.4.tgz#bb10e36116d6e570dd943735f86c933c1587b8a5"
-  integrity sha512-zdQDHKUgcX/zBc4GrwsE/7dVdAD8JR4EuiAXiiUhhfyIJXXb2+PrGshFyeXWQPMmmZ2XxgaqclgpIC7eTXc1mg==
+  version "8.5.5"
+  resolved "https://registry.yarnpkg.com/@types/ws/-/ws-8.5.5.tgz#af587964aa06682702ee6dcbc7be41a80e4b28eb"
+  integrity sha512-lwhs8hktwxSjf9UaZ9tG5M03PGogvFaH8gUgLNbN9HKIg0dvv6q+gkSuJ8HN4/VbyxkuLzCjlN7GquQ0gUJfIg==
   dependencies:
     "@types/node" "*"
 
@@ -583,7 +583,7 @@ chalk@4.1.1:
     ansi-styles "^4.1.0"
     supports-color "^7.1.0"
 
-chalk@^4.0.0, chalk@~4.1.1:
+chalk@4.1.2, chalk@^4.0.0:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/chalk/-/chalk-4.1.2.tgz#aac4e2b7734a740867aeb16bf02aad556a1e7a01"
   integrity sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==
@@ -650,11 +650,11 @@ cron-parser@^4.2.0:
     luxon "^3.2.1"
 
 cross-fetch@^3.1.5:
-  version "3.1.5"
-  resolved "https://registry.yarnpkg.com/cross-fetch/-/cross-fetch-3.1.5.tgz#e1389f44d9e7ba767907f7af8454787952ab534f"
-  integrity sha512-lvb1SBsI0Z7GDwmuid+mU3kWVBwTVUbe7S0H52yaaAdQOXq2YktTCZdlAcNKFzE6QtRz0snpw9bNiPeOIkkQvw==
+  version "3.1.6"
+  resolved "https://registry.yarnpkg.com/cross-fetch/-/cross-fetch-3.1.6.tgz#bae05aa31a4da760969756318feeee6e70f15d6c"
+  integrity sha512-riRvo06crlE8HiqOwIpQhxwdOk4fOeR7FVM/wXoxchFEqMNUjvbs3bfo4OTgMEMHzppd4DxFBDbyySj8Cv781g==
   dependencies:
-    node-fetch "2.6.7"
+    node-fetch "^2.6.11"
 
 cross-spawn@^7.0.2, cross-spawn@^7.0.3:
   version "7.0.3"
@@ -671,9 +671,9 @@ damerau-levenshtein@^1.0.8:
   integrity sha512-sdQSFB7+llfUcQHUQO3+B8ERRj0Oa4w9POWMI/puGtuf7gFywGmkaLCElnudfTiKZV+NvHqL0ifzdrI8Ro7ESA==
 
 dayjs@^1.11.7:
-  version "1.11.7"
-  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.11.7.tgz#4b296922642f70999544d1144a2c25730fce63e2"
-  integrity sha512-+Yw9U6YO5TQohxLcIkrXBeY73WP3ejHWVvx8XCk3gxvQDCTEmS48ZrSZCKciI7Bhl/uCMyxYtE9UqRILmFphkQ==
+  version "1.11.8"
+  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.11.8.tgz#4282f139c8c19dd6d0c7bd571e30c2d0ba7698ea"
+  integrity sha512-LcgxzFoWMEPO7ggRv1Y2N31hUf2R0Vj7fuy/m+Bg1K8rr+KAs1AEy4y9jd5DXe8pbHgX+srkHNS7TH6Q6ZhYeQ==
 
 debug@4.x, debug@^4.1.1, debug@^4.3.2, debug@^4.3.4:
   version "4.3.4"
@@ -782,100 +782,100 @@ discord.js@^14.11.0, discord.js@^14.9.0:
     ws "^8.13.0"
 
 dixt-plugin-affix@^1.0.3:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/dixt-plugin-affix/-/dixt-plugin-affix-1.0.5.tgz#612600b53553d5ba087898f72b68e1c856b4e0f8"
-  integrity sha512-kxOzHRhY3EqGRey9wqRShxdpsDUkGUeWUpATi0kvFrV7JxM+QlEaPVSfoUdfKL8WwZP0U+iM+wud5ySWgXLUBw==
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/dixt-plugin-affix/-/dixt-plugin-affix-1.0.6.tgz#fd4eeb4e1f603bb21dc69216d3900421b3792616"
+  integrity sha512-n0AJ3TI0TFGTPfoM/57u5AK4ufzglJAoELJ5Ab4Llt2DOh7HLXlDJpJwx/diadrU08Xw1Mw2KN25bekhgzOlew==
   dependencies:
     discord.js "^14.9.0"
-    dixt "2.1.7"
+    dixt "2.1.8"
 
 dixt-plugin-logs@^2.1.7:
-  version "2.1.10"
-  resolved "https://registry.yarnpkg.com/dixt-plugin-logs/-/dixt-plugin-logs-2.1.10.tgz#28dd44a5434ad60a767bcf2cf0d80e6b18005608"
-  integrity sha512-/nGGfFmGbYZp0RJL+v3w+BEbLE+IC1lHqpOoeNBMayUjcj77UhQBk6sEWGMCitYyt7s4Bx02brcZJ75+eSyOHQ==
+  version "2.1.11"
+  resolved "https://registry.yarnpkg.com/dixt-plugin-logs/-/dixt-plugin-logs-2.1.11.tgz#f25fc2ec8dabd0e4029f738144662ddcb633e321"
+  integrity sha512-me0F+nj8WZUtdnQdgiwXm3XWo6HEyRPlBWsC2ud/W65KWwQH6iB0iYWI1OF9YNwdIE3I2RMCXcXKnYtuum007w==
   dependencies:
     discord-webhook-node "^1.1.8"
     discord.js "^14.9.0"
-    dixt "2.1.7"
+    dixt "2.1.8"
     dotenv-flow "^3.2.0"
     p-queue "6.6.2"
 
 dixt-plugin-presence@^1.0.5:
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/dixt-plugin-presence/-/dixt-plugin-presence-1.0.7.tgz#3cdec0ca3dbdd689f4c05716e415537f533ee1b4"
-  integrity sha512-Ci0x/Qcl6GBzXB8EHwE/wqUFocxyxQZ/YkZ0P+lDOiMwBF1BpP/6ixA3kAckQ8wSbp0N64h+mFJXHVt5NQiVJg==
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/dixt-plugin-presence/-/dixt-plugin-presence-1.0.8.tgz#f74d477b0c1373b4770389956f2c67bdf4785763"
+  integrity sha512-mboKnAckIklMggNPZHZHl7bKWtlJm7Ao714oIiNkMSf9av8O2aUFWxQV1hW2Ny8KD93V8tGBchMz7puvD9VoeQ==
   dependencies:
     discord.js "^14.9.0"
-    dixt "2.1.7"
+    dixt "2.1.8"
     node-schedule "^2.1.1"
 
 dixt-plugin-react@^2.1.5:
-  version "2.1.7"
-  resolved "https://registry.yarnpkg.com/dixt-plugin-react/-/dixt-plugin-react-2.1.7.tgz#cdbaae5d66670d7cd69b58a841483bdb88846728"
-  integrity sha512-XkCFEm8ZQjy/4DzAdJil4PWLrHN6LJ2pfnvhBneSX+j1VyrTeCR4Cakxi8lVg58tkxeTymPT27IvFAlnhbKPfg==
+  version "2.1.8"
+  resolved "https://registry.yarnpkg.com/dixt-plugin-react/-/dixt-plugin-react-2.1.8.tgz#40922679ed080a0a8f9b454d1a9c5fa1233456b3"
+  integrity sha512-1orB469QHn9Cx4+VFBOYPMeJhDlZnbe/6i/bEL1cRRryDTBFPn+p09vBTsZZLA6/fdHMNgD9cwL9qh07bSLCxA==
   dependencies:
     discord-webhook-node "^1.1.8"
     discord.js "^14.9.0"
-    dixt "2.1.7"
+    dixt "2.1.8"
     dotenv-flow "^3.2.0"
 
 dixt-plugin-reports@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/dixt-plugin-reports/-/dixt-plugin-reports-1.0.0.tgz#16b0c660d0720e003400d128fd4980be2b35d4b6"
-  integrity sha512-0R0/xFSl+XKmQQ7vyeCTD5hBMr10W2PMo4C+5iZF5AkYg5Up+RipODsk5Efz/mXA4ghASc9F8h1bCU+c3ImahA==
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/dixt-plugin-reports/-/dixt-plugin-reports-1.0.1.tgz#c111efff7a11a43b6ceb5f9aa9a4bd17bc6d6ff7"
+  integrity sha512-od693TGwl65RB8mpe2R5R8K+oGsYqHY5jr9X79x4LuBg+kvuiz9wewUsH/E8fx1wYcP4r1prFhKPFaYWs8ck9Q==
   dependencies:
     discord.js "^14.9.0"
-    dixt "2.1.7"
+    dixt "2.1.8"
     dotenv-flow "^3.2.0"
 
 dixt-plugin-roles@^1.0.1:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/dixt-plugin-roles/-/dixt-plugin-roles-1.0.2.tgz#976ad6320ac0288fd0d45c862e5e898302599a1e"
-  integrity sha512-YgZRjtzhtnL98N1/Bz3279Px/u2iXj1Q5Nrr/S+M9Bd54nVs0bl2UBefGxkJCq0panzBE/uA5+u8LWsLpPKtxw==
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/dixt-plugin-roles/-/dixt-plugin-roles-1.0.3.tgz#6d39896e2656e0bda757c80fa0d64c8f53564693"
+  integrity sha512-fbFWh7uo3TSgjKVslNa/DZul/WX86El1I0KAsEYipfRSCGNZjIZVGGYA2gKNjDp9uz2t/EPKkrD8TldOev/3/A==
   dependencies:
     discord.js "^14.9.0"
-    dixt "2.1.7"
+    dixt "2.1.8"
     dotenv-flow "^3.2.0"
 
 dixt-plugin-twitch@^1.1.10:
-  version "1.1.12"
-  resolved "https://registry.yarnpkg.com/dixt-plugin-twitch/-/dixt-plugin-twitch-1.1.12.tgz#25cd8b7eec48c8e033511749d74990ca37612ed9"
-  integrity sha512-gOvgdx27NiQoGDP/XOAiZicsSidwdD0emq7lAMhfg0RxR1Eq7j7mZ3ypv+T7oXUiTEK8Q1IoB98VyRpG57CChw==
+  version "1.1.13"
+  resolved "https://registry.yarnpkg.com/dixt-plugin-twitch/-/dixt-plugin-twitch-1.1.13.tgz#d8c4729ea7b8eefa9048cefc3e7ef6d115f97dad"
+  integrity sha512-MHDc2H09UbL7HUHEozT5knmyzmkOQ5h8tUdDqPhd3NZG3z/4yGcEOjOijTLAie5iTqDWskkltlo3NhvYkP+9ag==
   dependencies:
     discord.js "^14.9.0"
-    dixt "2.1.7"
+    dixt "2.1.8"
     dotenv-flow "^3.2.0"
 
 dixt-plugin-worktime@^2.1.13:
-  version "2.1.13"
-  resolved "https://registry.yarnpkg.com/dixt-plugin-worktime/-/dixt-plugin-worktime-2.1.13.tgz#08c7990067935494a5086b9ea5a75852353545b4"
-  integrity sha512-OkJsnPcSNXBt6h4pMeQIwyCRl1P9PeSdQiyTmnhitWWj1U18+BkAhcKrjoknE/15+pzkMMdRRjyM0ZyEqL1Iaw==
+  version "2.1.14"
+  resolved "https://registry.yarnpkg.com/dixt-plugin-worktime/-/dixt-plugin-worktime-2.1.14.tgz#a58919a2800723274d3436c5cef9b249bf583812"
+  integrity sha512-bWAI50w2wToVR0A5Cv/ppKVMRxtuRoNoYo/cQNq1QhmGNSDMW4AE5FVPmZFddn5MpitQFYcgRHp5u+iMQkh5Fg==
   dependencies:
     chart.js "^4.2.1"
     dayjs "^1.11.7"
     discord.js "^14.9.0"
-    dixt "2.1.7"
+    dixt "2.1.8"
     dotenv-flow "^3.2.0"
     node-schedule "^2.1.1"
     quickchart-js "^3.1.2"
 
-dixt@2.1.5:
-  version "2.1.5"
-  resolved "https://registry.yarnpkg.com/dixt/-/dixt-2.1.5.tgz#dcc5bbb6ddfda61770ad896250c438ee991584cf"
-  integrity sha512-+aip4B5C5r8A2ryA2Sc7HVWMYI7LWBMWkeDblxtf3uDc1zS6TLONsWHHD3YIdBJNLnWxtDXHlbdxOpzO+kyizQ==
-  dependencies:
-    chalk "~4.1.1"
-    discord.js "^14.9.0"
-    dotenv-flow "^3.2.0"
-    lodash "^4.17.21"
-    mongoose "^7.0.3"
-
-dixt@2.1.7, dixt@^2.1.7:
+dixt@2.1.7:
   version "2.1.7"
   resolved "https://registry.yarnpkg.com/dixt/-/dixt-2.1.7.tgz#5cc63c2f82d850d82a6b438eae7e9dd7c9868b0f"
   integrity sha512-EkMDmrkTqVAabDJdyJ7/pD6ScBSE0G5sBDwKDhXJY5VX3tNSayCY4Fri+2HfRE63OQYdm2zEeeZP1JQnu+RE2g==
   dependencies:
     chalk "4.1.1"
+    discord.js "^14.9.0"
+    dotenv-flow "^3.2.0"
+    lodash "^4.17.21"
+    mongoose "^7.0.3"
+
+dixt@2.1.8, dixt@^2.1.7:
+  version "2.1.8"
+  resolved "https://registry.yarnpkg.com/dixt/-/dixt-2.1.8.tgz#5bd8ad461484eaf4ccdceef60dada997af9ff191"
+  integrity sha512-g1VsY5U0oKSIKZIRIJ8oewj3hEg441HiviEf9aaqyKucIye4MIPNFwxq0UGY6tDoRdLqctnfWueipgwVm8UraQ==
+  dependencies:
+    chalk "4.1.2"
     discord.js "^14.9.0"
     dotenv-flow "^3.2.0"
     lodash "^4.17.21"
@@ -1383,9 +1383,9 @@ file-entry-cache@^6.0.1:
     flat-cache "^3.0.4"
 
 file-type@^18.3.0:
-  version "18.4.0"
-  resolved "https://registry.yarnpkg.com/file-type/-/file-type-18.4.0.tgz#1d6c2c9351ad0dfe1f03165e04d60797b159578f"
-  integrity sha512-o6MQrZKTAK6WpvmQk3jqTVUmqxYBxW5bloUfrdH1ZnRFDvvAPNr+l+rgOxM3nkqWT+3khaj3FRMDydWe0xhu+w==
+  version "18.5.0"
+  resolved "https://registry.yarnpkg.com/file-type/-/file-type-18.5.0.tgz#604a001ba0d32577d4c3fa420ee104d656b914d2"
+  integrity sha512-yvpl5U868+V6PqXHMmsESpg6unQ5GfnPssl4dxdJudBrr9qy7Fddt7EVX1VLlddFfe8Gj9N7goCZH22FXuSQXQ==
   dependencies:
     readable-web-to-node-stream "^3.0.2"
     strtok3 "^7.0.0"
@@ -2059,9 +2059,9 @@ mongodb@5.5.0:
     saslprep "^1.0.3"
 
 mongoose@^7.0.3:
-  version "7.2.2"
-  resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-7.2.2.tgz#5e4c9b87f20b0ef74382706da810bad292fa0f03"
-  integrity sha512-JPBMTF+oYfLGVFWbHSZ/H+f1GajNanGLYH6c/P0nE3bNJfwGhX573vieGR0kNlNhj3cZk8WCPrnVsTNeUmFUag==
+  version "7.2.4"
+  resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-7.2.4.tgz#0cbccd23746c5bd82a4330e83ea2b2c52e03c044"
+  integrity sha512-BWcgShV2WH1rspICiJKLPi7QssTebpGJ23Nyk7qG0TMEE/OEAlsQKEhI7VlrXg4ZnoOcHgG+N+upW9tj17TTQg==
   dependencies:
     bson "^5.3.0"
     kareem "2.5.1"
@@ -2103,14 +2103,7 @@ natural-compare@^1.4.0:
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
   integrity sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==
 
-node-fetch@2.6.7:
-  version "2.6.7"
-  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.7.tgz#24de9fba827e3b4ae44dc8b20256a379160052ad"
-  integrity sha512-ZjMPFEfVx5j+y2yF35Kzx5sF7kDzxuDj6ziH4FFbOp87zKDZNx8yExJIb05OGF4Nlt9IHFIMBkRl41VdvcNdbQ==
-  dependencies:
-    whatwg-url "^5.0.0"
-
-node-fetch@^2.6.0:
+node-fetch@^2.6.0, node-fetch@^2.6.11:
   version "2.6.11"
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.11.tgz#cde7fc71deef3131ef80a738919f999e6edfff25"
   integrity sha512-4I6pdBY1EthSqDmJkiNk3JIT8cswwR9nfeW/cPdUagJYEQG7R95WRH74wpz7ma8Gh/9dI9FP+OU+0E4FvtA55w==
