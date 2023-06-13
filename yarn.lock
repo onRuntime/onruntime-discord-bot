@@ -200,9 +200,9 @@
   integrity sha512-JkLdIsP8fPAdh9ZZjrbHWR/+mZj0wvKS5ICibcLrRI1j84UmLMshx5n9QmL8b95d4onJ2xxiyugTgSAX7AalmA==
 
 "@sapphire/shapeshift@^3.8.2":
-  version "3.9.1"
-  resolved "https://registry.yarnpkg.com/@sapphire/shapeshift/-/shapeshift-3.9.1.tgz#dc772ba8b9d326d3ad630424d954a6d50f7f9933"
-  integrity sha512-zZb+VCDAoqxN+Kc1ICFaNvkLo6VaZPBxQPIPHcxHLIk7AEQWzkRjRYOSxPv9CQbvBR6CAO2EEB2jiAOiCDbyzA==
+  version "3.9.2"
+  resolved "https://registry.yarnpkg.com/@sapphire/shapeshift/-/shapeshift-3.9.2.tgz#a9c12cd51e1bc467619bb56df804450dd14871ac"
+  integrity sha512-YRbCXWy969oGIdqR/wha62eX8GNHsvyYi0Rfd4rNW6tSVVa8p0ELiMEuOH/k8rgtvRoM+EMV7Csqz77YdwiDpA==
   dependencies:
     fast-deep-equal "^3.1.3"
     lodash "^4.17.21"
@@ -248,9 +248,9 @@
   integrity sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==
 
 "@types/node@*":
-  version "20.2.5"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.2.5.tgz#26d295f3570323b2837d322180dfbf1ba156fefb"
-  integrity sha512-JJulVEQXmiY9Px5axXHeYGLSjhkZEnD+MDPDGbCbIAbMslkKwmygtZFy1X6s/075Yo94sf8GuSlFfPzysQrWZQ==
+  version "20.3.1"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.3.1.tgz#e8a83f1aa8b649377bb1fb5d7bac5cb90e784dfe"
+  integrity sha512-EhcH/wvidPy1WeML3TtYFGR83UzjxeWRen9V402T8aUGYsCHOmfoisV3ZSg03gAFIbLq8TnWOJ0f4cALtnSEUg==
 
 "@types/node@^20.1.7":
   version "20.1.7"
@@ -276,9 +276,9 @@
     "@types/webidl-conversions" "*"
 
 "@types/ws@^8.5.4":
-  version "8.5.4"
-  resolved "https://registry.yarnpkg.com/@types/ws/-/ws-8.5.4.tgz#bb10e36116d6e570dd943735f86c933c1587b8a5"
-  integrity sha512-zdQDHKUgcX/zBc4GrwsE/7dVdAD8JR4EuiAXiiUhhfyIJXXb2+PrGshFyeXWQPMmmZ2XxgaqclgpIC7eTXc1mg==
+  version "8.5.5"
+  resolved "https://registry.yarnpkg.com/@types/ws/-/ws-8.5.5.tgz#af587964aa06682702ee6dcbc7be41a80e4b28eb"
+  integrity sha512-lwhs8hktwxSjf9UaZ9tG5M03PGogvFaH8gUgLNbN9HKIg0dvv6q+gkSuJ8HN4/VbyxkuLzCjlN7GquQ0gUJfIg==
   dependencies:
     "@types/node" "*"
 
@@ -583,7 +583,7 @@ chalk@4.1.1:
     ansi-styles "^4.1.0"
     supports-color "^7.1.0"
 
-chalk@^4.0.0, chalk@~4.1.1:
+chalk@4.1.2, chalk@^4.0.0:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/chalk/-/chalk-4.1.2.tgz#aac4e2b7734a740867aeb16bf02aad556a1e7a01"
   integrity sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==
@@ -859,23 +859,23 @@ dixt-plugin-worktime@^2.1.13:
     node-schedule "^2.1.1"
     quickchart-js "^3.1.2"
 
-dixt@2.1.5:
-  version "2.1.5"
-  resolved "https://registry.yarnpkg.com/dixt/-/dixt-2.1.5.tgz#dcc5bbb6ddfda61770ad896250c438ee991584cf"
-  integrity sha512-+aip4B5C5r8A2ryA2Sc7HVWMYI7LWBMWkeDblxtf3uDc1zS6TLONsWHHD3YIdBJNLnWxtDXHlbdxOpzO+kyizQ==
-  dependencies:
-    chalk "~4.1.1"
-    discord.js "^14.9.0"
-    dotenv-flow "^3.2.0"
-    lodash "^4.17.21"
-    mongoose "^7.0.3"
-
-dixt@2.1.7, dixt@^2.1.7:
+dixt@2.1.7:
   version "2.1.7"
   resolved "https://registry.yarnpkg.com/dixt/-/dixt-2.1.7.tgz#5cc63c2f82d850d82a6b438eae7e9dd7c9868b0f"
   integrity sha512-EkMDmrkTqVAabDJdyJ7/pD6ScBSE0G5sBDwKDhXJY5VX3tNSayCY4Fri+2HfRE63OQYdm2zEeeZP1JQnu+RE2g==
   dependencies:
     chalk "4.1.1"
+    discord.js "^14.9.0"
+    dotenv-flow "^3.2.0"
+    lodash "^4.17.21"
+    mongoose "^7.0.3"
+
+dixt@^2.1.7:
+  version "2.1.8"
+  resolved "https://registry.yarnpkg.com/dixt/-/dixt-2.1.8.tgz#5bd8ad461484eaf4ccdceef60dada997af9ff191"
+  integrity sha512-g1VsY5U0oKSIKZIRIJ8oewj3hEg441HiviEf9aaqyKucIye4MIPNFwxq0UGY6tDoRdLqctnfWueipgwVm8UraQ==
+  dependencies:
+    chalk "4.1.2"
     discord.js "^14.9.0"
     dotenv-flow "^3.2.0"
     lodash "^4.17.21"
@@ -1383,9 +1383,9 @@ file-entry-cache@^6.0.1:
     flat-cache "^3.0.4"
 
 file-type@^18.3.0:
-  version "18.4.0"
-  resolved "https://registry.yarnpkg.com/file-type/-/file-type-18.4.0.tgz#1d6c2c9351ad0dfe1f03165e04d60797b159578f"
-  integrity sha512-o6MQrZKTAK6WpvmQk3jqTVUmqxYBxW5bloUfrdH1ZnRFDvvAPNr+l+rgOxM3nkqWT+3khaj3FRMDydWe0xhu+w==
+  version "18.5.0"
+  resolved "https://registry.yarnpkg.com/file-type/-/file-type-18.5.0.tgz#604a001ba0d32577d4c3fa420ee104d656b914d2"
+  integrity sha512-yvpl5U868+V6PqXHMmsESpg6unQ5GfnPssl4dxdJudBrr9qy7Fddt7EVX1VLlddFfe8Gj9N7goCZH22FXuSQXQ==
   dependencies:
     readable-web-to-node-stream "^3.0.2"
     strtok3 "^7.0.0"
@@ -2059,9 +2059,9 @@ mongodb@5.5.0:
     saslprep "^1.0.3"
 
 mongoose@^7.0.3:
-  version "7.2.2"
-  resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-7.2.2.tgz#5e4c9b87f20b0ef74382706da810bad292fa0f03"
-  integrity sha512-JPBMTF+oYfLGVFWbHSZ/H+f1GajNanGLYH6c/P0nE3bNJfwGhX573vieGR0kNlNhj3cZk8WCPrnVsTNeUmFUag==
+  version "7.2.4"
+  resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-7.2.4.tgz#0cbccd23746c5bd82a4330e83ea2b2c52e03c044"
+  integrity sha512-BWcgShV2WH1rspICiJKLPi7QssTebpGJ23Nyk7qG0TMEE/OEAlsQKEhI7VlrXg4ZnoOcHgG+N+upW9tj17TTQg==
   dependencies:
     bson "^5.3.0"
     kareem "2.5.1"
