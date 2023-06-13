@@ -6,6 +6,7 @@ const dixtPluginAffixOptions: DixtPluginAffixOptions = {
   prefix: {
     [ROLES.ONRUNTIME.ADMIN]: "Admin",
     [ROLES.ONRUNTIME.LEAD]: "Lead",
+    [ROLES.ONRUNTIME.SALES]: "Sales",
     [ROLES.ONRUNTIME.DEVELOPER]: "Dev",
     [ROLES.ONRUNTIME.DESIGNER]: "Designer",
     [ROLES.ONRUNTIME.COMMUNITY_MANAGER]: "CM",
