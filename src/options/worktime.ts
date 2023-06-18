@@ -24,9 +24,9 @@ const dixtPluginWorktimeOptions: DixtPluginWorktimeOptions = {
     ],
   },
   quotas: {
-    [ROLES.ONRUNTIME.EMPLOYEE]: 30,
+    [ROLES.ONRUNTIME.EMPLOYEE]: 35,
     [ROLES.ONRUNTIME.MEMBER]: 6,
-    [ROLES.ONRUNTIME.TRAINEE]: 20,
+    [ROLES.ONRUNTIME.TRAINEE]: 35,
   },
   reports: {
     maximumDaysAbsent: 3,
