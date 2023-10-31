@@ -803,12 +803,12 @@ dixt-plugin-logs@^2.1.7:
     p-queue "6.6.2"
 
 dixt-plugin-presence@^1.0.5:
-  version "1.0.8"
-  resolved "https://registry.yarnpkg.com/dixt-plugin-presence/-/dixt-plugin-presence-1.0.8.tgz#f74d477b0c1373b4770389956f2c67bdf4785763"
-  integrity sha512-mboKnAckIklMggNPZHZHl7bKWtlJm7Ao714oIiNkMSf9av8O2aUFWxQV1hW2Ny8KD93V8tGBchMz7puvD9VoeQ==
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/dixt-plugin-presence/-/dixt-plugin-presence-1.0.9.tgz#9850a738e805f68d586c880953e94c3c8c7b2fe1"
+  integrity sha512-UfSNLPH60mWvZAfVX+HYJ9W4g4eGYpz+ASxdZZ6EyNKmz2xUXMIWn2sj6OnWqdl0KnBE7Nd9Xa6vCXdTAoyxCw==
   dependencies:
     discord.js "^14.9.0"
-    dixt "2.1.8"
+    dixt "2.1.9"
     node-schedule "^2.1.1"
 
 dixt-plugin-react@^2.1.5:
