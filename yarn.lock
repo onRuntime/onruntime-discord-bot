@@ -831,12 +831,12 @@ dixt-plugin-reports@^1.0.0:
     dotenv-flow "^3.2.0"
 
 dixt-plugin-roles@^1.0.1:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/dixt-plugin-roles/-/dixt-plugin-roles-1.0.3.tgz#6d39896e2656e0bda757c80fa0d64c8f53564693"
-  integrity sha512-fbFWh7uo3TSgjKVslNa/DZul/WX86El1I0KAsEYipfRSCGNZjIZVGGYA2gKNjDp9uz2t/EPKkrD8TldOev/3/A==
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/dixt-plugin-roles/-/dixt-plugin-roles-1.0.4.tgz#2a508cda7abc3ae92a68d3521c44fd40846485db"
+  integrity sha512-fzQ63rVUbBnWyKdPSETdT2D159FcpZMAjh5qaLzRQCREM+StY13F8WG54dT+sUUdU9GIBZmLS2hiEEkja6QdzA==
   dependencies:
     discord.js "^14.9.0"
-    dixt "2.1.8"
+    dixt "2.1.9"
     dotenv-flow "^3.2.0"
 
 dixt-plugin-twitch@^1.1.10:
@@ -872,7 +872,7 @@ dixt@2.1.8:
     lodash "^4.17.21"
     mongoose "^7.0.3"
 
-dixt@^2.1.7:
+dixt@2.1.9, dixt@^2.1.7:
   version "2.1.9"
   resolved "https://registry.yarnpkg.com/dixt/-/dixt-2.1.9.tgz#328fc71aabf576fc4812bd016aa68ac32c7abe15"
   integrity sha512-KSpROXDuhCR4ICL8NtRnUraIylUHSy4bn4KwtCtuH83kRLpm0ZCTR2uyJFceoEn/9jkjlBT0g/bbijxBcssVUQ==
