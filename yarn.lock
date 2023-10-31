@@ -822,12 +822,12 @@ dixt-plugin-react@^2.1.5:
     dotenv-flow "^3.2.0"
 
 dixt-plugin-reports@^1.0.0:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/dixt-plugin-reports/-/dixt-plugin-reports-1.0.1.tgz#c111efff7a11a43b6ceb5f9aa9a4bd17bc6d6ff7"
-  integrity sha512-od693TGwl65RB8mpe2R5R8K+oGsYqHY5jr9X79x4LuBg+kvuiz9wewUsH/E8fx1wYcP4r1prFhKPFaYWs8ck9Q==
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/dixt-plugin-reports/-/dixt-plugin-reports-1.0.2.tgz#bfb1169470a6f506e7cecb3539bea16d930e1fc2"
+  integrity sha512-DZQ7djNqT3p4aflg8ywqpXngs7rTpOnqLbDMV27dQoGS2Ck3UqztkgLZbMzDTe49jx8M0nBTQNd2ZwtA+2oM5Q==
   dependencies:
     discord.js "^14.9.0"
-    dixt "2.1.8"
+    dixt "2.1.9"
     dotenv-flow "^3.2.0"
 
 dixt-plugin-roles@^1.0.1:
