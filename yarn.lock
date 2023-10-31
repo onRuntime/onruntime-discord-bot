@@ -645,9 +645,9 @@ create-require@^1.1.0:
   integrity sha512-dcKFX3jn0MpIaXjisoRvexIJVEKzaq7z2rZKxf+MSr9TkdmHmsU4m2lcLojrj/FHl8mk5VxMmYA+ftRkP/3oKQ==
 
 cron-parser@^4.2.0:
-  version "4.8.1"
-  resolved "https://registry.yarnpkg.com/cron-parser/-/cron-parser-4.8.1.tgz#47062ea63d21d78c10ddedb08ea4c5b6fc2750fb"
-  integrity sha512-jbokKWGcyU4gl6jAfX97E1gDpY12DJ1cLJZmoDzaAln/shZ+S3KBFBuA2Q6WeUN4gJf/8klnV1EfvhA2lK5IRQ==
+  version "4.9.0"
+  resolved "https://registry.yarnpkg.com/cron-parser/-/cron-parser-4.9.0.tgz#0340694af3e46a0894978c6f52a6dbb5c0f11ad5"
+  integrity sha512-p0SaNjrHOnQeR8/VnfGbmg9te2kfyYSQ7Sc/j/6DtPL3JQvKxmjO9TSjNFpujqV3vEYYBvNNvXSxzyksBWAx1Q==
   dependencies:
     luxon "^3.2.1"
 
@@ -803,12 +803,12 @@ dixt-plugin-logs@^2.1.7:
     p-queue "6.6.2"
 
 dixt-plugin-presence@^1.0.5:
-  version "1.0.8"
-  resolved "https://registry.yarnpkg.com/dixt-plugin-presence/-/dixt-plugin-presence-1.0.8.tgz#f74d477b0c1373b4770389956f2c67bdf4785763"
-  integrity sha512-mboKnAckIklMggNPZHZHl7bKWtlJm7Ao714oIiNkMSf9av8O2aUFWxQV1hW2Ny8KD93V8tGBchMz7puvD9VoeQ==
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/dixt-plugin-presence/-/dixt-plugin-presence-1.0.9.tgz#9850a738e805f68d586c880953e94c3c8c7b2fe1"
+  integrity sha512-UfSNLPH60mWvZAfVX+HYJ9W4g4eGYpz+ASxdZZ6EyNKmz2xUXMIWn2sj6OnWqdl0KnBE7Nd9Xa6vCXdTAoyxCw==
   dependencies:
     discord.js "^14.9.0"
-    dixt "2.1.8"
+    dixt "2.1.9"
     node-schedule "^2.1.1"
 
 dixt-plugin-react@^2.1.5:
@@ -872,7 +872,7 @@ dixt@2.1.8:
     lodash "^4.17.21"
     mongoose "^7.0.3"
 
-dixt@^2.1.7:
+dixt@2.1.9, dixt@^2.1.7:
   version "2.1.9"
   resolved "https://registry.yarnpkg.com/dixt/-/dixt-2.1.9.tgz#328fc71aabf576fc4812bd016aa68ac32c7abe15"
   integrity sha512-KSpROXDuhCR4ICL8NtRnUraIylUHSy4bn4KwtCtuH83kRLpm0ZCTR2uyJFceoEn/9jkjlBT0g/bbijxBcssVUQ==
@@ -1976,9 +1976,9 @@ lru-cache@^6.0.0:
     yallist "^4.0.0"
 
 luxon@^3.2.1:
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/luxon/-/luxon-3.3.0.tgz#d73ab5b5d2b49a461c47cedbc7e73309b4805b48"
-  integrity sha512-An0UCfG/rSiqtAIiBPO0Y9/zAnHUZxAMiCpTd5h2smgsj7GGmcenvrvww2cqNA8/4A5ZrD1gJpHN2mIHZQF+Mg==
+  version "3.4.3"
+  resolved "https://registry.yarnpkg.com/luxon/-/luxon-3.4.3.tgz#8ddf0358a9492267ffec6a13675fbaab5551315d"
+  integrity sha512-tFWBiv3h7z+T/tDaoxA8rqTxy1CHV6gHS//QdaH4pulbq/JuBSGgQspQQqcgnwdAx6pNI7cmvz5Sv/addzHmUg==
 
 magic-bytes.js@^1.0.15:
   version "1.5.0"
