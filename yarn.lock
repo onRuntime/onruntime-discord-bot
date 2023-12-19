@@ -911,9 +911,9 @@ dixt-plugin-roles@^1.0.1:
     dotenv-flow "^3.2.0"
 
 dixt-plugin-twitch@^1.1.10:
-  version "1.1.14"
-  resolved "https://registry.yarnpkg.com/dixt-plugin-twitch/-/dixt-plugin-twitch-1.1.14.tgz#7e98c929780d3dccdddabf6c1920c9972677cecb"
-  integrity sha512-bLB0BfLHt+Ez5jMNhrTA9YUQBUkp+VpW1d8jdrVbV1HA7NtEkKBqHtpmOgHH8xWmDZJ1A5r4gqOTlgxx/NZ4vw==
+  version "1.1.15"
+  resolved "https://registry.yarnpkg.com/dixt-plugin-twitch/-/dixt-plugin-twitch-1.1.15.tgz#3943d934c2274db667790f24a04951b925123e88"
+  integrity sha512-hOnG4Er/0pBCUUFy8VpyjPDg3JSXdy3Vr/PZZPUE4mpUXxzF4Rw1auaKQsA74VX+OHsXZZxOaveIqyZIAnZcSg==
   dependencies:
     discord.js "^14.9.0"
     dixt "2.1.9"
