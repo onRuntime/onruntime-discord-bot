@@ -628,11 +628,6 @@ braces@^3.0.2, braces@~3.0.2:
   dependencies:
     fill-range "^7.0.1"
 
-bson@^5.5.0:
-  version "5.5.1"
-  resolved "https://registry.yarnpkg.com/bson/-/bson-5.5.1.tgz#f5849d405711a7f23acdda9a442375df858e6833"
-  integrity sha512-ix0EwukN2EpC0SRWIj/7B5+A6uQMQy6KMREI9qQqvgpkV2frH63T0UDVd1SYedL6dNCmDBYB3QtXi4ISk9YT+g==
-
 bson@^6.2.0:
   version "6.2.0"
   resolved "https://registry.yarnpkg.com/bson/-/bson-6.2.0.tgz#4b6acafc266ba18eeee111373c2699304a9ba0a3"
@@ -866,85 +861,68 @@ discord.js@^14.11.0, discord.js@^14.9.0:
     undici "5.27.2"
     ws "8.14.2"
 
-dixt-plugin-affix@^1.0.3:
-  version "1.0.8"
-  resolved "https://registry.yarnpkg.com/dixt-plugin-affix/-/dixt-plugin-affix-1.0.8.tgz#da2fff465e44a1ebcf7d9df123f62f42a014b5d8"
-  integrity sha512-DQ6OQNnNPJjJHQqXUFOtv6wg3C0WPcpz9SHM1uItIPqr2N+Lpo/rjAKJe8aAX3C/wIReAzsYkZYdojlNKoAuKw==
-  dependencies:
-    discord.js "^14.9.0"
-    dixt "2.1.10"
+dixt-plugin-affix@^1.0.9:
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/dixt-plugin-affix/-/dixt-plugin-affix-1.0.9.tgz#105f490db64ae76010e044b1bbc984fdf9ddc893"
+  integrity sha512-t9+vOYKJe2m+2Lw+l7N8tP4pFIQP5WVzEvX49gUaMdWLjKUb9HVK/ynrYWuXxl30Hx7J61iczHdCbpFSxYnmcg==
 
-dixt-plugin-logs@^2.1.14:
-  version "2.1.15"
-  resolved "https://registry.yarnpkg.com/dixt-plugin-logs/-/dixt-plugin-logs-2.1.15.tgz#630ef850c8a253fd6be4c816a081ae5044764fd3"
-  integrity sha512-Qh15Q7KTYH2ysOPkeKU/g2ZB182veCMdGFVQCegbEe2M4S8cxec/37OZA0qSIo3jz13tXRPSN1BwnrVYLxJ+Jg==
+dixt-plugin-logs@^2.1.17:
+  version "2.1.17"
+  resolved "https://registry.yarnpkg.com/dixt-plugin-logs/-/dixt-plugin-logs-2.1.17.tgz#8f7aaf6531eca4b33c1318199b4a1b02c91dc7ea"
+  integrity sha512-ygxmLuoFzgsuLLNOtR/S/mf9qJk80PwTDp7iRfgfIdxJ9w88nDY+YEMcnlP24zztyYIc/z7p68USsA9LGe6W0A==
   dependencies:
     discord-webhook-node "^1.1.8"
-    discord.js "^14.9.0"
-    dixt "2.1.10"
     dotenv-flow "^3.2.0"
     p-queue "6.6.2"
 
-dixt-plugin-presence@^1.0.5:
-  version "1.0.9"
-  resolved "https://registry.yarnpkg.com/dixt-plugin-presence/-/dixt-plugin-presence-1.0.9.tgz#9850a738e805f68d586c880953e94c3c8c7b2fe1"
-  integrity sha512-UfSNLPH60mWvZAfVX+HYJ9W4g4eGYpz+ASxdZZ6EyNKmz2xUXMIWn2sj6OnWqdl0KnBE7Nd9Xa6vCXdTAoyxCw==
+dixt-plugin-presence@^1.0.11:
+  version "1.0.11"
+  resolved "https://registry.yarnpkg.com/dixt-plugin-presence/-/dixt-plugin-presence-1.0.11.tgz#de7954384b1c78fe663d6cdc92abccbc3ef48461"
+  integrity sha512-hIwaRjOP/Db/SPoTN4zaK9oVlTtbs6LNyW6L+BX2pClU06ia6XJRMNoOucilLvUeK60ff3wMuvq80lHnEEj7vw==
   dependencies:
-    discord.js "^14.9.0"
-    dixt "2.1.9"
     node-schedule "^2.1.1"
 
-dixt-plugin-react@^2.1.5:
-  version "2.1.10"
-  resolved "https://registry.yarnpkg.com/dixt-plugin-react/-/dixt-plugin-react-2.1.10.tgz#a6e02c10d1c61f2515e35a252ebf0e6a9be7ebc8"
-  integrity sha512-ESm4nQF03AECmiet6Rj1R9NX2PHBRVv1SF2WS9wFcDKB1R0TlnyIch1AN3oM+n0YhTHJAXWUuMmP0p2vXJAGTw==
+dixt-plugin-react@^2.1.12:
+  version "2.1.12"
+  resolved "https://registry.yarnpkg.com/dixt-plugin-react/-/dixt-plugin-react-2.1.12.tgz#cb0c65090951c6a0792e5f8c7ae8f4518528a240"
+  integrity sha512-lVAZziucJpCg8hdhqjXXQkdHdcb2acc+q9RkGzLueaxj6ZpHL2f7aK7zw1m2edIjF6LJUDlpg1Cz7VLQDrFXMA==
   dependencies:
     discord-webhook-node "^1.1.8"
-    discord.js "^14.9.0"
-    dixt "2.1.9"
     dotenv-flow "^3.2.0"
 
-dixt-plugin-reports@^1.0.0:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/dixt-plugin-reports/-/dixt-plugin-reports-1.0.2.tgz#bfb1169470a6f506e7cecb3539bea16d930e1fc2"
-  integrity sha512-DZQ7djNqT3p4aflg8ywqpXngs7rTpOnqLbDMV27dQoGS2Ck3UqztkgLZbMzDTe49jx8M0nBTQNd2ZwtA+2oM5Q==
-  dependencies:
-    discord.js "^14.9.0"
-    dixt "2.1.9"
-    dotenv-flow "^3.2.0"
-
-dixt-plugin-roles@^1.0.1:
+dixt-plugin-reports@^1.0.4:
   version "1.0.4"
-  resolved "https://registry.yarnpkg.com/dixt-plugin-roles/-/dixt-plugin-roles-1.0.4.tgz#2a508cda7abc3ae92a68d3521c44fd40846485db"
-  integrity sha512-fzQ63rVUbBnWyKdPSETdT2D159FcpZMAjh5qaLzRQCREM+StY13F8WG54dT+sUUdU9GIBZmLS2hiEEkja6QdzA==
+  resolved "https://registry.yarnpkg.com/dixt-plugin-reports/-/dixt-plugin-reports-1.0.4.tgz#8ad9b45534567595ee375de7585be9663758031a"
+  integrity sha512-02Lvamja/NZ8q4Akz+kyhYlV1oOqKRZJzKn91/x6POAVminHNvN+p2Mq/qQa4QxJh/RHg+Qu/Tau+o77YmTY4A==
   dependencies:
-    discord.js "^14.9.0"
-    dixt "2.1.9"
     dotenv-flow "^3.2.0"
 
-dixt-plugin-twitch@^1.1.10:
-  version "1.1.15"
-  resolved "https://registry.yarnpkg.com/dixt-plugin-twitch/-/dixt-plugin-twitch-1.1.15.tgz#3943d934c2274db667790f24a04951b925123e88"
-  integrity sha512-hOnG4Er/0pBCUUFy8VpyjPDg3JSXdy3Vr/PZZPUE4mpUXxzF4Rw1auaKQsA74VX+OHsXZZxOaveIqyZIAnZcSg==
+dixt-plugin-roles@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/dixt-plugin-roles/-/dixt-plugin-roles-1.0.6.tgz#7b610705bcaf6dc8350429c482dc9865c5d65da9"
+  integrity sha512-nPIq72gLcwRdeLDCDUeI0opVTycBVfI/qHZlJtQ/iTU6Q7vSuSuiwDy+8wQsDZcVYCpaBrquZaR+U9aVtqE/4Q==
   dependencies:
-    discord.js "^14.9.0"
-    dixt "2.1.9"
     dotenv-flow "^3.2.0"
 
-dixt-plugin-worktime@^2.1.13:
-  version "2.1.15"
-  resolved "https://registry.yarnpkg.com/dixt-plugin-worktime/-/dixt-plugin-worktime-2.1.15.tgz#6ba0d5fd261b6510d0d32eaa6aa19673f89e0431"
-  integrity sha512-Eql+5o+4A9HqAdNs2bQ0NclZf4M6K6SejbLKjK5Ut7kQ6rcdD8klp4HKwy5Ep7GYEC6tm78AfdsUxQM2zfMcFw==
+dixt-plugin-twitch@^1.1.17:
+  version "1.1.17"
+  resolved "https://registry.yarnpkg.com/dixt-plugin-twitch/-/dixt-plugin-twitch-1.1.17.tgz#79a28b9ac8ca5caaeee59e6c016334bad8229c4a"
+  integrity sha512-hX1Kupdnl/GFIOT+Z9Kb1aroQKMGiSjmdldv6kQd3/enKlAirlMSQo6VPrtK89zlqsdW6/Zr1HazT5xZbha8Bg==
+  dependencies:
+    dotenv-flow "^3.2.0"
+
+dixt-plugin-worktime@^2.1.17:
+  version "2.1.17"
+  resolved "https://registry.yarnpkg.com/dixt-plugin-worktime/-/dixt-plugin-worktime-2.1.17.tgz#998844406c3393af0a9d5a1a8b3121218de294d0"
+  integrity sha512-vmzUZW0ANhXyhFS+l9Fk/WMNKqWQx1svG4XejeWmwWWpQL11j9aVzVpSEEXY/TEneQPx432g1YS0uLEaKG72Yg==
   dependencies:
     chart.js "^4.2.1"
     dayjs "^1.11.7"
-    discord.js "^14.9.0"
-    dixt "2.1.9"
     dotenv-flow "^3.2.0"
     node-schedule "^2.1.1"
     quickchart-js "^3.1.2"
 
-dixt@2.1.10, dixt@^2.1.7:
+dixt@^2.1.10:
   version "2.1.10"
   resolved "https://registry.yarnpkg.com/dixt/-/dixt-2.1.10.tgz#75dd2aecb27d65cb97bb7ad284a0bdd5b8d9f0e5"
   integrity sha512-8jBqSS/bj9D/XzI0I3V0R3CFXixda8io6JCto9tqVqQIX3vmd17NqFUW1YIof07nssF1rlI/JoNAK2aNx/0/WA==
@@ -954,17 +932,6 @@ dixt@2.1.10, dixt@^2.1.7:
     dotenv-flow "^3.2.0"
     lodash "^4.17.21"
     mongoose "^8.0.0"
-
-dixt@2.1.9:
-  version "2.1.9"
-  resolved "https://registry.yarnpkg.com/dixt/-/dixt-2.1.9.tgz#328fc71aabf576fc4812bd016aa68ac32c7abe15"
-  integrity sha512-KSpROXDuhCR4ICL8NtRnUraIylUHSy4bn4KwtCtuH83kRLpm0ZCTR2uyJFceoEn/9jkjlBT0g/bbijxBcssVUQ==
-  dependencies:
-    chalk "4.1.2"
-    discord.js "^14.9.0"
-    dotenv-flow "^3.2.0"
-    lodash "^4.17.21"
-    mongoose "^7.0.3"
 
 doctrine@^2.1.0:
   version "2.1.0"
@@ -1780,14 +1747,6 @@ internal-slot@^1.0.5:
     hasown "^2.0.0"
     side-channel "^1.0.4"
 
-ip-address@^9.0.5:
-  version "9.0.5"
-  resolved "https://registry.yarnpkg.com/ip-address/-/ip-address-9.0.5.tgz#117a960819b08780c3bd1f14ef3c1cc1d3f3ea5a"
-  integrity sha512-zHtQzGojZXTwZTHQqra+ETKd4Sn3vgi7uBmlPoXVWZqYvuKmtI0l/VZTjqGmJY9x88GGOaZ9+G9ES8hC4T4X8g==
-  dependencies:
-    jsbn "1.1.0"
-    sprintf-js "^1.1.3"
-
 is-array-buffer@^3.0.1, is-array-buffer@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/is-array-buffer/-/is-array-buffer-3.0.2.tgz#f2653ced8412081638ecb0ebbd0c41c6e0aecbbe"
@@ -2031,11 +1990,6 @@ js-yaml@^4.1.0:
   dependencies:
     argparse "^2.0.1"
 
-jsbn@1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/jsbn/-/jsbn-1.1.0.tgz#b01307cb29b618a1ed26ec79e911f803c4da0040"
-  integrity sha512-4bYVV3aAMtDTTu4+xsDYa6sy9GyJ69/amsu9sYF2zqjiEoZA5xJi3BrfX3uY+/IekIu7MwdObdbDWpoZdBv3/A==
-
 json-buffer@3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/json-buffer/-/json-buffer-3.0.1.tgz#9338802a30d3b6605fbe0613e094008ca8c05a13"
@@ -2221,17 +2175,6 @@ mongodb-connection-string-url@^2.6.0:
     "@types/whatwg-url" "^8.2.1"
     whatwg-url "^11.0.0"
 
-mongodb@5.9.1:
-  version "5.9.1"
-  resolved "https://registry.yarnpkg.com/mongodb/-/mongodb-5.9.1.tgz#da03ea253b0972bf8097301fa5f65e34acad18fa"
-  integrity sha512-NBGA8AfJxGPeB12F73xXwozt8ZpeIPmCUeWRwl9xejozTXFes/3zaep9zhzs1B/nKKsw4P3I4iPfXl3K7s6g+Q==
-  dependencies:
-    bson "^5.5.0"
-    mongodb-connection-string-url "^2.6.0"
-    socks "^2.7.1"
-  optionalDependencies:
-    "@mongodb-js/saslprep" "^1.1.0"
-
 mongodb@6.2.0:
   version "6.2.0"
   resolved "https://registry.yarnpkg.com/mongodb/-/mongodb-6.2.0.tgz#2c9dcb3eeaf528ed850e94b3df392de6c6b0d7ab"
@@ -2240,19 +2183,6 @@ mongodb@6.2.0:
     "@mongodb-js/saslprep" "^1.1.0"
     bson "^6.2.0"
     mongodb-connection-string-url "^2.6.0"
-
-mongoose@^7.0.3:
-  version "7.6.10"
-  resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-7.6.10.tgz#89ddad48ed2fc548fdfdd40f3b32e7b5fc74e740"
-  integrity sha512-vfvGxXwFk6rZVRaMC+8pgXj1uOR2RafZpgaA3fO6ygDJN7dXnBQ3ehuacwaVD+U3hmZetqHimORJhvLEpdRl1w==
-  dependencies:
-    bson "^5.5.0"
-    kareem "2.5.1"
-    mongodb "5.9.1"
-    mpath "0.9.0"
-    mquery "5.0.0"
-    ms "2.1.3"
-    sift "16.0.1"
 
 mongoose@^8.0.0:
   version "8.0.3"
@@ -2785,19 +2715,6 @@ slash@^3.0.0:
   resolved "https://registry.yarnpkg.com/slash/-/slash-3.0.0.tgz#6539be870c165adbd5240220dbe361f1bc4d4634"
   integrity sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q==
 
-smart-buffer@^4.2.0:
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/smart-buffer/-/smart-buffer-4.2.0.tgz#6e1d71fa4f18c05f7d0ff216dd16a481d0e8d9ae"
-  integrity sha512-94hK0Hh8rPqQl2xXc3HsaBoOXKV20MToPkcXvwbISWLEs+64sBq5kFgn2kJDHb1Pry9yrP0dxrCI9RRci7RXKg==
-
-socks@^2.7.1:
-  version "2.8.1"
-  resolved "https://registry.yarnpkg.com/socks/-/socks-2.8.1.tgz#22c7d9dd7882649043cba0eafb49ae144e3457af"
-  integrity sha512-B6w7tkwNid7ToxjZ08rQMT8M9BJAf8DKx8Ft4NivzH0zBUfd6jldGcisJn/RLgxcX3FPNDdNQCUEMMT79b+oCQ==
-  dependencies:
-    ip-address "^9.0.5"
-    smart-buffer "^4.2.0"
-
 sorted-array-functions@^1.3.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/sorted-array-functions/-/sorted-array-functions-1.3.0.tgz#8605695563294dffb2c9796d602bd8459f7a0dd5"
@@ -2809,11 +2726,6 @@ sparse-bitfield@^3.0.3:
   integrity sha512-kvzhi7vqKTfkh0PZU+2D2PIllw2ymqJKujUcyPMd9Y75Nv4nPbGJZXNhxsgdQab2BmlDct1YnfQCguEvHr7VsQ==
   dependencies:
     memory-pager "^1.0.2"
-
-sprintf-js@^1.1.3:
-  version "1.1.3"
-  resolved "https://registry.yarnpkg.com/sprintf-js/-/sprintf-js-1.1.3.tgz#4914b903a2f8b685d17fdf78a70e917e872e444a"
-  integrity sha512-Oo+0REFV59/rz3gfJNKQiBlwfHaSESl1pcGyABQsnnIfWOFt6JNj5gCog2U6MLZ//IGYD+nA8nI+mTShREReaA==
 
 string.prototype.matchall@^4.0.8:
   version "4.0.10"
