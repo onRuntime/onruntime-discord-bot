@@ -24,7 +24,7 @@
     "dixt-plugin-reports": "^1.0.4",
     "dixt-plugin-roles": "^1.0.6",
     "dixt-plugin-twitch": "^1.1.17",
-    "dixt-plugin-worktime": "^2.1.17"
+    "dixt-plugin-worktime": "^2.1.19"
   },
   "devDependencies": {
     "@types/node": "^20.1.7",

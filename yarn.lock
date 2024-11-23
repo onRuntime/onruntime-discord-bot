@@ -911,14 +911,14 @@ dixt-plugin-twitch@^1.1.17:
   dependencies:
     dotenv-flow "^3.2.0"
 
-dixt-plugin-worktime@^2.1.17:
-  version "2.1.17"
-  resolved "https://registry.yarnpkg.com/dixt-plugin-worktime/-/dixt-plugin-worktime-2.1.17.tgz#998844406c3393af0a9d5a1a8b3121218de294d0"
-  integrity sha512-vmzUZW0ANhXyhFS+l9Fk/WMNKqWQx1svG4XejeWmwWWpQL11j9aVzVpSEEXY/TEneQPx432g1YS0uLEaKG72Yg==
+dixt-plugin-worktime@^2.1.19:
+  version "2.1.19"
+  resolved "https://registry.yarnpkg.com/dixt-plugin-worktime/-/dixt-plugin-worktime-2.1.19.tgz#78b952be058410de91919cee4e4d33eb5f8175e9"
+  integrity sha512-VxaRaccLma9sgTcPYH5k2F6iJXP7UmwO7yFgElsV42lI4DVc1TlIKC8490kxDE16OyeG20Q89FQ0TtLe1dBjuA==
   dependencies:
     chart.js "^4.2.1"
     dayjs "^1.11.7"
-    dotenv-flow "^3.2.0"
+    dotenv-flow "^4.0.0"
     node-schedule "^2.1.1"
     quickchart-js "^3.1.2"
 
@@ -954,10 +954,22 @@ dotenv-flow@^3.2.0:
   dependencies:
     dotenv "^8.6.0"
 
+dotenv-flow@^4.0.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/dotenv-flow/-/dotenv-flow-4.1.0.tgz#a78e79dcaf08a48200192eb5ed1e5af11062b861"
+  integrity sha512-0cwP9jpQBQfyHwvE0cRhraZMkdV45TQedA8AAUZMsFzvmLcQyc1HPv+oX0OOYwLFjIlvgVepQ+WuQHbqDaHJZg==
+  dependencies:
+    dotenv "^16.0.0"
+
 dotenv@16.0.3:
   version "16.0.3"
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-16.0.3.tgz#115aec42bac5053db3c456db30cc243a5a836a07"
   integrity sha512-7GO6HghkA5fYG9TYnNxi14/7K9f5occMlp3zXAuSxn7CKCxt9xbNWG7yF8hTCSUchlfWSe3uLmlPfigevRItzQ==
+
+dotenv@^16.0.0:
+  version "16.4.5"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-16.4.5.tgz#cdd3b3b604cb327e286b4762e13502f717cb099f"
+  integrity sha512-ZmdL2rui+eB2YwhsWzjInR8LldtZHGDoQ1ugH85ppHKwpUHL7j7rN0Ti9NCnGiQbhaZ11FpR+7ao1dNsmduNUg==
 
 dotenv@^8.6.0:
   version "8.6.0"
