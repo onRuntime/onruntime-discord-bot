@@ -29,7 +29,7 @@ const dixtPluginWorktimeOptions: DixtPluginWorktimeOptions = {
   },
   tasks: {
     absentees: "0 12 * * 3-7",
-    leaderboard: "0 12 * * 1",
+    leaderboard: "0 12 * * 0",
   },
 };
 
