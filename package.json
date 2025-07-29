@@ -15,8 +15,10 @@
     "docker:run": "docker run -p 8000:8000 expatsfacilities-api"
   },
   "dependencies": {
+    "@gathertown/gather-game-client": "^43.0.1",
+    "@types/node-cron": "^3.0.11",
     "discord.js": "^14.11.0",
-    "dixt": "^2.1.11",
+    "dixt": "^2.2.1",
     "dixt-plugin-affix": "^1.0.9",
     "dixt-plugin-logs": "^2.1.17",
     "dixt-plugin-presence": "^1.0.11",
@@ -24,7 +26,8 @@
     "dixt-plugin-reports": "^1.0.4",
     "dixt-plugin-roles": "^1.0.6",
     "dixt-plugin-twitch": "^1.1.17",
-    "dixt-plugin-worktime": "^2.2.0"
+    "dixt-plugin-worktime": "^2.2.0",
+    "node-cron": "^4.2.1"
   },
   "devDependencies": {
     "@types/node": "^20.1.7",
