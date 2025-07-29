@@ -1316,10 +1316,10 @@ dixt-plugin-presence@^1.0.11:
   dependencies:
     node-schedule "^2.1.1"
 
-dixt-plugin-react@^2.1.12:
-  version "2.1.13"
-  resolved "https://registry.yarnpkg.com/dixt-plugin-react/-/dixt-plugin-react-2.1.13.tgz#2eac96e75617b84a84433578e70c747c0878834d"
-  integrity sha512-EgU3JY8bn2GMQmgjrz91MkGBSMgAGCU3HCxi0neOurKBhae6PqQvGqvBamWmJVrI99EiylJW/bcqj06a8sKnPw==
+dixt-plugin-react@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/dixt-plugin-react/-/dixt-plugin-react-3.0.0.tgz#7588d96af3bd6a671db11c22f176b47d661d1d40"
+  integrity sha512-D2neTOwbtHRCz+EWbppKEZ+OMqtaEST/j1HS90PFpWRhjVZ/OaXZNXEuG0gMUJexi6sMo46Ql1MWEZkdoFukcw==
   dependencies:
     discord-webhook-node "^1.1.8"
     dotenv-flow "^4.0.0"
