@@ -20,7 +20,7 @@
     "discord.js": "^14.11.0",
     "dixt": "^2.2.1",
     "dixt-plugin-affix": "^1.0.9",
-    "dixt-plugin-logs": "^2.1.17",
+    "dixt-plugin-logs": "^3.0.0",
     "dixt-plugin-presence": "^1.0.11",
     "dixt-plugin-react": "^2.1.12",
     "dixt-plugin-reports": "^1.0.4",
