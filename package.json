@@ -26,7 +26,7 @@
     "dixt-plugin-reports": "^1.0.4",
     "dixt-plugin-roles": "^1.0.6",
     "dixt-plugin-twitch": "^1.1.17",
-    "dixt-plugin-worktime": "^2.2.0",
+    "dixt-plugin-worktime": "^3.0.0",
     "node-cron": "^4.2.1",
     "ws": "^8.18.3"
   },
