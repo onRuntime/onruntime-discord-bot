@@ -1,6 +1,7 @@
 import { Game } from "@gathertown/gather-game-client";
 import dixt, { DixtPlugin, Log, merge } from "dixt";
 import * as cron from "node-cron";
+import WebSocket from "ws";
 
 const name = "dixt-plugin-gather";
 
@@ -68,6 +69,11 @@ const dixtPluginGather: DixtPlugin<DixtPluginGatherOptions> = (
   }
 
   client.once("ready", () => {
+    // Set WebSocket globally for Node.js environment
+    if (typeof global !== "undefined" && !global.WebSocket) {
+      global.WebSocket = WebSocket as any;
+    }
+
     const formattedSpaceId = spaceId.replace(/\//g, "\\");
     game = new Game(formattedSpaceId, () => Promise.resolve({ apiKey }));
 
