@@ -1356,10 +1356,10 @@ dixt-plugin-worktime@^2.2.0:
     node-schedule "^2.1.1"
     quickchart-js "^3.1.2"
 
-dixt@^2.2.1:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/dixt/-/dixt-2.2.1.tgz#ca25c1d147070f8df545f9aa272c75580c62d3bd"
-  integrity sha512-lTLJI35VLJMBnZFlvHZwzDY/Os4y+0Ft+W/ro+JjQRvLGeqr75Zge4Wi2kIIXLIA78qEwFEYOOHD0B5jQgcHjQ==
+dixt@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/dixt/-/dixt-3.0.0.tgz#46c2e1819d2f6308b636502d72c49aec44ac0a39"
+  integrity sha512-KivNY8slkwfnpGGtSfkwmwboB1M/kWPUJ1g5CwtFK4QL59pT7SFDIa2qLKNRZV+PyQTaeP1CV1sDYhJg8o6CBw==
   dependencies:
     chalk "4.1.2"
     discord.js "^14.9.0"
