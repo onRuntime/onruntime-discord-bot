@@ -15,6 +15,7 @@ import dixtPluginReportsOptions from "./options/reports";
 import dixtPluginRolesOptions from "./options/roles";
 import dixtPluginTwitchOptions from "./options/twitch";
 import dixtPluginWorktimeOptions from "./options/worktime";
+import dixtPluginGather from "./plugins/gather";
 
 const main = async () => {
   const instance = new dixt({
@@ -24,6 +25,7 @@ const main = async () => {
     },
     plugins: [
       dixtPluginLogs,
+      dixtPluginGather,
       [dixtPluginAffix, dixtPluginAffixOptions],
       [dixtPluginReact, dixtPluginReactOptions],
       [dixtPluginPresence, dixtPluginPresenceOptions],

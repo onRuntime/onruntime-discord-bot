@@ -1,6 +1,8 @@
 import { ActivityType } from "discord.js";
 import { DixtPluginPresenceOptions } from "dixt-plugin-presence";
 
+import { getGatherCount } from "../plugins/gather";
+
 const dixtPluginPresenceOptions: DixtPluginPresenceOptions = {
   presences: [
     {
@@ -19,6 +21,14 @@ const dixtPluginPresenceOptions: DixtPluginPresenceOptions = {
         },
       ],
     },
+    () => ({
+      activities: [
+        {
+          name: `${getGatherCount()} gathers`,
+          type: ActivityType.Watching,
+        },
+      ],
+    }),
   ],
 };
 
