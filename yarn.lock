@@ -1295,10 +1295,10 @@ discord.js@^14.11.0, discord.js@^14.9.0:
     tslib "^2.6.3"
     undici "6.21.3"
 
-dixt-plugin-affix@^1.0.9:
-  version "1.0.10"
-  resolved "https://registry.yarnpkg.com/dixt-plugin-affix/-/dixt-plugin-affix-1.0.10.tgz#f9c5922239682cd47e27b381a4056a7dfc13c5c8"
-  integrity sha512-JbrJ4sb3vXK5wOT33Wgxb2iRqq1rzZAo7++9STNRXQdIQf+XIrjZaqhIZuNzY1mEdTjG9Pj1N5ZSjLJqC+gblQ==
+dixt-plugin-affix@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/dixt-plugin-affix/-/dixt-plugin-affix-4.0.0.tgz#75842d4a90b47003f22d249547783b90bc000a69"
+  integrity sha512-qj5zHFZLCFRGVe7nrw3aevYdE1Rx6Qrn1QqEAwobhHeQv3685nNzHXvh+mYcc5HLYDIYzy8oJQMxh5BReG1i1Q==
 
 dixt-plugin-logs@^2.1.17:
   version "2.1.18"
