@@ -1300,10 +1300,10 @@ dixt-plugin-affix@^1.0.9:
   resolved "https://registry.yarnpkg.com/dixt-plugin-affix/-/dixt-plugin-affix-1.0.10.tgz#f9c5922239682cd47e27b381a4056a7dfc13c5c8"
   integrity sha512-JbrJ4sb3vXK5wOT33Wgxb2iRqq1rzZAo7++9STNRXQdIQf+XIrjZaqhIZuNzY1mEdTjG9Pj1N5ZSjLJqC+gblQ==
 
-dixt-plugin-logs@^2.1.17:
-  version "2.1.18"
-  resolved "https://registry.yarnpkg.com/dixt-plugin-logs/-/dixt-plugin-logs-2.1.18.tgz#b4cb9720462b91aca013d38214ec3670f21f71be"
-  integrity sha512-fua8ayqpI2ren8CFC8uruLjTbF9Nv/xAbM96F+Yd8b1vXkWrHAiAv3aizcCDNR+3lO52HB+wfONPkADB34YzYQ==
+dixt-plugin-logs@^5.0.0:
+  version "5.0.7"
+  resolved "https://registry.yarnpkg.com/dixt-plugin-logs/-/dixt-plugin-logs-5.0.7.tgz#9b045cf7e3091366e33e25ae454e790cb0dcbee8"
+  integrity sha512-VbP+h1KrjPk5TFoZkyDo+eFvM5nEpxRHkJCBFkPx1NnWJekR4QvU7Hcm8U+sL8DWS5KHpXU7E7w5px9NO4a7uw==
   dependencies:
     discord-webhook-node "^1.1.8"
     dotenv-flow "^4.0.0"
