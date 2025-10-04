@@ -1338,10 +1338,10 @@ dixt-plugin-roles@^1.0.6:
   dependencies:
     dotenv-flow "^4.0.0"
 
-dixt-plugin-twitch@^1.1.17:
-  version "1.1.18"
-  resolved "https://registry.yarnpkg.com/dixt-plugin-twitch/-/dixt-plugin-twitch-1.1.18.tgz#cfb080bb58864294a533e24d33a2246c90e1f1e3"
-  integrity sha512-pTV8uDWXUvawrx46EPwnLPcRkAKDTAVMFzyWw/1DLjIJzq7LH+7OzOJ32EaTq2hv6cqLRHulF8DJNI4IKii/GA==
+dixt-plugin-twitch@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/dixt-plugin-twitch/-/dixt-plugin-twitch-4.0.0.tgz#71bc151352e57c97689c8cdb7c461370286b85f5"
+  integrity sha512-ZRm0qPK8wF1tabHl7u3eQXCSI09aXxXtatPm4SWr2V89u7sSthGFAPOi3YapvqSfqhAgLJWnF9j13Pr28F8Ykg==
   dependencies:
     dotenv-flow "^4.0.0"
 
