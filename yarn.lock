@@ -1331,10 +1331,10 @@ dixt-plugin-reports@^1.0.4:
   dependencies:
     dotenv-flow "^4.0.0"
 
-dixt-plugin-roles@^1.0.6:
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/dixt-plugin-roles/-/dixt-plugin-roles-1.0.7.tgz#c8f11fd64213ebefc51a72d2cf012269563f7260"
-  integrity sha512-liJFiywNMBYvWAZHye9DcqtJ7lwTGlYBHcZRqEhUVDRUjgzf5kmsui4OtO5mD5t1dywYvDxJQgZGKl2jwrqL5w==
+dixt-plugin-roles@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/dixt-plugin-roles/-/dixt-plugin-roles-4.0.0.tgz#dabb1e62fbce5cee932a6a1f85867137ccd524a6"
+  integrity sha512-ubl5uZdU9HIZR/+fzLhVg1YIGlvPa2hamtbB5AgHgfzg/g2LVxvygfw96BN6pIuC9SKIOFrnyhJydwxLzgSJcg==
   dependencies:
     dotenv-flow "^4.0.0"
 
