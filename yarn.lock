@@ -1345,10 +1345,10 @@ dixt-plugin-twitch@^1.1.17:
   dependencies:
     dotenv-flow "^4.0.0"
 
-dixt-plugin-worktime@^2.2.0:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/dixt-plugin-worktime/-/dixt-plugin-worktime-2.2.1.tgz#2a117328f52ec688fdfdd48032ca3ebf68e08af0"
-  integrity sha512-7Dhb3jMjN4JKDF8bYl81rlRjwK9ThK/CMuwQ88kg8FqMG5C/nt4CDDM4b2sX4ApY1LLrMki2wDJSowNXgg4rHw==
+dixt-plugin-worktime@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/dixt-plugin-worktime/-/dixt-plugin-worktime-4.0.0.tgz#7fff2c8131dbb4716b15e5f12beeea3db7b4f205"
+  integrity sha512-pfE7nHfC5cfCj0rNXe3Js/HJaRW8MO9eBpEt2ibWJmfpszg5GMvVPAy7xirI0vqaZfv1V95uVxCEl1wuJzpHlA==
   dependencies:
     chart.js "^4.2.1"
     dayjs "^1.11.7"
