@@ -1324,10 +1324,10 @@ dixt-plugin-react@^2.1.12:
     discord-webhook-node "^1.1.8"
     dotenv-flow "^4.0.0"
 
-dixt-plugin-reports@^1.0.4:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/dixt-plugin-reports/-/dixt-plugin-reports-1.0.5.tgz#ec48e775881e09908366dc4c513372821d5d52a3"
-  integrity sha512-EwWAZGcJ6qz+5v4X+3/kx3oQ29J/zrzVhCjzG1blmFs7tLK6lc98H3pzFfNGamVOKF8pZksCRtB9bFvaqC3rVg==
+dixt-plugin-reports@^5.0.0:
+  version "5.0.7"
+  resolved "https://registry.yarnpkg.com/dixt-plugin-reports/-/dixt-plugin-reports-5.0.7.tgz#0ccb6dabd144555456c1a8487f69908803a1dac5"
+  integrity sha512-jD1iMurxa8PFncjoYXb+2zecJzJB65caizo2t5vi3sC0vLJktiwF0m/1CO0DL6t5+UmOtNckyp1/hdQiXD2+CQ==
   dependencies:
     dotenv-flow "^4.0.0"
 
