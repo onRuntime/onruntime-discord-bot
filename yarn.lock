@@ -1309,10 +1309,10 @@ dixt-plugin-logs@^2.1.17:
     dotenv-flow "^4.0.0"
     p-queue "6.6.2"
 
-dixt-plugin-presence@^1.0.11:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/dixt-plugin-presence/-/dixt-plugin-presence-1.1.1.tgz#6d9348e419207c90dcb0614d672e849b78759dd9"
-  integrity sha512-lWdDdDnN0ej6p3C4K8FbrFRFsYNVQ17tALMvaIuHODjWMlMaSlhx2Uqzw14clbMc4qHdUXjLx4Cl5rz7bO+X7w==
+dixt-plugin-presence@^5.0.0:
+  version "5.0.7"
+  resolved "https://registry.yarnpkg.com/dixt-plugin-presence/-/dixt-plugin-presence-5.0.7.tgz#9ce80eb13a3908274e99bbd270128c19e8609a7d"
+  integrity sha512-bhSoL2SiOHgOcpN/2+chSM36uf0Ym7oRp9Nw4dQCxziHMTv6BmPAm666HUZCbvNtu/xkfMIpaZr8S7gXSxHU7A==
   dependencies:
     node-schedule "^2.1.1"
 
